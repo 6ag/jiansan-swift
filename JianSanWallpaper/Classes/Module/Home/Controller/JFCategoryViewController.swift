@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 
 class JFCategoryViewController: UIViewController {
 
+    let categoryIdentifier = "categoryCell"
+    
+    var categoriesArray = [JFCategoryModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareUI()
-        
+        loadCategoryData()
     }
     
     /**
@@ -22,13 +27,41 @@ class JFCategoryViewController: UIViewController {
      */
     private func prepareUI() {
         
-        view.backgroundColor = UIColor.grayColor()
+        view.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView)
+        view.addSubview(popularButton)
+        view.addSubview(bestButton)
+        
+        popularButton.snp_makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(collectionView.snp_bottom).offset(1.5)
+            make.height.equalTo((SCREEN_HEIGHT - 64 - ((SCREEN_HEIGHT - 64) / 4.6)) / 2)
+        }
+        
+        bestButton.snp_makeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(popularButton.snp_bottom).offset(1.5)
+            make.height.equalTo(popularButton)
+        }
+    }
+    
+    /**
+     加载分类数据
+     */
+    @objc private func loadCategoryData() {
+        JFCategoryModel.loadCategoriesFromNetwork { (categoriesArray, error) in
+            guard let categoriesArray = categoriesArray where error == nil else {
+                return
+            }
+            
+            self.categoriesArray = categoriesArray
+            self.collectionView.reloadData()
+        }
     }
     
     // MARK: - 懒加载
     /// collectionView
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1.5
         layout.minimumLineSpacing = 1.5
@@ -40,8 +73,22 @@ class JFCategoryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "category")
+        collectionView.registerNib(UINib(nibName: "JFCategoryCell", bundle: nil), forCellWithReuseIdentifier: self.categoryIdentifier)
         return collectionView
+    }()
+    
+    /// 热门
+    private lazy var popularButton: UIButton = {
+        let popularButton = UIButton(type: .Custom)
+        popularButton.setBackgroundImage(UIImage(named: "category_popular"), forState: UIControlState.Normal)
+        return popularButton
+    }()
+    
+    /// 最佳锁屏
+    private lazy var bestButton: UIButton = {
+        let bestButton = UIButton(type: .Custom)
+        bestButton.setBackgroundImage(UIImage(named: "category_best"), forState: UIControlState.Normal)
+        return bestButton
     }()
     
 }
@@ -50,12 +97,12 @@ class JFCategoryViewController: UIViewController {
 extension JFCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 13
+        return categoriesArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCellWithReuseIdentifier("category", forIndexPath: indexPath)
-        item.backgroundColor = UIColor.blueColor()
+        let item = collectionView.dequeueReusableCellWithReuseIdentifier(categoryIdentifier, forIndexPath: indexPath) as! JFCategoryCell
+        item.model = categoriesArray[indexPath.item]
         return item
         
     }

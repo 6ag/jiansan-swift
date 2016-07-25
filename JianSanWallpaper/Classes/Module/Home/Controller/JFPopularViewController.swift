@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MJRefresh
 
 class JFPopularViewController: UIViewController {
     
+    let wallpaperIdentifier = "wallpaperCell"
     
     /// 分类id为0会根据浏览量倒序查询
     var category_id = 0
@@ -25,6 +27,11 @@ class JFPopularViewController: UIViewController {
 
         prepareUI()
         
+        pulldownLoadData()
+        
+        // 配置上下拉刷新控件
+        collectionView.mj_header = jf_setupHeaderRefresh(self, action: #selector(pulldownLoadData))
+        collectionView.mj_footer = jf_setupFooterRefresh(self, action: #selector(pullupLoadData))
     }
     
     /**
@@ -37,29 +44,37 @@ class JFPopularViewController: UIViewController {
     }
     
     /**
-     上拉加载更多
-     */
-    private func pullupLoadData() {
-        currentPage = 1
-        loadData(category_id, page: currentPage, method: .pullUp)
-    }
-    
-    /**
      下拉加载最新
      */
-    private func pulldownLoadData() {
-        currentPage += 1
+    @objc private func pulldownLoadData() {
+        currentPage = 1
         loadData(category_id, page: currentPage, method: .pullDown)
     }
     
     /**
-     加载数据
+     上拉加载更多
+     */
+    @objc private func pullupLoadData() {
+        currentPage += 1
+        loadData(category_id, page: currentPage, method: .pullUp)
+    }
+    
+    /**
+     加载壁纸数据
      */
     private func loadData(category_id: Int, page: Int, method: PullMethod) {
         
         JFWallPaperModel.loadWallpapersFromNetwork(category_id, page: page) { (wallpaperArray, error) in
             
+            self.collectionView.mj_header.endRefreshing()
+            self.collectionView.mj_footer.endRefreshing()
+            
             guard let wallpaperArray = wallpaperArray where error == nil else {
+                return
+            }
+            
+            if (wallpaperArray.count == 0) {
+                self.collectionView.mj_footer.endRefreshingWithNoMoreData()
                 return
             }
             
@@ -86,7 +101,7 @@ class JFPopularViewController: UIViewController {
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "cell")
+        collectionView.registerNib(UINib(nibName: "JFWallpaperCell", bundle: nil), forCellWithReuseIdentifier: self.wallpaperIdentifier)
         return collectionView
     }()
 
@@ -96,12 +111,12 @@ class JFPopularViewController: UIViewController {
 extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return wallpaperArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-        item.backgroundColor = UIColor.orangeColor()
+        let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
+        item.model = wallpaperArray[indexPath.item]
         return item
         
     }

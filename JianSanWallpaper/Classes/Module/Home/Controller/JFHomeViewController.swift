@@ -37,13 +37,13 @@ class JFHomeViewController: UIViewController {
     lazy var topView: JFTopView = {
         let topView = NSBundle.mainBundle().loadNibNamed("JFTopView", owner: nil, options: nil).last as! JFTopView
         topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
+        topView.delegate = self
         return topView
     }()
     
     /// 视图区域 contentView
     lazy var contentView: UIScrollView = {
         let contentView = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
-        contentView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: 0)
         contentView.pagingEnabled = true
         contentView.showsHorizontalScrollIndicator = false
         contentView.delegate = self
@@ -60,10 +60,34 @@ class JFHomeViewController: UIViewController {
         return contentView
     }()
     
-    
 }
 
 // MARK: - UIScrollViewDelegate
 extension JFHomeViewController: UIScrollViewDelegate {
     
+}
+
+// MARK: - JFTopViewDelegate
+extension JFHomeViewController: JFTopViewDelegate {
+    
+    /**
+     点击了热门选项
+     */
+    func didSelectedPopularButton() {
+        contentView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    /**
+     点击了分类选项
+     */
+    func didSelectedCategoryButton() {
+        contentView.setContentOffset(CGPoint(x: SCREEN_WIDTH, y: 0), animated: true)
+    }
+    
+    /**
+     点击了导航栏左侧按钮
+     */
+    func didTappedLeftBarButton() {
+        
+    }
 }

@@ -8,14 +8,54 @@
 
 import UIKit
 
-class JFTopView: UIView {
+protocol JFTopViewDelegate {
+    func didSelectedPopularButton()
+    func didSelectedCategoryButton()
+    func didTappedLeftBarButton()
+}
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+class JFTopView: UIView {
+    
+    var delegate: JFTopViewDelegate?
+    
+    /**
+     点击了热门选项
+     */
+    @IBAction func didTappedPopularButton(sender: UIButton) {
+        delegate?.didSelectedPopularButton()
+        sender.selected = true
+        categoryButton.selected = false
+        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
+            self.lineView.transform = CGAffineTransformMakeTranslation(0, 0)
+            }) { (_) in
+                
+        }
+        
     }
-    */
+
+    /**
+     点击了分类选项
+     */
+    @IBAction func didTappedCategoryButton(sender: UIButton) {
+        delegate?.didSelectedCategoryButton()
+        sender.selected = true
+        popularButton.selected = false
+        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
+            self.lineView.transform = CGAffineTransformMakeTranslation(82, 0)
+        }) { (_) in
+            
+        }
+        
+    }
+    
+    /**
+     点击了左边导航按钮
+     */
+    @IBAction func didTappedLeftBarButton(sender: UIButton) {
+        delegate?.didTappedLeftBarButton()
+    }
+    @IBOutlet weak var popularButton: UIButton!
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var lineView: UIView!
 
 }

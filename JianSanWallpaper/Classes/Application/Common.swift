@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
 let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
@@ -21,6 +22,28 @@ let SCREEN_BOUNDS = UIScreen.mainScreen().bounds
 enum PullMethod {
     case pullUp
     case pullDown
+}
+
+/**
+ 快速创建上拉加载更多控件
+ */
+func jf_setupFooterRefresh(target: AnyObject, action: Selector) -> MJRefreshAutoNormalFooter {
+    let footerRefresh = MJRefreshAutoNormalFooter(refreshingTarget: target, refreshingAction: action)
+    footerRefresh.automaticallyHidden = true
+    footerRefresh.setTitle("正在拼命加载中...", forState: MJRefreshState.Refreshing)
+    footerRefresh.setTitle("上拉即可加载更多壁纸...", forState: MJRefreshState.Idle)
+    footerRefresh.setTitle("没有更多壁纸啦...", forState: MJRefreshState.NoMoreData)
+    return footerRefresh
+}
+
+/**
+ 快速创建下拉加载最新控件
+ */
+func jf_setupHeaderRefresh(target: AnyObject, action: Selector) -> MJRefreshNormalHeader {
+    let headerRefresh = MJRefreshNormalHeader(refreshingTarget: target, refreshingAction: action)
+    headerRefresh.lastUpdatedTimeLabel.hidden = true
+    headerRefresh.stateLabel.hidden = true
+    return headerRefresh
 }
 
 /// 导航背景颜色

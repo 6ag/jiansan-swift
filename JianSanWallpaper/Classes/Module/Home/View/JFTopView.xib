@@ -14,8 +14,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHd-XD-sZD">
                     <rect key="frame" x="125" y="0.0" width="125" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MpD-rV-d6m">
-                            <rect key="frame" x="2.5" y="26" width="40" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MpD-rV-d6m">
+                            <rect key="frame" x="2" y="28" width="40" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="4J0-e8-h99"/>
                                 <constraint firstAttribute="height" constant="30" id="Ht2-RK-DFz"/>
@@ -27,9 +27,12 @@
                             <state key="selected">
                                 <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="didTappedPopularButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="uhQ-za-FX2"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS0-F5-zwl">
-                            <rect key="frame" x="82.5" y="26" width="40" height="30"/>
+                            <rect key="frame" x="82" y="28" width="40" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="4H5-yD-kSJ"/>
                                 <constraint firstAttribute="height" constant="30" id="X4c-4C-lYR"/>
@@ -38,9 +41,15 @@
                             <state key="normal" title="分类">
                                 <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="didTappedCategoryButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="1hG-6O-rCF"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVn-gZ-Gdh">
-                            <rect key="frame" x="-2.5" y="55" width="50" height="1"/>
+                            <rect key="frame" x="-3" y="57" width="50" height="1"/>
                             <color key="backgroundColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="JaD-1B-aPl"/>
@@ -52,18 +61,21 @@
                         <constraint firstItem="pS0-F5-zwl" firstAttribute="centerX" secondItem="pHd-XD-sZD" secondAttribute="centerX" constant="40" id="IJy-yX-KUI"/>
                         <constraint firstItem="lVn-gZ-Gdh" firstAttribute="centerX" secondItem="MpD-rV-d6m" secondAttribute="centerX" id="Wag-jJ-4XD"/>
                         <constraint firstAttribute="width" constant="125" id="XrD-jg-EV2"/>
-                        <constraint firstAttribute="bottom" secondItem="lVn-gZ-Gdh" secondAttribute="bottom" constant="8" id="byC-z0-n2v"/>
+                        <constraint firstAttribute="bottom" secondItem="lVn-gZ-Gdh" secondAttribute="bottom" constant="6" id="byC-z0-n2v"/>
                         <constraint firstAttribute="height" constant="64" id="u3O-pC-g5R"/>
                         <constraint firstItem="MpD-rV-d6m" firstAttribute="centerX" secondItem="pHd-XD-sZD" secondAttribute="centerX" constant="-40" id="z2l-Og-fmb"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-NL-7HC">
-                    <rect key="frame" x="12" y="30" width="22" height="22"/>
+                    <rect key="frame" x="12" y="32" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="RxF-lk-GJu"/>
                         <constraint firstAttribute="height" constant="22" id="hfB-5h-Krz"/>
                     </constraints>
-                    <state key="normal" backgroundImage="cehua_icon"/>
+                    <state key="normal" image="cehua_icon"/>
+                    <connections>
+                        <action selector="didTappedLeftBarButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="eSY-qy-Fmg"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,12 +84,17 @@
                 <constraint firstItem="pS0-F5-zwl" firstAttribute="centerY" secondItem="oXF-NL-7HC" secondAttribute="centerY" id="BVt-BL-TCa"/>
                 <constraint firstAttribute="bottom" secondItem="pHd-XD-sZD" secondAttribute="bottom" id="BpD-Yb-Kew"/>
                 <constraint firstItem="oXF-NL-7HC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="HW2-IO-PUQ"/>
-                <constraint firstAttribute="bottom" secondItem="oXF-NL-7HC" secondAttribute="bottom" constant="12" id="N7X-QI-qZj"/>
+                <constraint firstAttribute="bottom" secondItem="oXF-NL-7HC" secondAttribute="bottom" constant="10" id="N7X-QI-qZj"/>
                 <constraint firstItem="pHd-XD-sZD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VQI-oa-WAP"/>
                 <constraint firstItem="pHd-XD-sZD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vbW-io-dsL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="categoryButton" destination="pS0-F5-zwl" id="ZUs-yz-wWu"/>
+                <outlet property="lineView" destination="lVn-gZ-Gdh" id="EJv-IM-iAL"/>
+                <outlet property="popularButton" destination="MpD-rV-d6m" id="9sK-84-QkI"/>
+            </connections>
             <point key="canvasLocation" x="456.5" y="205"/>
         </view>
     </objects>

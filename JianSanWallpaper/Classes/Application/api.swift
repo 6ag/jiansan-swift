@@ -8,17 +8,17 @@
 
 import Foundation
 
-/// api根路径
-let BASE_URL = "http://jiansan.6ag.cn/api"
+/// api根路径 http://jiansan.6ag.cn
+let BASE_URL = "http://jiansan.6ag.cn"
 
 /// 提交
-let SUBMIT_FEEDBACK = "\(BASE_URL)/feedback"
+let SUBMIT_FEEDBACK = "\(BASE_URL)/api/feedback"
 
 /// 获取分类列表
-let GET_CATEGORIES = "\(BASE_URL)/categories"
+let GET_CATEGORIES = "\(BASE_URL)/api/categories"
 
 /// 检测壁纸保存状态
-let CHECK_SAVE_STATUS = "\(BASE_URL)/status"
+let CHECK_SAVE_STATUS = "\(BASE_URL)/api/status"
 
 /**
  获取壁纸列表
@@ -28,6 +28,6 @@ let CHECK_SAVE_STATUS = "\(BASE_URL)/status"
  - returns: 返回api接口
  */
 func GET_WALLPAPERS(category_id: Int) -> String {
-    return "\(BASE_URL)/wallpapers/\(category_id)";
+    return "\(BASE_URL)/api/wallpapers/\(category_id)";
 }
 

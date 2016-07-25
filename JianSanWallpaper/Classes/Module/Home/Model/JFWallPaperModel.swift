@@ -62,6 +62,7 @@ class JFWallPaperModel: NSObject {
             }
             
             finished(wallpaperArray: wallpaperArray, error: nil)
+
         }
     }
     

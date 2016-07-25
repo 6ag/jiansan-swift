@@ -13,7 +13,6 @@
 		B20953441CD2132800036163 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952DB1CD2132800036163 /* Common.swift */; };
 		B20953461CD2132800036163 /* JFHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952E01CD2132800036163 /* JFHomeViewController.swift */; };
 		B20953481CD2132800036163 /* JFCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952E31CD2132800036163 /* JFCategoryModel.swift */; };
-		B209534C1CD2132800036163 /* JFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952E81CD2132800036163 /* JFProgressView.swift */; };
 		B209534E1CD2132800036163 /* JFNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952EC1CD2132800036163 /* JFNavigationController.swift */; };
 		B209534F1CD2132800036163 /* JFBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952EF1CD2132800036163 /* JFBaseTableViewController.swift */; };
 		B20953511CD2132800036163 /* JFProfileFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952F11CD2132800036163 /* JFProfileFeedbackViewController.swift */; };
@@ -45,6 +44,10 @@
 		B24B96E71D44C615004B8BBE /* JFTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
 		B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E91D45BA95004B8BBE /* Info.plist */; };
+		B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */; };
+		B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */; };
+		B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */; };
+		B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */; };
 		B2BB28DA1CD1C02100CE4DC1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */; };
 		B2BB28DC1CD1C03200CE4DC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */; };
 		B2BB28DE1CD1C03A00CE4DC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */; };
@@ -88,7 +91,6 @@
 		B20952DB1CD2132800036163 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B20952E01CD2132800036163 /* JFHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeViewController.swift; sourceTree = "<group>"; };
 		B20952E31CD2132800036163 /* JFCategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryModel.swift; sourceTree = "<group>"; };
-		B20952E81CD2132800036163 /* JFProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFProgressView.swift; sourceTree = "<group>"; };
 		B20952EC1CD2132800036163 /* JFNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFNavigationController.swift; sourceTree = "<group>"; };
 		B20952EF1CD2132800036163 /* JFBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFBaseTableViewController.swift; sourceTree = "<group>"; };
 		B20952F11CD2132800036163 /* JFProfileFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFProfileFeedbackViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,10 @@
 		B24B96E61D44C615004B8BBE /* JFTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFTopView.xib; sourceTree = "<group>"; };
 		B24B96E81D45BA95004B8BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24B96E91D45BA95004B8BBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperCell.swift; sourceTree = "<group>"; };
+		B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFWallpaperCell.xib; sourceTree = "<group>"; };
+		B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryCell.swift; sourceTree = "<group>"; };
+		B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryCell.xib; sourceTree = "<group>"; };
 		B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -323,9 +329,12 @@
 		B20952E51CD2132800036163 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B20952E81CD2132800036163 /* JFProgressView.swift */,
 				B24B96E41D449C19004B8BBE /* JFTopView.swift */,
 				B24B96E61D44C615004B8BBE /* JFTopView.xib */,
+				B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */,
+				B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */,
+				B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */,
+				B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -633,11 +642,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B20953661CD2132800036163 /* UMSLoginViewController.xib in Resources */,
+				B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */,
 				B20953611CD2132800036163 /* UMSCommentDetailController.xib in Resources */,
 				B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */,
 				B209535F1CD2132800036163 /* UMSocialLocalizable.strings in Resources */,
 				B20953641CD2132800036163 /* UMShareEditViewController.xib in Resources */,
 				B20953621CD2132800036163 /* UMSCommentInputController.xib in Resources */,
+				B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */,
 				B20953681CD2132800036163 /* UMSShareListController.xib in Resources */,
 				B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */,
 				B20953631CD2132800036163 /* UMSCommentInputControlleriPad.xib in Resources */,
@@ -722,6 +733,8 @@
 				B209535B1CD2132800036163 /* JFSettingCell.swift in Sources */,
 				B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */,
 				B209535C1CD2132800036163 /* JFNetworkTools.swift in Sources */,
+				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,
+				B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */,
 				B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */,
 				B209535E1CD2132800036163 /* JFContextSheet.swift in Sources */,
 				B24B96E51D449C19004B8BBE /* JFTopView.swift in Sources */,
@@ -736,7 +749,6 @@
 				B2FE2FE91CD33F3B0013FAEE /* FMDatabaseVariadic.swift in Sources */,
 				B2E288491D43347B00745A3F /* JFSettingCellSwitch.swift in Sources */,
 				B20953541CD2132800036163 /* JFProfileTableViewController.swift in Sources */,
-				B209534C1CD2132800036163 /* JFProgressView.swift in Sources */,
 				B209535D1CD2132800036163 /* JFContextItem.swift in Sources */,
 				B2FE2FE61CD33F3B0013FAEE /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				B2E2884E1D43363E00745A3F /* JFCategoryViewController.swift in Sources */,
