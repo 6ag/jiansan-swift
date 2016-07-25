@@ -2,19 +2,7 @@
 
 采用swift编写的一个壁纸类app，PHP后台源码地址: [jiansan-laravel](https://github.com/6ag/jiansan-laravel) ，API接口文档 [http://jiansan.6ag.cn/apidoc/](http://jiansan.6ag.cn/apidoc/) 。
 
-### AppStore
-
-<a target='_blank' href='https://itunes.apple.com/app/id1110293594'>
-<img src='http://ww2.sinaimg.cn/large/0060lm7Tgw1f1hgrs1ebwj308102q0sp.jpg' width='144' height='49' />
-</a>
-
-#### 一键设置壁纸
-
-![image](https://github.com/6ag/JianSan-Wallpaper/blob/master/1.gif)
-
-#### 自适应操作选项
-
-![image](https://github.com/6ag/JianSan-Wallpaper/blob/master/2.gif)
+目前还在开发中。。。
 
 ## 可抽取封装类库
 ### **一、JFContextSheet**
@@ -57,7 +45,7 @@ func contextSheet(contextSheet: JFContextSheet, didSelectItemWithItemName itemNa
 }
 ```
 
-### **二、WallPaperTool** 一键设置壁纸
+### **二、JFWallPaperTool** 一键设置壁纸
 
 总所周知，iPhone设置壁纸非常的坑爹！！！不过利用 `私有api` 可以实现一键设置锁屏壁纸、一键设置主屏幕壁纸、一键设置锁屏和主屏幕壁纸的功能。我今天下载了一些壁纸类的app，发现有几个app里也有这个功能。
 

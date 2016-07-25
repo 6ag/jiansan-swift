@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D442C415114979189D97B09 /* Pods_JianSanWallpaper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC160AA1F2641C8B0211307 /* Pods_JianSanWallpaper.framework */; };
-		B20953411CD2132800036163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20952D61CD2132800036163 /* Assets.xcassets */; };
 		B20953421CD2132800036163 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952D91CD2132800036163 /* api.swift */; };
 		B20953431CD2132800036163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952DA1CD2132800036163 /* AppDelegate.swift */; };
 		B20953441CD2132800036163 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20952DB1CD2132800036163 /* Common.swift */; };
@@ -42,9 +41,10 @@
 		B209536F1CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B20953331CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		B20953701CD2132800036163 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20953361CD2132800036163 /* libSocialWechat.a */; };
 		B20953711CD2132800036163 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20953371CD2132800036163 /* libWeChatSDK.a */; };
-		B20953731CD2132800036163 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B209533F1CD2132800036163 /* Info.plist */; };
 		B24B96E51D449C19004B8BBE /* JFTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFTopView.xib */; };
+		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
+		B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E91D45BA95004B8BBE /* Info.plist */; };
 		B2BB28DA1CD1C02100CE4DC1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */; };
 		B2BB28DC1CD1C03200CE4DC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */; };
 		B2BB28DE1CD1C03A00CE4DC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */; };
@@ -83,7 +83,6 @@
 		6BC160AA1F2641C8B0211307 /* Pods_JianSanWallpaper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JianSanWallpaper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A579010E1C62E31700B89DB7 /* JianSanWallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JianSanWallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BF066DDC38B7EA4D087027 /* Pods-JianSanWallpaper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JianSanWallpaper.release.xcconfig"; path = "Pods/Target Support Files/Pods-JianSanWallpaper/Pods-JianSanWallpaper.release.xcconfig"; sourceTree = "<group>"; };
-		B20952D61CD2132800036163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		B20952D91CD2132800036163 /* api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		B20952DA1CD2132800036163 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B20952DB1CD2132800036163 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -145,10 +144,11 @@
 		B20953391CD2132800036163 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		B209533A1CD2132800036163 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B209533B1CD2132800036163 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		B209533F1CD2132800036163 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFTopView.xib; sourceTree = "<group>"; };
+		B24B96E81D45BA95004B8BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B24B96E91D45BA95004B8BBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -251,7 +251,8 @@
 		B20952D51CD2132800036163 /* JianSanWallpaper */ = {
 			isa = PBXGroup;
 			children = (
-				B2E2883E1D43327700745A3F /* Resources */,
+				B24B96E81D45BA95004B8BBE /* Assets.xcassets */,
+				B24B96E91D45BA95004B8BBE /* Info.plist */,
 				B20952D71CD2132800036163 /* Classes */,
 			);
 			path = JianSanWallpaper;
@@ -526,15 +527,6 @@
 			path = JFWallPaperTool;
 			sourceTree = "<group>";
 		};
-		B2E2883E1D43327700745A3F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B20952D61CD2132800036163 /* Assets.xcassets */,
-				B209533F1CD2132800036163 /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		B2FE2FD51CD33F3B0013FAEE /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,16 +634,16 @@
 			files = (
 				B20953661CD2132800036163 /* UMSLoginViewController.xib in Resources */,
 				B20953611CD2132800036163 /* UMSCommentDetailController.xib in Resources */,
+				B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */,
 				B209535F1CD2132800036163 /* UMSocialLocalizable.strings in Resources */,
 				B20953641CD2132800036163 /* UMShareEditViewController.xib in Resources */,
 				B20953621CD2132800036163 /* UMSCommentInputController.xib in Resources */,
 				B20953681CD2132800036163 /* UMSShareListController.xib in Resources */,
-				B20953731CD2132800036163 /* Info.plist in Resources */,
+				B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */,
 				B20953631CD2132800036163 /* UMSCommentInputControlleriPad.xib in Resources */,
 				B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */,
 				B20953691CD2132800036163 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				B209536F1CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				B20953411CD2132800036163 /* Assets.xcassets in Resources */,
 				B24B96E71D44C615004B8BBE /* JFTopView.xib in Resources */,
 				B20953671CD2132800036163 /* UMSnsAccountViewController.xib in Resources */,
 				B20953651CD2132800036163 /* UMShareEditViewControlleriPad.xib in Resources */,
