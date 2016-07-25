@@ -41,7 +41,7 @@ class JFTopView: UIView {
         sender.selected = true
         popularButton.selected = false
         UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.lineView.transform = CGAffineTransformMakeTranslation(82, 0)
+            self.lineView.transform = CGAffineTransformMakeTranslation(60, 0)
         }) { (_) in
             
         }

@@ -70,6 +70,7 @@ class JFCategoryViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: (SCREEN_HEIGHT - 64) / 4.6), collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.bounces = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false

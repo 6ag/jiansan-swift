@@ -17,6 +17,12 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-oR-ccI">
                         <rect key="frame" x="0.0" y="0.0" width="187" height="332.5"/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow_bar" translatesAutoresizingMaskIntoConstraints="NO" id="Dkk-pJ-hIH">
+                        <rect key="frame" x="0.0" y="313" width="187" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="b4A-PP-qxG"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-NV-w3t">
                         <rect key="frame" x="163" y="317" width="19.5" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -24,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_preview" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-H0-DeO">
-                        <rect key="frame" x="148.5" y="319" width="11" height="8"/>
+                        <rect key="frame" x="148" y="320" width="11" height="8"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="29U-W4-dbB"/>
                             <constraint firstAttribute="width" constant="11" id="JaM-Sp-3RW"/>
@@ -35,8 +41,11 @@
                     <constraint firstAttribute="bottom" secondItem="ZEJ-NV-w3t" secondAttribute="bottom" constant="2" id="1ku-dn-FV2"/>
                     <constraint firstItem="m5M-oR-ccI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="E1b-bA-Uuo"/>
                     <constraint firstItem="m5M-oR-ccI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ISQ-1F-prx"/>
+                    <constraint firstItem="Dkk-pJ-hIH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RS6-KL-N7l"/>
                     <constraint firstAttribute="trailing" secondItem="ZEJ-NV-w3t" secondAttribute="trailing" constant="4" id="THY-SU-dh9"/>
                     <constraint firstItem="AY3-H0-DeO" firstAttribute="centerY" secondItem="ZEJ-NV-w3t" secondAttribute="centerY" id="U5O-CB-N94"/>
+                    <constraint firstAttribute="bottom" secondItem="Dkk-pJ-hIH" secondAttribute="bottom" id="UhC-nK-qRy"/>
+                    <constraint firstAttribute="trailing" secondItem="Dkk-pJ-hIH" secondAttribute="trailing" id="YKX-UO-UdX"/>
                     <constraint firstItem="ZEJ-NV-w3t" firstAttribute="leading" secondItem="AY3-H0-DeO" secondAttribute="trailing" constant="4" id="jUe-5i-Lyc"/>
                     <constraint firstAttribute="bottom" secondItem="m5M-oR-ccI" secondAttribute="bottom" id="oFf-AV-x3g"/>
                     <constraint firstAttribute="trailing" secondItem="m5M-oR-ccI" secondAttribute="trailing" id="wki-uc-f86"/>
@@ -51,5 +60,6 @@
     </objects>
     <resources>
         <image name="home_preview" width="11" height="8"/>
+        <image name="shadow_bar" width="124" height="18"/>
     </resources>
 </document>
