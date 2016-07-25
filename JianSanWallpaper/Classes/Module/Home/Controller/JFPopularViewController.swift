@@ -104,7 +104,7 @@ class JFPopularViewController: UIViewController {
         collectionView.registerNib(UINib(nibName: "JFWallpaperCell", bundle: nil), forCellWithReuseIdentifier: self.wallpaperIdentifier)
         return collectionView
     }()
-
+    
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
