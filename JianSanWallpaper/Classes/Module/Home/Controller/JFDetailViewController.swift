@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYWebImage
 
 class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     
@@ -18,9 +19,12 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     }
     
     /// 图片对象
-    var image: UIImage? {
+    var model: JFWallPaperModel? {
         didSet {
-            imageView.image = image!
+            imageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.bigpath!)"),
+                                         placeholder: YYImageCache.sharedCache().getImageForKey(model!.smallpath!),
+                                         options: YYWebImageOptions.Progressive,
+                                         completion: nil)
         }
     }
     
@@ -93,9 +97,9 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             break
         case "设定":
             let alertController = UIAlertController()
-
+            
             let lockScreen = UIAlertAction(title: "设定锁定屏幕", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.image!, imageScreen: UIImageScreenLock, finished: { (success) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenLock, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -103,9 +107,9 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                     }
                 })
             })
-
+            
             let homeScreen = UIAlertAction(title: "设定主屏幕", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.image!, imageScreen: UIImageScreenHome, finished: { (success) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenHome, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -113,9 +117,9 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                     }
                 })
             })
-
+            
             let homeScreenAndLockScreen = UIAlertAction(title: "同时设定", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -123,25 +127,25 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                     }
                 })
             })
-
+            
             let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (action) in
                 
             })
-
+            
             // 添加动作
             alertController.addAction(lockScreen)
             alertController.addAction(homeScreen)
             alertController.addAction(homeScreenAndLockScreen)
             alertController.addAction(cancel)
-
+            
             // 弹出选项
             presentViewController(alertController, animated: true, completion: {
                 
             })
-
+            
             break
         case "下载":
-            UIImageWriteToSavedPhotosAlbum(image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "收藏":
             JFFMDBManager.sharedManager.checkIsExists(path!, finished: { (isExists) in

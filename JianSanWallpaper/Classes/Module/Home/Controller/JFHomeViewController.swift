@@ -14,7 +14,6 @@ class JFHomeViewController: UIViewController {
         super.viewDidLoad()
         
         prepareUI()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,8 +33,8 @@ class JFHomeViewController: UIViewController {
     
     // MARK: - 懒加载
     /// 顶部导航栏 topView
-    lazy var topView: JFTopView = {
-        let topView = NSBundle.mainBundle().loadNibNamed("JFTopView", owner: nil, options: nil).last as! JFTopView
+    lazy var topView: JFHomeTopView = {
+        let topView = NSBundle.mainBundle().loadNibNamed("JFHomeTopView", owner: nil, options: nil).last as! JFHomeTopView
         topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
         topView.delegate = self
         return topView
@@ -44,7 +43,9 @@ class JFHomeViewController: UIViewController {
     /// 视图区域 contentView
     lazy var contentView: UIScrollView = {
         let contentView = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
+        contentView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: 0)
         contentView.pagingEnabled = true
+        contentView.bounces = false
         contentView.showsHorizontalScrollIndicator = false
         contentView.delegate = self
         
@@ -65,10 +66,17 @@ class JFHomeViewController: UIViewController {
 // MARK: - UIScrollViewDelegate
 extension JFHomeViewController: UIScrollViewDelegate {
     
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if (scrollView.contentOffset.x >= SCREEN_WIDTH) {
+            topView.didTappedCategoryButton()
+        } else {
+            topView.didTappedPopularButton()
+        }
+    }
 }
 
-// MARK: - JFTopViewDelegate
-extension JFHomeViewController: JFTopViewDelegate {
+// MARK: - JFHomeTopViewDelegate
+extension JFHomeViewController: JFHomeTopViewDelegate {
     
     /**
      点击了热门选项
@@ -85,7 +93,7 @@ extension JFHomeViewController: JFTopViewDelegate {
     }
     
     /**
-     点击了导航栏左侧按钮
+     点击了导航栏左侧按钮 打开侧边栏
      */
     func didTappedLeftBarButton() {
         

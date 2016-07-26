@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JFTopView" customModule="JianSanWallpaper" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JFHomeTopView" customModule="JianSanWallpaper" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -28,7 +28,7 @@
                                 <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTappedPopularButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="uhQ-za-FX2"/>
+                                <action selector="didTappedPopularButton" destination="iN0-l3-epB" eventType="touchUpInside" id="riQ-Yp-dTu"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pS0-F5-zwl">
@@ -45,7 +45,7 @@
                                 <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTappedCategoryButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="1hG-6O-rCF"/>
+                                <action selector="didTappedCategoryButton" destination="iN0-l3-epB" eventType="touchUpInside" id="Cte-zp-NbI"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVn-gZ-Gdh">

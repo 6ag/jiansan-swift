@@ -40,8 +40,10 @@
 		B209536F1CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B20953331CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		B20953701CD2132800036163 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20953361CD2132800036163 /* libSocialWechat.a */; };
 		B20953711CD2132800036163 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20953371CD2132800036163 /* libWeChatSDK.a */; };
-		B24B96E51D449C19004B8BBE /* JFTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFTopView.swift */; };
-		B24B96E71D44C615004B8BBE /* JFTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFTopView.xib */; };
+		B20D08E41D46F05A00008A19 /* JFCategoryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08E21D46F05A00008A19 /* JFCategoryTopView.swift */; };
+		B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */; };
+		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
+		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
 		B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E91D45BA95004B8BBE /* Info.plist */; };
 		B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */; };
@@ -146,9 +148,11 @@
 		B20953391CD2132800036163 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		B209533A1CD2132800036163 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B209533B1CD2132800036163 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B20D08E21D46F05A00008A19 /* JFCategoryTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryTopView.swift; sourceTree = "<group>"; };
+		B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryTopView.xib; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
-		B24B96E41D449C19004B8BBE /* JFTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFTopView.swift; sourceTree = "<group>"; };
-		B24B96E61D44C615004B8BBE /* JFTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFTopView.xib; sourceTree = "<group>"; };
+		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
+		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
 		B24B96E81D45BA95004B8BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B24B96E91D45BA95004B8BBE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperCell.swift; sourceTree = "<group>"; };
@@ -329,8 +333,10 @@
 		B20952E51CD2132800036163 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B24B96E41D449C19004B8BBE /* JFTopView.swift */,
-				B24B96E61D44C615004B8BBE /* JFTopView.xib */,
+				B20D08E21D46F05A00008A19 /* JFCategoryTopView.swift */,
+				B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */,
+				B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */,
+				B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */,
 				B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */,
 				B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */,
 				B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */,
@@ -655,7 +661,8 @@
 				B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */,
 				B20953691CD2132800036163 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				B209536F1CD2132800036163 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				B24B96E71D44C615004B8BBE /* JFTopView.xib in Resources */,
+				B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */,
+				B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */,
 				B20953671CD2132800036163 /* UMSnsAccountViewController.xib in Resources */,
 				B20953651CD2132800036163 /* UMShareEditViewControlleriPad.xib in Resources */,
 				B209536C1CD2132800036163 /* WeiboSDK.bundle in Resources */,
@@ -728,6 +735,7 @@
 				B2FE2FE81CD33F3B0013FAEE /* FMDatabaseQueue.m in Sources */,
 				B2E288461D43347B00745A3F /* JFSettingCellArrow.swift in Sources */,
 				B209534F1CD2132800036163 /* JFBaseTableViewController.swift in Sources */,
+				B20D08E41D46F05A00008A19 /* JFCategoryTopView.swift in Sources */,
 				B2E288471D43347B00745A3F /* JFSettingCellLabel.swift in Sources */,
 				B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */,
 				B209535B1CD2132800036163 /* JFSettingCell.swift in Sources */,
@@ -737,7 +745,7 @@
 				B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */,
 				B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */,
 				B209535E1CD2132800036163 /* JFContextSheet.swift in Sources */,
-				B24B96E51D449C19004B8BBE /* JFTopView.swift in Sources */,
+				B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */,
 				B20953441CD2132800036163 /* Common.swift in Sources */,
 				B2E2883D1D43323D00745A3F /* JFWallPaperTool.m in Sources */,
 				B2FE2FE41CD33F3B0013FAEE /* FMDatabase.m in Sources */,

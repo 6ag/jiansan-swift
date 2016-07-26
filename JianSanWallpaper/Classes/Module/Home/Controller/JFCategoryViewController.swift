@@ -105,11 +105,13 @@ extension JFCategoryViewController: UICollectionViewDataSource, UICollectionView
         let item = collectionView.dequeueReusableCellWithReuseIdentifier(categoryIdentifier, forIndexPath: indexPath) as! JFCategoryCell
         item.model = categoriesArray[indexPath.item]
         return item
-        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.item)
+        let popularVc = JFPopularViewController()
+        popularVc.category_id = categoriesArray[indexPath.item].id
+        popularVc.category_title = categoriesArray[indexPath.item].name!
+        navigationController?.pushViewController(popularVc, animated: true)
     }
     
     

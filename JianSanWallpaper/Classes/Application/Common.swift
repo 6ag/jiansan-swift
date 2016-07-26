@@ -47,7 +47,7 @@ func jf_setupHeaderRefresh(target: AnyObject, action: Selector) -> MJRefreshNorm
 }
 
 /// 导航背景颜色
-let NAVBAR_TINT_COLOR = UIColor(red:0.102,  green:0.102,  blue:0.102, alpha:0.8)
+let NAVBAR_TINT_COLOR = UIColor.whiteColor()
 
 /// 标题颜色
 let TITLE_COLOR = UIColor(red:0.943,  green:0.943,  blue:0.943, alpha:1)

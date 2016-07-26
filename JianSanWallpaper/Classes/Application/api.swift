@@ -30,4 +30,3 @@ let CHECK_SAVE_STATUS = "\(BASE_URL)/api/status"
 func GET_WALLPAPERS(category_id: Int) -> String {
     return "\(BASE_URL)/api/wallpapers/\(category_id)";
 }
-

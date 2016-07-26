@@ -16,6 +16,9 @@ class JFPopularViewController: UIViewController {
     /// 分类id为0会根据浏览量倒序查询
     var category_id = 0
     
+    /// 分类标题
+    var category_title = ""
+    
     /// 当前页
     var currentPage = 1
     
@@ -26,7 +29,6 @@ class JFPopularViewController: UIViewController {
         super.viewDidLoad()
 
         prepareUI()
-        
         pulldownLoadData()
         
         // 配置上下拉刷新控件
@@ -34,12 +36,22 @@ class JFPopularViewController: UIViewController {
         collectionView.mj_footer = jf_setupFooterRefresh(self, action: #selector(pullupLoadData))
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().statusBarHidden = false
+        
+        // 分类则添加自定义导航栏
+        if (category_id != 0) {
+            view.addSubview(topView)
+        }
+    }
+    
     /**
      准备视图
      */
     private func prepareUI() {
         
-        view.backgroundColor = UIColor.yellowColor()
+        view.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView)
     }
     
@@ -97,12 +109,29 @@ class JFPopularViewController: UIViewController {
         layout.minimumLineSpacing = 1.5
         layout.itemSize = CGSize(width: (SCREEN_WIDTH - 3) / 3, height: (SCREEN_HEIGHT - 64) / 2.71)
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        
+        if (self.category_id != 0) {
+            // 隐藏导航栏后，从44开始
+            collectionView.frame = CGRect(x: 0, y: 44, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 44)
+        } else {
+            collectionView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64)
+        }
+        
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerNib(UINib(nibName: "JFWallpaperCell", bundle: nil), forCellWithReuseIdentifier: self.wallpaperIdentifier)
         return collectionView
+    }()
+    
+    /// 顶部导航栏 topView
+    lazy var topView: JFCategoryTopView = {
+        let topView = NSBundle.mainBundle().loadNibNamed("JFCategoryTopView", owner: nil, options: nil).last as! JFCategoryTopView
+        topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
+        topView.delegate = self
+        topView.titleLabel.text = self.category_title
+        return topView
     }()
     
 }
@@ -122,7 +151,20 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.item)
+        let detailVc = JFDetailViewController()
+        detailVc.model = wallpaperArray[indexPath.item]
+        presentViewController(detailVc, animated: true) {}
     }
 
+}
+
+// MARK: - JFCategoryTopViewDelegate
+extension JFPopularViewController: JFCategoryTopViewDelegate {
+    
+    /**
+     点击了导航栏左侧按钮
+     */
+    func didTappedLeftBarButton() {
+        navigationController?.popViewControllerAnimated(true)
+    }
 }

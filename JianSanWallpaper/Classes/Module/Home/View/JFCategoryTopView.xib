@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JFCategoryTopView" customModule="JianSanWallpaper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-NL-7HC">
+                    <rect key="frame" x="12" y="32" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="RxF-lk-GJu"/>
+                        <constraint firstAttribute="height" constant="22" id="hfB-5h-Krz"/>
+                    </constraints>
+                    <state key="normal" image="top_navigation_back"/>
+                    <connections>
+                        <action selector="didTappedLeftBarButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="VXq-bJ-B1f"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNq-RA-2tt">
+                    <rect key="frame" x="170" y="33" width="34" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oXF-NL-7HC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="HW2-IO-PUQ"/>
+                <constraint firstAttribute="bottom" secondItem="oXF-NL-7HC" secondAttribute="bottom" constant="10" id="N7X-QI-qZj"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="RNq-RA-2tt" id="QjV-b8-7My"/>
+            </connections>
+            <point key="canvasLocation" x="456.5" y="205"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="top_navigation_back" width="9" height="16"/>
+    </resources>
+</document>

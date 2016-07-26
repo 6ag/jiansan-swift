@@ -29,9 +29,9 @@ class JFNavigationController: UINavigationController {
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigation_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(back))
+//            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigation_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(back))
         } else {
-            viewController.navigationItem.hidesBackButton = true
+//            viewController.navigationItem.hidesBackButton = true
         }
         
         super.pushViewController(viewController, animated: animated)
