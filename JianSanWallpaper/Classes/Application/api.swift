@@ -21,7 +21,7 @@ let GET_CATEGORIES = "\(BASE_URL)/api/categories"
 let CHECK_SAVE_STATUS = "\(BASE_URL)/api/status"
 
 /**
- 获取壁纸列表
+ 根据分类id获取壁纸列表
  
  - parameter category_id: 分类id
  
@@ -29,4 +29,15 @@ let CHECK_SAVE_STATUS = "\(BASE_URL)/api/status"
  */
 func GET_WALLPAPERS(category_id: Int) -> String {
     return "\(BASE_URL)/api/wallpapers/\(category_id)";
+}
+
+/**
+ 根据壁纸id获取壁纸信息
+ 
+ - parameter id: 壁纸id
+ 
+ - returns: 返回api接口
+ */
+func GET_SHOW_WALLPAPER(id: Int) -> String {
+    return "\(BASE_URL)/api/show/\(id)"
 }

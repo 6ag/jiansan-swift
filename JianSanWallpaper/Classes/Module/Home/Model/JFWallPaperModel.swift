@@ -35,7 +35,7 @@ class JFWallPaperModel: NSObject {
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
     
     /**
-     从网络请求壁纸数据
+     从网络请求壁纸数据列表
      
      - parameter category_id: 壁纸分类id
      - parameter page:        分页页码
@@ -63,6 +63,27 @@ class JFWallPaperModel: NSObject {
             
             finished(wallpaperArray: wallpaperArray, error: nil)
 
+        }
+    }
+    
+    /**
+     从网络请求单个壁纸数据
+     
+     - parameter id:       壁纸id
+     - parameter finished: 数据回调
+     */
+    class func showWallpaper(id: Int, finished: (wallpaper: JFWallPaperModel?, error: NSError?) -> ()) {
+        
+        JFNetworkTools.shareNetworkTools.get(GET_SHOW_WALLPAPER(id), parameters: [String : AnyObject]()) { (success, result, error) in
+            guard let result = result where success == true else {
+                finished(wallpaper: nil, error: error)
+                return
+            }
+            
+            let dict = result["data"].dictionaryObject!
+            let wallpaper = JFWallPaperModel(dict: dict)
+            finished(wallpaper: wallpaper, error: error)
+            
         }
     }
     

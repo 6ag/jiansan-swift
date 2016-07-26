@@ -153,7 +153,14 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let detailVc = JFDetailViewController()
         detailVc.model = wallpaperArray[indexPath.item]
-        presentViewController(detailVc, animated: true) {}
+        presentViewController(detailVc, animated: true) {
+            // 异步更新浏览量
+            dispatch_async(dispatch_get_global_queue(0, 0), { 
+                JFWallPaperModel.showWallpaper(self.wallpaperArray[indexPath.item].id, finished: { (wallpaper, error) in
+                    print("这很nice，和很清真")
+                })
+            })
+        }
     }
 
 }
