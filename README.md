@@ -2,7 +2,23 @@
 
 采用swift编写的一个壁纸类app，PHP后台源码地址: [jiansan-laravel](https://github.com/6ag/jiansan-laravel) ，API接口文档 [http://jiansan.6ag.cn/apidoc/](http://jiansan.6ag.cn/apidoc/) 。
 
-目前还在开发中。。。
+## 效果预览
+
+### 12门派 + 大侠
+
+![image](https://github.com/6ag/jiansan-swift/blob/master/Show/1.gif)
+
+### 自定义模态
+
+![image](https://github.com/6ag/jiansan-swift/blob/master/Show/2.gif)
+
+### 各种便捷操作
+
+![image](https://github.com/6ag/jiansan-swift/blob/master/Show/3.gif)
+
+### 壁纸收藏
+
+![image](https://github.com/6ag/jiansan-swift/blob/master/Show/4.gif)
 
 ## 可抽取封装类库
 ### **一、JFContextSheet**
