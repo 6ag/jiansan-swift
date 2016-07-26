@@ -25,6 +25,7 @@ class JFWallpaperDismissAnimation: NSObject, UIViewControllerAnimatedTransitioni
         
         // 动画收起modal出来的控制器的view
         UIView.animateWithDuration(transitionDuration(nil), animations: {
+            fromView.transform = CGAffineTransformMakeTranslation(0, SCREEN_HEIGHT)
             fromView.alpha = 0
         }) { (_) in
             transitionContext.completeTransition(true)

@@ -28,9 +28,6 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         }
     }
     
-    /// 图片路径
-    var path: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -148,11 +145,11 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "收藏":
-            JFFMDBManager.sharedManager.checkIsExists(path!, finished: { (isExists) in
+            JFFMDBManager.sharedManager.checkIsExists(model!.bigpath!, finished: { (isExists) in
                 if isExists {
                     JFProgressHUD.showInfoWithStatus("已经收藏过了")
                 } else {
-                    JFFMDBManager.sharedManager.insertStar(self.path!)
+                    JFFMDBManager.sharedManager.insertStar(self.model!.bigpath!)
                     JFProgressHUD.showSuccessWithStatus("收藏成功")
                 }
             })

@@ -25,10 +25,10 @@ class JFPopularViewController: UIViewController {
     
     /// 壁纸模型数组
     var wallpaperArray = [JFWallPaperModel]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         prepareUI()
         pulldownLoadData()
         
@@ -148,33 +148,43 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
         let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
         item.model = wallpaperArray[indexPath.item]
         return item
-        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        // 转换坐标系
         let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
         let rect = item.convertRect(item.frame, toView: view)
         
+        // 计算item相对于窗口的frame
         let x = rect.origin.x / 2
         let y = 64 + CGFloat(indexPath.item / 3) * rect.size.height - collectionView.contentOffset.y
         let width = rect.size.width
         let height = rect.size.height
         
+        // 临时放大动画的图片
         let tempView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(wallpaperArray[indexPath.item].smallpath!)"))
-        tempView.frame = CGRect(x: x, y: y, width: width, height: height)
         UIApplication.sharedApplication().keyWindow?.insertSubview(tempView, aboveSubview: view)
         
-        UIView.animateWithDuration(0.25, animations: {
-            tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
-            }) { (_) in
-                UIView.animateWithDuration(0.4, animations: {
-                    tempView.alpha = 0
-                    }, completion: { (_) in
-                        tempView.removeFromSuperview()
-                })
+        // 分类页面需要下移20
+        if (category_id == 0) {
+            tempView.frame = CGRect(x: x, y: y, width: width, height: height)
+        } else {
+            tempView.frame = CGRect(x: x, y: y - 20, width: width, height: height)
         }
         
+        // 放大动画并移除
+        UIView.animateWithDuration(0.3, animations: {
+            tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        }) { (_) in
+            UIView.animateWithDuration(0.3, animations: {
+                tempView.alpha = 0
+                }, completion: { (_) in
+                    tempView.removeFromSuperview()
+            })
+        }
+        
+        // 自定义转场动画
         let detailVc = JFDetailViewController()
         detailVc.model = wallpaperArray[indexPath.item]
         detailVc.transitioningDelegate = self
@@ -188,7 +198,7 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
             })
         }
     }
-
+    
 }
 
 // MARK: - JFCategoryTopViewDelegate

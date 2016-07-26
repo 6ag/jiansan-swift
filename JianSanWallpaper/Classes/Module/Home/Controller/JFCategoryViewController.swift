@@ -59,6 +59,20 @@ class JFCategoryViewController: UIViewController {
         }
     }
     
+    /**
+     点击了热门
+     */
+    @objc private func didTappedPopularButton(button: UIButton) {
+        print("热门")
+    }
+    
+    /**
+     点击了最佳锁屏
+     */
+    @objc private func didTappedBestButton(button: UIButton) {
+        print("最佳")
+    }
+    
     // MARK: - 懒加载
     /// collectionView
     private lazy var collectionView: UICollectionView = {
@@ -82,6 +96,7 @@ class JFCategoryViewController: UIViewController {
     private lazy var popularButton: UIButton = {
         let popularButton = UIButton(type: .Custom)
         popularButton.setBackgroundImage(UIImage(named: "category_popular"), forState: UIControlState.Normal)
+        popularButton.addTarget(self, action: #selector(didTappedPopularButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return popularButton
     }()
     
@@ -89,6 +104,7 @@ class JFCategoryViewController: UIViewController {
     private lazy var bestButton: UIButton = {
         let bestButton = UIButton(type: .Custom)
         bestButton.setBackgroundImage(UIImage(named: "category_best"), forState: UIControlState.Normal)
+        bestButton.addTarget(self, action: #selector(didTappedBestButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return bestButton
     }()
     
