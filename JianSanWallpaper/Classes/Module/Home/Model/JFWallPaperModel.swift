@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import YYWebImage
 
 class JFWallPaperModel: NSObject {
     
@@ -35,6 +36,26 @@ class JFWallPaperModel: NSObject {
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
     
     /**
+     缓存大图
+     
+     - parameter bigpath: 大图路径
+     */
+    private class func bigImageCache(bigpath: String) {
+        // 没有缓存才去缓存
+        if !YYImageCache.sharedCache().containsImageForKey("\(BASE_URL)/\(bigpath)") {
+            YYWebImageManager(cache: YYImageCache.sharedCache(), queue: NSOperationQueue()).requestImageWithURL(NSURL(string: "\(BASE_URL)/\(bigpath)")!, options: YYWebImageOptions.UseNSURLCache, progress: { (_, _) in
+                }, transform: { (image, url) -> UIImage? in
+                    return image
+                }, completion: { (image, url, type, stage, error) in
+            })
+            print("\(bigpath) 首次缓存")
+        } else {
+            print("\(bigpath) 已经有缓存")
+        }
+        
+    }
+    
+    /**
      从网络请求壁纸数据列表
      
      - parameter category_id: 壁纸分类id
@@ -58,11 +79,11 @@ class JFWallPaperModel: NSObject {
             let data = result["data"].arrayObject as! [[String : AnyObject]]
             for dict in data {
                 let wallpaper = JFWallPaperModel(dict: dict)
+                self.bigImageCache(wallpaper.bigpath!)
                 wallpaperArray.append(wallpaper)
             }
             
             finished(wallpaperArray: wallpaperArray, error: nil)
-
         }
     }
     

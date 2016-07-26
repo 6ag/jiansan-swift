@@ -44,6 +44,9 @@
 		B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */; };
 		B20D08E91D47075100008A19 /* JFSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08E81D47075100008A19 /* JFSideView.swift */; };
 		B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D08EA1D47075900008A19 /* JFSideView.xib */; };
+		B20D08F31D471FC200008A19 /* JFWallpaperDismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08ED1D471FC200008A19 /* JFWallpaperDismissAnimation.swift */; };
+		B20D08F41D471FC200008A19 /* JFWallpaperModalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08EE1D471FC200008A19 /* JFWallpaperModalAnimation.swift */; };
+		B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08EF1D471FC200008A19 /* JFWallpaperPresentationController.swift */; };
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
@@ -154,6 +157,9 @@
 		B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryTopView.xib; sourceTree = "<group>"; };
 		B20D08E81D47075100008A19 /* JFSideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFSideView.swift; sourceTree = "<group>"; };
 		B20D08EA1D47075900008A19 /* JFSideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFSideView.xib; sourceTree = "<group>"; };
+		B20D08ED1D471FC200008A19 /* JFWallpaperDismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperDismissAnimation.swift; sourceTree = "<group>"; };
+		B20D08EE1D471FC200008A19 /* JFWallpaperModalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperModalAnimation.swift; sourceTree = "<group>"; };
+		B20D08EF1D471FC200008A19 /* JFWallpaperPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperPresentationController.swift; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 		B20952EA1CD2132800036163 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B20D08EC1D471FC200008A19 /* Transition */,
 				B20952EB1CD2132800036163 /* Controller */,
 			);
 			path = Main;
@@ -537,6 +544,16 @@
 				B209533B1CD2132800036163 /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		B20D08EC1D471FC200008A19 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				B20D08ED1D471FC200008A19 /* JFWallpaperDismissAnimation.swift */,
+				B20D08EE1D471FC200008A19 /* JFWallpaperModalAnimation.swift */,
+				B20D08EF1D471FC200008A19 /* JFWallpaperPresentationController.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		B2E2883A1D43323D00745A3F /* JFWallPaperTool */ = {
@@ -749,6 +766,7 @@
 				B20D08E91D47075100008A19 /* JFSideView.swift in Sources */,
 				B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */,
 				B209535C1CD2132800036163 /* JFNetworkTools.swift in Sources */,
+				B20D08F31D471FC200008A19 /* JFWallpaperDismissAnimation.swift in Sources */,
 				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,
 				B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */,
 				B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */,
@@ -763,11 +781,13 @@
 				B2FE2FE51CD33F3B0013FAEE /* FMDatabaseAdditions.m in Sources */,
 				B20953461CD2132800036163 /* JFHomeViewController.swift in Sources */,
 				B2FE2FE91CD33F3B0013FAEE /* FMDatabaseVariadic.swift in Sources */,
+				B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */,
 				B2E288491D43347B00745A3F /* JFSettingCellSwitch.swift in Sources */,
 				B20953541CD2132800036163 /* JFProfileTableViewController.swift in Sources */,
 				B209535D1CD2132800036163 /* JFContextItem.swift in Sources */,
 				B2FE2FE61CD33F3B0013FAEE /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				B2E2884E1D43363E00745A3F /* JFCategoryViewController.swift in Sources */,
+				B20D08F41D471FC200008A19 /* JFWallpaperModalAnimation.swift in Sources */,
 				B2FE2FE71CD33F3B0013FAEE /* FMDatabasePool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

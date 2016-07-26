@@ -8,6 +8,7 @@
 
 import UIKit
 import MJRefresh
+import YYWebImage
 
 class JFPopularViewController: UIViewController {
     
@@ -151,11 +152,36 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
+        let rect = item.convertRect(item.frame, toView: view)
+        
+        let x = rect.origin.x / 2
+        let y = 64 + CGFloat(indexPath.item / 3) * rect.size.height - collectionView.contentOffset.y
+        let width = rect.size.width
+        let height = rect.size.height
+        
+        let tempView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(wallpaperArray[indexPath.item].smallpath!)"))
+        tempView.frame = CGRect(x: x, y: y, width: width, height: height)
+        UIApplication.sharedApplication().keyWindow?.insertSubview(tempView, aboveSubview: view)
+        
+        UIView.animateWithDuration(0.25, animations: {
+            tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+            }) { (_) in
+                UIView.animateWithDuration(0.4, animations: {
+                    tempView.alpha = 0
+                    }, completion: { (_) in
+                        tempView.removeFromSuperview()
+                })
+        }
+        
         let detailVc = JFDetailViewController()
         detailVc.model = wallpaperArray[indexPath.item]
+        detailVc.transitioningDelegate = self
+        detailVc.modalPresentationStyle = .Custom
         presentViewController(detailVc, animated: true) {
             // 异步更新浏览量
-            dispatch_async(dispatch_get_global_queue(0, 0), { 
+            dispatch_async(dispatch_get_global_queue(0, 0), {
                 JFWallPaperModel.showWallpaper(self.wallpaperArray[indexPath.item].id, finished: { (wallpaper, error) in
                     print("这很nice，和很清真")
                 })
@@ -174,4 +200,30 @@ extension JFPopularViewController: JFCategoryTopViewDelegate {
     func didTappedLeftBarButton() {
         navigationController?.popViewControllerAnimated(true)
     }
+}
+
+// MARK: - 栏目管理自定义转场动画事件
+extension JFPopularViewController: UIViewControllerTransitioningDelegate {
+    
+    /**
+     返回一个控制modal视图大小的对象
+     */
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        return JFWallpaperPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    }
+    
+    /**
+     返回一个控制器modal动画效果的对象
+     */
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return JFWallpaperModalAnimation()
+    }
+    
+    /**
+     返回一个控制dismiss动画效果的对象
+     */
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return JFWallpaperDismissAnimation()
+    }
+    
 }
