@@ -38,7 +38,8 @@ class JFContextItem: UIView {
     
     lazy var itemImage: UIImageView = {
         let itemImage = UIImageView()
-        itemImage.frame = CGRect(x: 0, y: 14, width: self.frame.width, height: 40)
+        itemImage.frame = CGRect(x: 9, y: 14, width: 25, height: 35)
+        itemImage.contentMode = .ScaleAspectFit
         self.addSubview(itemImage)
         return itemImage
     }()

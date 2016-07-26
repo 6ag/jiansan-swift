@@ -42,6 +42,8 @@
 		B20953711CD2132800036163 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20953371CD2132800036163 /* libWeChatSDK.a */; };
 		B20D08E41D46F05A00008A19 /* JFCategoryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08E21D46F05A00008A19 /* JFCategoryTopView.swift */; };
 		B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */; };
+		B20D08E91D47075100008A19 /* JFSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08E81D47075100008A19 /* JFSideView.swift */; };
+		B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D08EA1D47075900008A19 /* JFSideView.xib */; };
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
@@ -150,6 +152,8 @@
 		B209533B1CD2132800036163 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		B20D08E21D46F05A00008A19 /* JFCategoryTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryTopView.swift; sourceTree = "<group>"; };
 		B20D08E31D46F05A00008A19 /* JFCategoryTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryTopView.xib; sourceTree = "<group>"; };
+		B20D08E81D47075100008A19 /* JFSideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFSideView.swift; sourceTree = "<group>"; };
+		B20D08EA1D47075900008A19 /* JFSideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFSideView.xib; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 				B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */,
 				B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */,
 				B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */,
+				B20D08E81D47075100008A19 /* JFSideView.swift */,
+				B20D08EA1D47075900008A19 /* JFSideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				B20953671CD2132800036163 /* UMSnsAccountViewController.xib in Resources */,
 				B20953651CD2132800036163 /* UMShareEditViewControlleriPad.xib in Resources */,
 				B209536C1CD2132800036163 /* WeiboSDK.bundle in Resources */,
+				B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +746,7 @@
 				B2E288471D43347B00745A3F /* JFSettingCellLabel.swift in Sources */,
 				B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */,
 				B209535B1CD2132800036163 /* JFSettingCell.swift in Sources */,
+				B20D08E91D47075100008A19 /* JFSideView.swift in Sources */,
 				B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */,
 				B209535C1CD2132800036163 /* JFNetworkTools.swift in Sources */,
 				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,

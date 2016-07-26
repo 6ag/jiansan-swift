@@ -72,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     private func loadViewController() {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = JFNavigationController(rootViewController: JFHomeViewController())
         window?.makeKeyAndVisible()
     }
