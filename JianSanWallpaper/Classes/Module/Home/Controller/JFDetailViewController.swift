@@ -210,11 +210,11 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         scrollView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: SCREEN_HEIGHT)
         
         // 第一张背景
-        let previewImage1 = UIImageView(image: UIImage(named: "preview_cover00_640x1136"))
+        let previewImage1 = UIImageView(image: UIImage(named: "preview_cover_clock"))
         previewImage1.frame = SCREEN_BOUNDS
         
         // 第二张背景
-        let previewImage2 = UIImageView(image: UIImage(named: "preview_cover01_640x1136"))
+        let previewImage2 = UIImageView(image: UIImage(named: "preview_cover_home"))
         previewImage2.frame = CGRect(x: SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
         
         scrollView.addSubview(previewImage1)

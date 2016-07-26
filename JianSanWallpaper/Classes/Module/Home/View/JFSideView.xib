@@ -19,8 +19,8 @@
                     </constraints>
                     <state key="normal" backgroundImage="touxiang"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="六阿哥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-i2-gcs">
-                    <rect key="frame" x="20.5" y="122" width="45" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装饰品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-i2-gcs">
+                    <rect key="frame" x="20" y="122" width="45" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -38,73 +38,81 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnH-GX-RAt">
-                    <rect key="frame" x="33" y="201" width="20" height="20"/>
-                    <state key="normal" backgroundImage="cehua_shoucang"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Si0-0G-8mm">
-                    <rect key="frame" x="13" y="228" width="60" height="18"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnH-GX-RAt" customClass="JFSideButton" customModule="JianSanWallpaper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="201" width="86" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="LQq-FS-din"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9R-ey-2f1">
-                    <rect key="frame" x="33" y="293" width="20" height="19"/>
-                    <state key="normal" backgroundImage="cehua_sheji"/>
+                    <state key="normal" title="我的收藏" image="cehua_shoucang">
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didTappedMyCollectionButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z90-Jt-Soc"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-VE-DgX">
-                    <rect key="frame" x="28" y="384" width="29" height="29"/>
-                    <state key="normal" backgroundImage="cehua_xiazai"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9R-ey-2f1" customClass="JFSideButton" customModule="JianSanWallpaper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="301" width="86" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="cIE-hH-ElK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="清除缓存" image="cehua_sheji">
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didTappedCleanCacheButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="jvG-iW-KRf"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意见反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGu-Hs-kBm">
-                    <rect key="frame" x="13" y="420" width="60" height="18"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-VE-DgX" customClass="JFSideButton" customModule="JianSanWallpaper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="401" width="86" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="sq4-pa-KKB"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJm-sy-eNK">
-                    <rect key="frame" x="33" y="485" width="20" height="20"/>
-                    <state key="normal" backgroundImage="cehua_fenxiang"/>
+                    <state key="normal" title="意见反馈" image="cehua_xiazai">
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didTappedFeedbackButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="23H-BZ-GsL"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-bM-EMr">
-                    <rect key="frame" x="13" y="512" width="60" height="18"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJm-sy-eNK" customClass="JFSideButton" customModule="JianSanWallpaper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="501" width="86" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="x5a-Sk-OMD"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清除缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-nD-OUY">
-                    <rect key="frame" x="13" y="319" width="60" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <state key="normal" title="推荐好友" image="cehua_fenxiang">
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="didTappedShareButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bcl-Xc-c8D"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="xnH-GX-RAt" secondAttribute="trailing" id="1KD-xf-NZQ"/>
                 <constraint firstItem="AkW-5E-Gkw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2bV-qG-w7e"/>
-                <constraint firstItem="RJm-sy-eNK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bd9-ib-Cw9"/>
+                <constraint firstItem="y9R-ey-2f1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2zf-xm-bhk"/>
                 <constraint firstItem="AkW-5E-Gkw" firstAttribute="top" secondItem="bU5-i2-gcs" secondAttribute="bottom" constant="30" id="DqY-WU-KX9"/>
-                <constraint firstItem="y9R-ey-2f1" firstAttribute="top" secondItem="Si0-0G-8mm" secondAttribute="bottom" constant="47" id="GAu-4U-Dun"/>
-                <constraint firstItem="xnH-GX-RAt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HFz-v5-MrV"/>
-                <constraint firstItem="aGu-Hs-kBm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HMi-YQ-CCn"/>
-                <constraint firstItem="RJm-sy-eNK" firstAttribute="top" secondItem="aGu-Hs-kBm" secondAttribute="bottom" constant="47" id="Hhz-vk-GZ7"/>
+                <constraint firstAttribute="trailing" secondItem="y9R-ey-2f1" secondAttribute="trailing" id="GRF-fb-9LC"/>
                 <constraint firstItem="BSi-5E-UzA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="41" id="Hx6-qM-zer"/>
                 <constraint firstItem="AkW-5E-Gkw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jkz-Gu-OWV"/>
                 <constraint firstItem="BSi-5E-UzA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KJM-kn-qJ7"/>
-                <constraint firstItem="BfH-VE-DgX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LBb-YK-SAI"/>
                 <constraint firstItem="bU5-i2-gcs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LET-dH-wGE"/>
-                <constraint firstItem="xnH-GX-RAt" firstAttribute="top" secondItem="AkW-5E-Gkw" secondAttribute="bottom" constant="30" id="NQk-NA-uUH"/>
-                <constraint firstItem="Si0-0G-8mm" firstAttribute="top" secondItem="xnH-GX-RAt" secondAttribute="bottom" constant="7" id="QcQ-vF-CCW"/>
-                <constraint firstItem="IeZ-nD-OUY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="T4H-78-E8s"/>
-                <constraint firstItem="aGu-Hs-kBm" firstAttribute="top" secondItem="BfH-VE-DgX" secondAttribute="bottom" constant="7" id="TYZ-Kh-ZYT"/>
-                <constraint firstItem="IeZ-nD-OUY" firstAttribute="top" secondItem="y9R-ey-2f1" secondAttribute="bottom" constant="7" id="UsW-6T-0hb"/>
-                <constraint firstItem="BfH-VE-DgX" firstAttribute="top" secondItem="IeZ-nD-OUY" secondAttribute="bottom" constant="47" id="gL6-GC-xFf"/>
-                <constraint firstItem="hkQ-bM-EMr" firstAttribute="top" secondItem="RJm-sy-eNK" secondAttribute="bottom" constant="7" id="jdd-2v-qdd"/>
+                <constraint firstAttribute="trailing" secondItem="RJm-sy-eNK" secondAttribute="trailing" id="LYx-HT-ZA0"/>
+                <constraint firstItem="BfH-VE-DgX" firstAttribute="top" secondItem="y9R-ey-2f1" secondAttribute="bottom" constant="30" id="TNS-hl-Kd0"/>
+                <constraint firstItem="y9R-ey-2f1" firstAttribute="top" secondItem="xnH-GX-RAt" secondAttribute="bottom" constant="30" id="VTr-vK-2hn"/>
+                <constraint firstItem="RJm-sy-eNK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cin-kI-FuG"/>
+                <constraint firstItem="BfH-VE-DgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gHM-5X-e7b"/>
+                <constraint firstItem="RJm-sy-eNK" firstAttribute="top" secondItem="BfH-VE-DgX" secondAttribute="bottom" constant="30" id="ka4-s7-8Ey"/>
                 <constraint firstItem="bU5-i2-gcs" firstAttribute="top" secondItem="BSi-5E-UzA" secondAttribute="bottom" constant="10" id="le2-5S-Mtr"/>
-                <constraint firstItem="Si0-0G-8mm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oan-Sl-k74"/>
+                <constraint firstItem="xnH-GX-RAt" firstAttribute="top" secondItem="AkW-5E-Gkw" secondAttribute="bottom" constant="30" id="pLz-MF-gh7"/>
+                <constraint firstAttribute="trailing" secondItem="BfH-VE-DgX" secondAttribute="trailing" id="qNg-ik-4w6"/>
                 <constraint firstAttribute="trailing" secondItem="AkW-5E-Gkw" secondAttribute="trailing" id="uCS-jg-Sm1"/>
-                <constraint firstItem="hkQ-bM-EMr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v7r-Z5-O6p"/>
-                <constraint firstItem="y9R-ey-2f1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vR8-tr-COm"/>
+                <constraint firstItem="xnH-GX-RAt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ytA-pd-eFs"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

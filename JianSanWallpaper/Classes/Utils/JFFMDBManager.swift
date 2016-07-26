@@ -14,10 +14,10 @@ class JFFMDBManager: NSObject {
     static let sharedManager = JFFMDBManager()
     
     /// sqlite名称
-    private let dbName = "star.db"
+    private let dbName = "fuck.db"
     
     /// 收藏表
-    private let tbName = "jf_star"
+    private let tbName = "fuck"
     
     let dbQueue: FMDatabaseQueue
     
@@ -57,7 +57,7 @@ class JFFMDBManager: NSObject {
      
      - parameter path:     收藏的壁纸路径
      */
-    func insertStar(path: String) -> Void {
+    func insertStar(path: String) {
         let sql = "INSERT INTO \(tbName) (path) VALUES (\"\(path)\");"
         
         dbQueue.inDatabase { (db) in
@@ -72,16 +72,16 @@ class JFFMDBManager: NSObject {
     
     /**
      获取收藏的壁纸
-     
-     - parameter currentPage:  当前页
-     - parameter onePageCount: 每页数量
      - parameter finished:     完成回调
      */
-    func getStarWallpaper(currentPage: Int, onePageCount: Int, finished: QueryStarFinished) -> Void {
+    func getStarWallpaper(finished: QueryStarFinished) -> Void {
         
-        let pre_count = (currentPage - 1) * onePageCount
-        let oneCount = onePageCount
-        let sql = "SELECT * FROM \(tbName) ORDER BY id DESC LIMIT \(pre_count), \(oneCount);"
+//        let pre_count = (currentPage - 1) * onePageCount
+//        let oneCount = onePageCount
+//        let sql = "SELECT * FROM \(tbName) ORDER BY id DESC LIMIT \(pre_count), \(oneCount);"
+        
+        // 小量数据不分页
+        let sql = "SELECT * FROM \(tbName) ORDER BY id DESC;"
         
         dbQueue.inDatabase { (db) in
             do {
@@ -106,9 +106,9 @@ class JFFMDBManager: NSObject {
     /**
      移除指定壁纸
      
-     - parameter id: 本地数据库壁纸id
+     - parameter path: 本地数据库壁纸path
      */
-    func removeOneStarWallpaper(path: String) -> Void {
+    func removeOneStarWallpaper(path: String) {
         let sql = "DELETE FROM \(tbName) WHERE path = \"\(path)\""
         
         dbQueue.inDatabase { (db) in
@@ -123,7 +123,8 @@ class JFFMDBManager: NSObject {
     /**
      移除所有壁纸
      */
-    func removeAllStarWallpapaer() -> Void {
+    func removeAllStarWallpapaer() {
+        
         let sql = "truncate \(tbName);"
         
         dbQueue.inDatabase { (db) in
@@ -141,7 +142,8 @@ class JFFMDBManager: NSObject {
      - parameter path:     收藏的壁纸路径
      - parameter finished: 检测回调
      */
-    func checkIsExists(path: String, finished: (isExists: Bool)->()) -> Void {
+    func checkIsExists(path: String, finished: (isExists: Bool)->()) {
+        
         let sql = "SELECT * FROM \(tbName) WHERE path = \"\(path)\";"
         
         var count = 0

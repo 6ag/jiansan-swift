@@ -50,10 +50,10 @@ func jf_setupHeaderRefresh(target: AnyObject, action: Selector) -> MJRefreshNorm
 let NAVBAR_TINT_COLOR = UIColor.whiteColor()
 
 /// 标题颜色
-let TITLE_COLOR = UIColor(red:0.943,  green:0.943,  blue:0.943, alpha:1)
+let TITLE_COLOR = UIColor(red: 142 / 255.0, green: 120 / 255.0, blue: 152 / 255.0, alpha: 1.0)
 
 /// 标题字体
-let TITLE_FONT = UIFont.systemFontOfSize(18)
+let TITLE_FONT = UIFont.systemFontOfSize(17)
 
 /// 控制器背景颜色
 let BACKGROUND_COLOR = UIColor(red:0.933,  green:0.933,  blue:0.933, alpha:1)

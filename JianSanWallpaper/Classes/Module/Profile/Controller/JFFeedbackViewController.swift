@@ -1,5 +1,5 @@
 //
-//  JFProfileFeedbackViewController.swift
+//  JFFeedbackViewController.swift
 //  JianSan Wallpaper
 //
 //  Created by zhoujianfeng on 16/4/27.
@@ -8,16 +8,25 @@
 
 import UIKit
 
-class JFProfileFeedbackViewController: JFBaseTableViewController {
+class JFFeedbackViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "意见反馈"
+        tableView.backgroundColor = BACKGROUND_COLOR
+        tableView.contentInset = UIEdgeInsets(top: -15, left: 0, bottom: 0, right: 0)
         
         dispatch_async(dispatch_get_global_queue(0, 0)) { 
             dispatch_async(dispatch_get_main_queue(), { 
                 self.prepareUI()
             })
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     deinit {

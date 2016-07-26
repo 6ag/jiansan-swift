@@ -32,7 +32,7 @@ extension JFNetworkTools {
             }
         }
     }
-    ;
+    
     /**
      get请求
      

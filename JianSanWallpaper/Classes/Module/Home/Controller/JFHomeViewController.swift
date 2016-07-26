@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYWebImage
 
 class JFHomeViewController: UIViewController {
     
@@ -23,9 +24,6 @@ class JFHomeViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        UIView.animateWithDuration(0.25) {
-            self.view.transform = CGAffineTransformIdentity
-        }
         
     }
     
@@ -35,9 +33,9 @@ class JFHomeViewController: UIViewController {
     private func prepareUI() {
         view.backgroundColor = UIColor.whiteColor()
         
-        view.addSubview(sideView)
         view.addSubview(topView)
         view.addSubview(contentView)
+        sideView.delegate = self
     }
     
     // MARK: - 懒加载
@@ -72,12 +70,7 @@ class JFHomeViewController: UIViewController {
     
     /// 侧边栏
     private lazy var sideView: JFSideView = {
-        let sideView = NSBundle.mainBundle().loadNibNamed("JFSideView", owner: nil, options: nil).last as! JFSideView
-        sideView.frame = CGRect(x: -86, y: 0, width: 85, height: SCREEN_HEIGHT)
-        sideView.layer.shadowOffset = CGSize(width: 2, height: 1)
-        sideView.layer.shadowColor = UIColor.blackColor().CGColor
-        sideView.layer.shadowOpacity = 0.3
-        sideView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 84, y: 0, width: 2, height: SCREEN_HEIGHT)).CGPath
+        let sideView = JFSideView.makeSideView()
         return sideView
     }()
     
@@ -117,11 +110,54 @@ extension JFHomeViewController: JFHomeTopViewDelegate {
      */
     func didTappedLeftBarButton() {
         UIView.animateWithDuration(0.25) {
-            if (self.view.transform.tx == 0) {
-                self.view.transform = CGAffineTransformMakeTranslation(86, 0)
-            } else {
-                self.view.transform = CGAffineTransformIdentity
-            }
+            self.sideView.show()
         }
+    }
+}
+
+// MARK: - JFHomeTopViewDelegate
+extension JFHomeViewController: JFSideViewDelegate {
+    
+    /**
+     我的收藏
+     */
+    func didTappedMyCollectionButton() {
+        navigationController?.pushViewController(JFCollectionViewController(), animated: true)
+    }
+    
+    /**
+     清理缓存
+     */
+    func didTappedCleanCacheButton() {
+        
+        let cache = "\(String(format: "%.2f", CGFloat(YYImageCache.sharedCache().diskCache.totalCost()) / 1024 / 1024))M"
+        
+        let alertController = UIAlertController(title: "\(cache) 缓存", message: "您真的要清理缓存吗？清理缓存同时会清理【我的收藏】中的数据。", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel) { (action) in
+        }
+        let confirmAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Destructive) { (action) in
+            JFProgressHUD.showWithStatus("正在清理")
+            YYImageCache.sharedCache().diskCache.removeAllObjectsWithBlock({
+                JFProgressHUD.showSuccessWithStatus("清理成功")
+            })
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        presentViewController(alertController, animated: true) {}
+        
+    }
+    
+    /**
+     意见反馈
+     */
+    func didTappedFeedbackButton() {
+        navigationController?.pushViewController(JFFeedbackViewController(), animated: true)
+    }
+    
+    /**
+     分享推荐
+     */
+    func didTappedShareButton() {
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: nil, shareText: "这是一款剑三福利app，十二大门派海量剑三壁纸每日更新，小伙伴们快来试试吧！https://itunes.apple.com/cn/app/id1110293594", shareImage: nil, shareToSnsNames: [UMShareToSina, UMShareToQQ, UMShareToWechatSession, UMShareToWechatTimeline], delegate: nil)
     }
 }
