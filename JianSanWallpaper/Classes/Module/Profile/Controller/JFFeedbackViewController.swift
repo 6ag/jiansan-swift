@@ -17,8 +17,8 @@ class JFFeedbackViewController: UITableViewController {
         tableView.backgroundColor = BACKGROUND_COLOR
         tableView.contentInset = UIEdgeInsets(top: -15, left: 0, bottom: 0, right: 0)
         
-        dispatch_async(dispatch_get_global_queue(0, 0)) { 
-            dispatch_async(dispatch_get_main_queue(), { 
+        dispatch_async(dispatch_get_global_queue(0, 0)) {
+            dispatch_async(dispatch_get_main_queue(), {
                 self.prepareUI()
             })
         }
@@ -78,7 +78,7 @@ class JFFeedbackViewController: UITableViewController {
         let parameters = [
             "contact" : contactTextField.text!,
             "content" : contentTextView.text,
-        ]
+            ]
         
         JFNetworkTools.shareNetworkTools.post(SUBMIT_FEEDBACK, parameters: parameters) { (success, result, error) in
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
@@ -111,14 +111,12 @@ class JFFeedbackViewController: UITableViewController {
             commitButton.enabled = false
             commitButton.backgroundColor = UIColor(red:0.733,  green:0.733,  blue:0.733, alpha:1)
         }
-        
     }
     
     /// 内容文本框
     lazy var contentTextView: UITextView = {
         let contentTextView = UITextView(frame: CGRect(x: MARGIN, y: 0, width: SCREEN_WIDTH - MARGIN * 2, height: 200))
         contentTextView.layer.cornerRadius = CORNER_RADIUS
-        
         return contentTextView
     }()
     

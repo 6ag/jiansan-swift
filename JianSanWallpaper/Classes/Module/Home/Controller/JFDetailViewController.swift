@@ -22,7 +22,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     var model: JFWallPaperModel? {
         didSet {
             imageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.bigpath!)"),
-                                         placeholder: YYImageCache.sharedCache().getImageForKey(model!.smallpath!),
+                                         placeholder: nil,
                                          options: YYWebImageOptions.Progressive,
                                          completion: nil)
         }
@@ -53,7 +53,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     /**
      唤醒线程
      */
-    func dontSleep() -> Void {
+    func dontSleep() {
         print("起来吧，别日狗了")
     }
     

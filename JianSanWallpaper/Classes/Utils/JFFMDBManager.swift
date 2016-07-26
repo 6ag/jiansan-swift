@@ -76,10 +76,6 @@ class JFFMDBManager: NSObject {
      */
     func getStarWallpaper(finished: QueryStarFinished) -> Void {
         
-//        let pre_count = (currentPage - 1) * onePageCount
-//        let oneCount = onePageCount
-//        let sql = "SELECT * FROM \(tbName) ORDER BY id DESC LIMIT \(pre_count), \(oneCount);"
-        
         // 小量数据不分页
         let sql = "SELECT * FROM \(tbName) ORDER BY id DESC;"
         

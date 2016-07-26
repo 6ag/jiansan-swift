@@ -9,11 +9,18 @@
 import UIKit
 import SnapKit
 
+protocol JFCategoryViewControllerDelegate {
+    func didTappedPopularButton()
+    func didTappedBestButton()
+}
+
 class JFCategoryViewController: UIViewController {
 
     let categoryIdentifier = "categoryCell"
     
     var categoriesArray = [JFCategoryModel]()
+    
+    var delegate: JFCategoryViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +70,14 @@ class JFCategoryViewController: UIViewController {
      点击了热门
      */
     @objc private func didTappedPopularButton(button: UIButton) {
-        print("热门")
+        delegate?.didTappedPopularButton()
     }
     
     /**
      点击了最佳锁屏
      */
     @objc private func didTappedBestButton(button: UIButton) {
-        print("最佳")
+        delegate?.didTappedBestButton()
     }
     
     // MARK: - 懒加载

@@ -46,6 +46,8 @@
 		B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08EF1D471FC200008A19 /* JFWallpaperPresentationController.swift */; };
 		B20D08FA1D473DAB00008A19 /* JFSideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08F91D473DAB00008A19 /* JFSideButton.swift */; };
 		B20D08FC1D47556E00008A19 /* JFCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */; };
+		B20D09031D4766E700008A19 /* JFCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D09011D4766E700008A19 /* JFCollectionCell.swift */; };
+		B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D09021D4766E700008A19 /* JFCollectionCell.xib */; };
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
@@ -152,6 +154,8 @@
 		B20D08EF1D471FC200008A19 /* JFWallpaperPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFWallpaperPresentationController.swift; sourceTree = "<group>"; };
 		B20D08F91D473DAB00008A19 /* JFSideButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFSideButton.swift; sourceTree = "<group>"; };
 		B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionViewController.swift; sourceTree = "<group>"; };
+		B20D09011D4766E700008A19 /* JFCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionCell.swift; sourceTree = "<group>"; };
+		B20D09021D4766E700008A19 /* JFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCollectionCell.xib; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		B20952FD1CD2132800036163 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B20D09011D4766E700008A19 /* JFCollectionCell.swift */,
+				B20D09021D4766E700008A19 /* JFCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				B20953671CD2132800036163 /* UMSnsAccountViewController.xib in Resources */,
 				B20953651CD2132800036163 /* UMShareEditViewControlleriPad.xib in Resources */,
 				B209536C1CD2132800036163 /* WeiboSDK.bundle in Resources */,
+				B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */,
 				B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -744,6 +751,7 @@
 				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,
 				B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */,
 				B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */,
+				B20D09031D4766E700008A19 /* JFCollectionCell.swift in Sources */,
 				B209535E1CD2132800036163 /* JFContextSheet.swift in Sources */,
 				B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */,
 				B20953441CD2132800036163 /* Common.swift in Sources */,

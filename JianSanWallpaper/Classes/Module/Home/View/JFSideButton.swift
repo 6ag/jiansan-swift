@@ -12,7 +12,7 @@ class JFSideButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView?.frame = CGRectMake(33, 0, 20, 20)
+        imageView?.frame = CGRectMake(33, 0, 22, 22)
         titleLabel?.frame = CGRectMake(0, 27, 86, 20)
         titleLabel?.textAlignment = .Center
     }

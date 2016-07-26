@@ -1,0 +1,6 @@
+framework module ZLSwipeableViewSwift {
+  umbrella header "ZLSwipeableViewSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

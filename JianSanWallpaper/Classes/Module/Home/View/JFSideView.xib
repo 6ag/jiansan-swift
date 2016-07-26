@@ -27,7 +27,7 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkW-5E-Gkw">
                     <rect key="frame" x="0.0" y="170" width="86" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="FBR-mN-dUb"/>
                         <constraint firstAttribute="height" constant="1" id="OIS-Kv-wBz"/>

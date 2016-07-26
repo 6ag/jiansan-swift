@@ -11,6 +11,7 @@ PODS:
   - YYWebImage (1.0.4):
     - YYCache
     - YYImage
+  - ZLSwipeableViewSwift (0.0.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftyJSON (~> 2.3.2)
   - YYWebImage
+  - ZLSwipeableViewSwift
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
   YYImage: 362f44ffba1fc498f2152060f3bb54ed84600981
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
+  ZLSwipeableViewSwift: f5ee94c2e4220f900f5a129118af2aef23062900
 
-PODFILE CHECKSUM: 8b23e85a2166cd7062af6bb471570fa2c5315243
+PODFILE CHECKSUM: 0216de66ebafea7922d754bdc5dec4ee8f79dbf2
 
 COCOAPODS: 1.0.1

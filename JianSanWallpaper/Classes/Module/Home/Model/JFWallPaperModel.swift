@@ -50,7 +50,7 @@ class JFWallPaperModel: NSObject {
             })
             print("\(bigpath) 首次缓存")
         } else {
-            print("\(bigpath) 已经有缓存")
+//            print("\(bigpath) 已经有缓存")
         }
         
     }

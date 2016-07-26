@@ -62,6 +62,7 @@ class JFHomeViewController: UIViewController {
         self.addChildViewController(popularVc)
         
         let categoryVc = JFCategoryViewController()
+        categoryVc.delegate = self
         categoryVc.view.frame = CGRect(x: SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64)
         contentView.addSubview(categoryVc.view)
         self.addChildViewController(categoryVc)
@@ -159,5 +160,16 @@ extension JFHomeViewController: JFSideViewDelegate {
      */
     func didTappedShareButton() {
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: nil, shareText: "这是一款剑三福利app，十二大门派海量剑三壁纸每日更新，小伙伴们快来试试吧！https://itunes.apple.com/cn/app/id1110293594", shareImage: nil, shareToSnsNames: [UMShareToSina, UMShareToQQ, UMShareToWechatSession, UMShareToWechatTimeline], delegate: nil)
+    }
+}
+
+// MARK: - JFCategoryViewControllerDelegate
+extension JFHomeViewController: JFCategoryViewControllerDelegate {
+    
+    func didTappedPopularButton() {
+        self.topView.didTappedPopularButton()
+    }
+    func didTappedBestButton() {
+        self.topView.didTappedPopularButton()
     }
 }
