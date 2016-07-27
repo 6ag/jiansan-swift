@@ -121,7 +121,7 @@ class JFFMDBManager: NSObject {
      */
     func removeAllStarWallpapaer() {
         
-        let sql = "truncate \(tbName);"
+        let sql = "delete from \(tbName);"
         
         dbQueue.inDatabase { (db) in
             do {

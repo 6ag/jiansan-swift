@@ -13,7 +13,7 @@ class JFWallpaperCell: UICollectionViewCell {
     
     var model: JFWallPaperModel? {
         didSet {
-            wallpaperImageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.smallpath!)"), placeholder: nil, options: YYWebImageOptions.Progressive, completion: nil)
+            wallpaperImageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.smallpath!)"), placeholder: UIImage(named: "placeholder"), options: YYWebImageOptions.Progressive, completion: nil)
             viewLabel.text = "\(model!.view)"
         }
     }

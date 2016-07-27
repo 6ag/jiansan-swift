@@ -50,7 +50,7 @@ class JFWallPaperModel: NSObject {
                         return image
                     }, completion: { (image, url, type, stage, error) in
                 })
-                print("\(bigpath) 首次缓存")
+//                print("\(bigpath) 首次缓存")
             }
         }
     }
