@@ -13,4 +13,6 @@ pod 'SVProgressHUD'
 pod 'SwiftyJSON', '~> 2.3.2'
 pod 'MJRefresh'
 pod 'ZLSwipeableViewSwift'
+pod 'Firebase'
+pod 'Firebase/AdMob'
 end

@@ -161,7 +161,7 @@ extension JFHomeViewController: JFSideViewDelegate {
      分享推荐
      */
     func didTappedShareButton() {
-        UMSocialSnsService.presentSnsIconSheetView(self, appKey: nil, shareText: "这是一款剑三福利app，十二大门派海量剑三壁纸每日更新，小伙伴们快来试试吧！https://itunes.apple.com/cn/app/id1110293594", shareImage: nil, shareToSnsNames: [UMShareToSina, UMShareToQQ, UMShareToWechatSession, UMShareToWechatTimeline], delegate: nil)
+        
     }
 }
 

@@ -10,14 +10,7 @@
 #define JianSan_Wallpaper_Bridging_Header_h
 
 #import "JFWallPaperTool.h"
-
 #import "FMDB.h"
-
-#import "UMSocial.h"
-#import "UMSocialSinaSSOHandler.h"
-#import "UMSocialWechatHandler.h"
-#import "UMSocialQQHandler.h"
-
 #import "WXApi.h"
 
 #endif /* JianSan_Wallpaper_Bridging_Header_h */
