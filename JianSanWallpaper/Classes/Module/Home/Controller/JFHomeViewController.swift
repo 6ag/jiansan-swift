@@ -138,6 +138,8 @@ extension JFHomeViewController: JFSideViewDelegate {
         }
         let confirmAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Destructive) { (action) in
             JFProgressHUD.showWithStatus("正在清理")
+            // 移除全部收藏
+            JFFMDBManager.sharedManager.removeAllStarWallpapaer()
             YYImageCache.sharedCache().diskCache.removeAllObjectsWithBlock({
                 JFProgressHUD.showSuccessWithStatus("清理成功")
             })

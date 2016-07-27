@@ -24,12 +24,8 @@ class JFCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "我的收藏"
-        view.backgroundColor = BACKGROUND_COLOR
-        view.clipsToBounds = true
-        
-        prepareUI()
-        loadData()
+        self.prepareUI()
+        self.loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,6 +47,8 @@ class JFCollectionViewController: UIViewController {
      */
     private func prepareUI() {
         
+        title = "我的收藏"
+        view.backgroundColor = BACKGROUND_COLOR
         view.addSubview(swipeableView)
         
         // 点击了卡片
@@ -82,6 +80,10 @@ class JFCollectionViewController: UIViewController {
             detailVc.transitioningDelegate = self
             detailVc.modalPresentationStyle = .Custom
             self.presentViewController(detailVc, animated: true) {}
+        }
+        
+        swipeableView.didDisappear = { view in
+            print(view.tag)
         }
         
     }

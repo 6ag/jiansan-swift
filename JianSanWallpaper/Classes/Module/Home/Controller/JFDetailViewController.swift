@@ -22,7 +22,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     var model: JFWallPaperModel? {
         didSet {
             imageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.bigpath!)"),
-                                         placeholder: nil,
+                                         placeholder: model?.smallpath != nil ? UIImage(named: "\(BASE_URL)/\(model!.smallpath!)") : nil,
                                          options: YYWebImageOptions.Progressive,
                                          completion: nil)
         }

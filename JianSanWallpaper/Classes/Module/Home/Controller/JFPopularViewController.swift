@@ -12,10 +12,10 @@ import YYWebImage
 
 class JFPopularViewController: UIViewController {
     
-    let wallpaperIdentifier = "wallpaperCell"
-    
     /// 分类id为0会根据浏览量倒序查询
     var category_id = 0
+    
+    let wallpaperIdentifier = "wallpaperCell"
     
     /// 分类标题
     var category_title = ""
