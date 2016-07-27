@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         setupGlobalStyle()
-        setupUMSocial()
         loadViewController()
         setupSaveWallPaper()
         
@@ -33,27 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.on = on
             JFWallPaperTool.shareInstance().on = on
         }
-    }
-    
-    /**
-     配置ShareSDK
-     */
-    private func setupUMSocial() -> Void {
-        
-        UMSocialData.setAppKey(UM_APP_KEY)
-        
-        // 微信
-        if WXApi.isWXAppInstalled() && WXApi.isWXAppSupportApi() {
-            UMSocialWechatHandler.setWXAppId(WX_APP_ID, appSecret: WX_APP_SECRET, url: "https://blog.6ag.cn")
-        }
-        
-        // QQ
-        if QQApiInterface.isQQInstalled() && QQApiInterface.isQQSupportApi() {
-            UMSocialQQHandler.setQQWithAppId(QQ_APP_ID, appKey: QQ_APP_KEY, url: "https://blog.6ag.cn")
-        }
-        
-        // 微博
-        UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey(WB_APP_KEY, secret: WB_APP_SECRET, redirectURL: WB_REDIRECT_URL)
     }
     
     /**

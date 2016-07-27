@@ -11,6 +11,5 @@
 
 #import "JFWallPaperTool.h"
 #import "FMDB.h"
-#import "WXApi.h"
 
 #endif /* JianSan_Wallpaper_Bridging_Header_h */
