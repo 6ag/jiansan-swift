@@ -41,18 +41,18 @@ class JFWallPaperModel: NSObject {
      - parameter bigpath: 大图路径
      */
     private class func bigImageCache(bigpath: String) {
-        // 没有缓存才去缓存
-        if !YYImageCache.sharedCache().containsImageForKey("\(BASE_URL)/\(bigpath)") {
-            YYWebImageManager(cache: YYImageCache.sharedCache(), queue: NSOperationQueue()).requestImageWithURL(NSURL(string: "\(BASE_URL)/\(bigpath)")!, options: YYWebImageOptions.UseNSURLCache, progress: { (_, _) in
-                }, transform: { (image, url) -> UIImage? in
-                    return image
-                }, completion: { (image, url, type, stage, error) in
-            })
-            print("\(bigpath) 首次缓存")
-        } else {
-//            print("\(bigpath) 已经有缓存")
-        }
         
+        // 延迟是为了优先缓存缩略图
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            if !YYImageCache.sharedCache().containsImageForKey("\(BASE_URL)/\(bigpath)") {
+                YYWebImageManager(cache: YYImageCache.sharedCache(), queue: NSOperationQueue()).requestImageWithURL(NSURL(string: "\(BASE_URL)/\(bigpath)")!, options: YYWebImageOptions.UseNSURLCache, progress: { (_, _) in
+                    }, transform: { (image, url) -> UIImage? in
+                        return image
+                    }, completion: { (image, url, type, stage, error) in
+                })
+                print("\(bigpath) 首次缓存")
+            }
+        }
     }
     
     /**

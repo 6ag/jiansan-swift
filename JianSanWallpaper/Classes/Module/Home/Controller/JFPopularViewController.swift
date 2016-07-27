@@ -177,7 +177,7 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
         UIView.animateWithDuration(0.3, animations: {
             tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
         }) { (_) in
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.5, animations: {
                 tempView.alpha = 0
                 }, completion: { (_) in
                     tempView.removeFromSuperview()

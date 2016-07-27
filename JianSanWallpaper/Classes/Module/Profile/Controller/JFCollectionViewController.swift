@@ -55,6 +55,24 @@ class JFCollectionViewController: UIViewController {
         
         // 点击了卡片
         swipeableView.didTap = {view, location in
+            
+            // 临时放大动画的图片
+            let tempView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(self.data[view.tag]["path"]!)"))
+            UIApplication.sharedApplication().keyWindow?.insertSubview(tempView, aboveSubview: view)
+            
+            tempView.frame = CGRect(x: 50, y: 74, width: SCREEN_WIDTH - 100, height: SCREEN_HEIGHT - 74)
+            
+            // 放大动画并移除
+            UIView.animateWithDuration(0.3, animations: {
+                tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+            }) { (_) in
+                UIView.animateWithDuration(0.5, animations: {
+                    tempView.alpha = 0
+                    }, completion: { (_) in
+                        tempView.removeFromSuperview()
+                })
+            }
+            
             let detailVc = JFDetailViewController()
             let dict: [String : AnyObject] = [
                 "bigpath" : self.data[view.tag]["path"]!

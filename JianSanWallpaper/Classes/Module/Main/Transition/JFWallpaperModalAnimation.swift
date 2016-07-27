@@ -12,7 +12,7 @@ class JFWallpaperModalAnimation: NSObject, UIViewControllerAnimatedTransitioning
     
     // 动画时间
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
+        return 0.4
     }
     
     // modal动画
