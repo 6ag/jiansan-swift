@@ -18,7 +18,7 @@ class JFCollectionViewController: UIViewController {
     /// 当前角标
     var currentIndex = -1
     
-    /// 扫视图
+    /// 卡片视图
     var swipeableView = ZLSwipeableView(frame: CGRect(x: 50, y: 10, width: SCREEN_WIDTH - 100, height: SCREEN_HEIGHT - 74))
     
     override func viewDidLoad() {
@@ -53,6 +53,7 @@ class JFCollectionViewController: UIViewController {
         
         view.addSubview(swipeableView)
         
+        // 点击了卡片
         swipeableView.didTap = {view, location in
             let detailVc = JFDetailViewController()
             let dict: [String : AnyObject] = [
@@ -81,8 +82,10 @@ class JFCollectionViewController: UIViewController {
                 let imageView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(dict["path"]!)"))
                 imageView.frame = self.swipeableView.bounds
                 imageView.contentMode = .ScaleAspectFit
+                imageView.layer.shouldRasterize = true
+                imageView.layer.rasterizationScale = UIScreen.mainScreen().scale
                 imageView.tag = index
-                self.setupImageView(imageView)
+                
                 self.data.append([
                     "imageView" : imageView,
                     "path" : dict["path"]!,
@@ -98,22 +101,6 @@ class JFCollectionViewController: UIViewController {
             
         }
         
-    }
-    
-    /**
-     配置图片
-     */
-    func setupImageView(imageView: UIImageView) {
-        
-        imageView.layer.shadowColor = UIColor.blackColor().CGColor
-        imageView.layer.shadowOpacity = 0.25
-        imageView.layer.shadowOffset = CGSizeMake(0, 1.5)
-        imageView.layer.shadowRadius = 4.0
-        imageView.layer.shouldRasterize = true
-        imageView.layer.rasterizationScale = UIScreen.mainScreen().scale
-        
-        imageView.layer.cornerRadius = 10.0;
-        imageView.layer.masksToBounds = true
     }
     
 }
