@@ -54,6 +54,7 @@ class JFHomeTopView: UIView {
     @IBAction func didTappedLeftBarButton(sender: UIButton) {
         delegate?.didTappedLeftBarButton()
     }
+    
     @IBOutlet weak var popularButton: UIButton!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var lineView: UIView!
