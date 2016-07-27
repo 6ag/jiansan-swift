@@ -9,6 +9,7 @@
 import UIKit
 import MJRefresh
 import YYWebImage
+import Firebase
 
 class JFPopularViewController: UIViewController {
     
@@ -54,6 +55,17 @@ class JFPopularViewController: UIViewController {
         
         view.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView)
+        
+        let bannerView = GADBannerView()
+        if category_id == 0 {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
+        } else {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
+        }
+        bannerView.rootViewController = self
+        bannerView.adUnitID = "ca-app-pub-3941303619697740/2329598119"
+        bannerView.loadRequest(GADRequest())
+        view.addSubview(bannerView)
     }
     
     /**

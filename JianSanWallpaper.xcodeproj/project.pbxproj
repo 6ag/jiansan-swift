@@ -29,6 +29,7 @@
 		B20D08FC1D47556E00008A19 /* JFCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */; };
 		B20D09031D4766E700008A19 /* JFCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D09011D4766E700008A19 /* JFCollectionCell.swift */; };
 		B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D09021D4766E700008A19 /* JFCollectionCell.xib */; };
+		B2472D1B1D489CEA00B730AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */; };
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionViewController.swift; sourceTree = "<group>"; };
 		B20D09011D4766E700008A19 /* JFCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionCell.swift; sourceTree = "<group>"; };
 		B20D09021D4766E700008A19 /* JFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCollectionCell.xib; sourceTree = "<group>"; };
+		B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				B24B96E81D45BA95004B8BBE /* Assets.xcassets */,
 				B24B96E91D45BA95004B8BBE /* Info.plist */,
+				B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */,
 				B20952D71CD2132800036163 /* Classes */,
 			);
 			path = JianSanWallpaper;
@@ -479,6 +482,7 @@
 				B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */,
 				B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */,
 				B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */,
+				B2472D1B1D489CEA00B730AB /* GoogleService-Info.plist in Resources */,
 				B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */,
 				B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */,
 			);
@@ -672,6 +676,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JianSanWallpaper/Classes/Vender/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/JianSanWallpaper/Classes/Vender/GoogleMobileAdsSdk",
 				);
 				INFOPLIST_FILE = JianSanWallpaper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -718,6 +723,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/JianSanWallpaper/Classes/Vender/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/JianSanWallpaper/Classes/Vender/GoogleMobileAdsSdk",
 				);
 				INFOPLIST_FILE = JianSanWallpaper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

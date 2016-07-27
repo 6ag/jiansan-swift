@@ -136,6 +136,4 @@ extension JFCategoryViewController: UICollectionViewDataSource, UICollectionView
         popularVc.category_title = categoriesArray[indexPath.item].name!
         navigationController?.pushViewController(popularVc, animated: true)
     }
-    
-    
 }
