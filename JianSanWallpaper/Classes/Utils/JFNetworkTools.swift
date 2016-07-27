@@ -24,12 +24,20 @@ extension JFNetworkTools {
      */
     func checkSaveState(finished: (on: Bool)->()) {
         Alamofire.request(.GET, CHECK_SAVE_STATUS).responseJSON { response in
-            let json = JSON(response.result.value!)
+            
+            guard let data = response.data else {
+                finished(on: false)
+                return
+            }
+            
+            let json = JSON(data: data)
             if (json["data"]["content"].stringValue == "1") {
                 finished(on: true)
             } else {
+                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(on: false)
             }
+            
         }
     }
     
@@ -44,13 +52,19 @@ extension JFNetworkTools {
         
         Alamofire.request(.GET, URLString, parameters: parameters, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response) in
             
+            guard let data = response.data else {
+                finished(success: false, result: nil, error: response.result.error)
+                return
+            }
+            
             // 解析json数据
-            let json = JSON(response.result.value!)
+            let json = JSON(data: data)
             
             // 判断是否请求成功
             if (json["meta"]["status"].stringValue == "success") {
                 finished(success: true, result: json, error: nil)
             } else {
+                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(success: false, result: json, error: response.result.error)
             }
         }
@@ -67,13 +81,19 @@ extension JFNetworkTools {
         
         Alamofire.request(.POST, URLString, parameters: parameters, encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response) in
             
+            guard let data = response.data else {
+                finished(success: false, result: nil, error: response.result.error)
+                return
+            }
+            
             // 解析json数据
-            let json = JSON(response.result.value!)
+            let json = JSON(data: data)
             
             // 判断是否请求成功
             if (json["meta"]["status"].stringValue == "success") {
                 finished(success: true, result: json, error: nil)
             } else {
+                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(success: false, result: json, error: response.result.error)
             }
         }
