@@ -34,7 +34,6 @@ extension JFNetworkTools {
             if (json["data"]["content"].stringValue == "1") {
                 finished(on: true)
             } else {
-                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(on: false)
             }
             
@@ -64,7 +63,6 @@ extension JFNetworkTools {
             if (json["meta"]["status"].stringValue == "success") {
                 finished(success: true, result: json, error: nil)
             } else {
-                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(success: false, result: json, error: response.result.error)
             }
         }
@@ -93,7 +91,6 @@ extension JFNetworkTools {
             if (json["meta"]["status"].stringValue == "success") {
                 finished(success: true, result: json, error: nil)
             } else {
-                JFProgressHUD.showInfoWithStatus("您的网络不给力")
                 finished(success: false, result: json, error: response.result.error)
             }
         }
