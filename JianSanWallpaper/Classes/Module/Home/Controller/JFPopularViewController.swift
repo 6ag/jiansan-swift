@@ -10,6 +10,7 @@ import UIKit
 import MJRefresh
 import YYWebImage
 import Firebase
+import GoogleMobileAds
 
 class JFPopularViewController: UIViewController {
     
@@ -27,6 +28,9 @@ class JFPopularViewController: UIViewController {
     /// 壁纸模型数组
     var wallpaperArray = [JFWallPaperModel]()
     
+    // 插页广告
+//    var interstitial: GADInterstitial!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +40,9 @@ class JFPopularViewController: UIViewController {
         // 配置上下拉刷新控件
         collectionView.mj_header = jf_setupHeaderRefresh(self, action: #selector(pulldownLoadData))
         collectionView.mj_footer = jf_setupFooterRefresh(self, action: #selector(pullupLoadData))
+        
+        // 创建并加载插页广告
+//        interstitial = createAndLoadInterstitial()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,16 +63,15 @@ class JFPopularViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView)
         
-        let bannerView = GADBannerView()
-        if category_id == 0 {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
-        } else {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
-        }
-        bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-3941303619697740/2329598119"
-        bannerView.loadRequest(GADRequest())
+        // 底部悬浮广告
+        let bannerView = JFAdManager.shareDbManager().createBannerView(self)
         view.addSubview(bannerView)
+        
+        bannerView.snp_makeConstraints { (make) in
+            make.left.right.bottom.equalTo(0)
+            make.height.equalTo(50)
+        }
+        
     }
     
     /**
@@ -164,6 +170,16 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        // 弹出插页广告
+        if let interstitial = JFAdManager.shareDbManager().getReadyIntersitial() {
+            if interstitial.isReady {
+                interstitial.presentFromRootViewController(self)
+//                print("弹出插页")
+                return
+            }
+        }
+//        print("没有弹出插页")
+        
         // 转换坐标系
         let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
         let rect = item.convertRect(item.frame, toView: view)
@@ -205,10 +221,11 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
             // 异步更新浏览量
             dispatch_async(dispatch_get_global_queue(0, 0), {
                 JFWallPaperModel.showWallpaper(self.wallpaperArray[indexPath.item].id, finished: { (wallpaper, error) in
-                    print("这很nice，和很清真")
+//                    print("这很nice，和很清真")
                 })
             })
         }
+        
     }
     
 }

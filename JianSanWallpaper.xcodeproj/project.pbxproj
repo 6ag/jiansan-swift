@@ -29,7 +29,6 @@
 		B20D08FC1D47556E00008A19 /* JFCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */; };
 		B20D09031D4766E700008A19 /* JFCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20D09011D4766E700008A19 /* JFCollectionCell.swift */; };
 		B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20D09021D4766E700008A19 /* JFCollectionCell.xib */; };
-		B2472D1B1D489CEA00B730AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */; };
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
@@ -38,6 +37,8 @@
 		B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */; };
 		B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */; };
 		B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */; };
+		B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */; };
+		B29FF5071D5ED22F001EB96C /* JFAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5061D5ED22F001EB96C /* JFAdManager.swift */; };
 		B2BB28DA1CD1C02100CE4DC1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */; };
 		B2BB28DC1CD1C03200CE4DC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */; };
 		B2BB28DE1CD1C03A00CE4DC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */; };
@@ -87,7 +88,6 @@
 		B20D08FB1D47556E00008A19 /* JFCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionViewController.swift; sourceTree = "<group>"; };
 		B20D09011D4766E700008A19 /* JFCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCollectionCell.swift; sourceTree = "<group>"; };
 		B20D09021D4766E700008A19 /* JFCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCollectionCell.xib; sourceTree = "<group>"; };
-		B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B24816651CCFD0BB0056D66E /* PhotoLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoLibrary.framework; path = ../../../../Applications/Xcode6.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/PrivateFrameworks/PhotoLibrary.framework; sourceTree = "<group>"; };
 		B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFHomeTopView.swift; sourceTree = "<group>"; };
 		B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFHomeTopView.xib; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFWallpaperCell.xib; sourceTree = "<group>"; };
 		B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryCell.swift; sourceTree = "<group>"; };
 		B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryCell.xib; sourceTree = "<group>"; };
+		B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B29FF5061D5ED22F001EB96C /* JFAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFAdManager.swift; sourceTree = "<group>"; };
 		B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -184,7 +186,7 @@
 			children = (
 				B24B96E81D45BA95004B8BBE /* Assets.xcassets */,
 				B24B96E91D45BA95004B8BBE /* Info.plist */,
-				B2472D1A1D489CEA00B730AB /* GoogleService-Info.plist */,
+				B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */,
 				B20952D71CD2132800036163 /* Classes */,
 			);
 			path = JianSanWallpaper;
@@ -208,6 +210,7 @@
 				B20952DA1CD2132800036163 /* AppDelegate.swift */,
 				B20952DB1CD2132800036163 /* Common.swift */,
 				B2E288401D43329400745A3F /* JianSan-Wallpaper-Bridging-Header.h */,
+				B29FF5061D5ED22F001EB96C /* JFAdManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -482,7 +485,7 @@
 				B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */,
 				B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */,
 				B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */,
-				B2472D1B1D489CEA00B730AB /* GoogleService-Info.plist in Resources */,
+				B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */,
 				B20D09041D4766E700008A19 /* JFCollectionCell.xib in Resources */,
 				B20D08EB1D47075900008A19 /* JFSideView.xib in Resources */,
 			);
@@ -547,6 +550,7 @@
 				B2FE2FD21CD33CDA0013FAEE /* JFProgressHUD.swift in Sources */,
 				B20953481CD2132800036163 /* JFCategoryModel.swift in Sources */,
 				B2E288361D43315800745A3F /* JFDetailViewController.swift in Sources */,
+				B29FF5071D5ED22F001EB96C /* JFAdManager.swift in Sources */,
 				B209534E1CD2132800036163 /* JFNavigationController.swift in Sources */,
 				B20953511CD2132800036163 /* JFFeedbackViewController.swift in Sources */,
 				B2E288391D43317900745A3F /* JFWallPaperModel.swift in Sources */,

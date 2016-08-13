@@ -47,8 +47,8 @@ Pods/
 Podfile.lock
 JianSanWallpaper.xcworkspace
 
-# GoogleService
-GoogleService-Info.plist
+#GoogleService
+#GoogleService-Info.plist
 
 # Carthage
 #
