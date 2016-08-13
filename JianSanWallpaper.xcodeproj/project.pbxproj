@@ -39,6 +39,7 @@
 		B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */; };
 		B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */; };
 		B29FF5071D5ED22F001EB96C /* JFAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5061D5ED22F001EB96C /* JFAdManager.swift */; };
+		B29FF5091D5EE24A001EB96C /* JFTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5081D5EE24A001EB96C /* JFTipView.swift */; };
 		B2BB28DA1CD1C02100CE4DC1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */; };
 		B2BB28DC1CD1C03200CE4DC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */; };
 		B2BB28DE1CD1C03A00CE4DC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */; };
@@ -99,6 +100,7 @@
 		B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryCell.xib; sourceTree = "<group>"; };
 		B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B29FF5061D5ED22F001EB96C /* JFAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFAdManager.swift; sourceTree = "<group>"; };
+		B29FF5081D5EE24A001EB96C /* JFTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFTipView.swift; sourceTree = "<group>"; };
 		B2BB28D91CD1C02100CE4DC1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		B2BB28DB1CD1C03200CE4DC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B2BB28DD1CD1C03A00CE4DC1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -269,6 +271,7 @@
 				B20D08E81D47075100008A19 /* JFSideView.swift */,
 				B20D08EA1D47075900008A19 /* JFSideView.xib */,
 				B20D08F91D473DAB00008A19 /* JFSideButton.swift */,
+				B29FF5081D5EE24A001EB96C /* JFTipView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */,
 				B209535D1CD2132800036163 /* JFContextItem.swift in Sources */,
 				B2FE2FE61CD33F3B0013FAEE /* FMDatabaseAdditionsVariadic.swift in Sources */,
+				B29FF5091D5EE24A001EB96C /* JFTipView.swift in Sources */,
 				B2E2884E1D43363E00745A3F /* JFCategoryViewController.swift in Sources */,
 				B20D08F41D471FC200008A19 /* JFWallpaperModalAnimation.swift in Sources */,
 				B20D08FA1D473DAB00008A19 /* JFSideButton.swift in Sources */,

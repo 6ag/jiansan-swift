@@ -29,7 +29,7 @@ class JFPopularViewController: UIViewController {
     var wallpaperArray = [JFWallPaperModel]()
     
     // 插页广告
-//    var interstitial: GADInterstitial!
+    var interstitial: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class JFPopularViewController: UIViewController {
         collectionView.mj_footer = jf_setupFooterRefresh(self, action: #selector(pullupLoadData))
         
         // 创建并加载插页广告
-//        interstitial = createAndLoadInterstitial()
+        interstitial = createAndLoadInterstitial()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -70,6 +70,13 @@ class JFPopularViewController: UIViewController {
         bannerView.snp_makeConstraints { (make) in
             make.left.right.bottom.equalTo(0)
             make.height.equalTo(50)
+        }
+        
+        // 首页和分类页的位置有所不同
+        if category_id == 0 {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
+        } else {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
         }
         
     }
@@ -155,6 +162,50 @@ class JFPopularViewController: UIViewController {
     
 }
 
+// MARK: - GADInterstitialDelegate 插页广告相关方法
+extension JFPopularViewController: GADInterstitialDelegate {
+    
+    /**
+     当插页广告dismiss后初始化插页广告对象
+     */
+    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+        interstitial = createAndLoadInterstitial()
+    }
+    
+    /**
+     初始化插页广告
+     
+     - returns: 插页广告对象
+     */
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3941303619697740/9066705318")
+        interstitial.delegate = self
+        interstitial.loadRequest(GADRequest())
+        return interstitial
+    }
+    
+    /**
+     初始化底部悬浮广告
+     
+     - returns: 悬浮广告视图
+     */
+    func createBannerView() -> GADBannerView {
+        let bannerView = GADBannerView()
+        
+        // 首页和分类页的位置有所不同
+        if category_id == 0 {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
+        } else {
+            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
+        }
+        bannerView.rootViewController = self
+        bannerView.adUnitID = "ca-app-pub-3941303619697740/2329598119"
+        bannerView.loadRequest(GADRequest())
+    
+        return bannerView
+    }
+}
+
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -170,15 +221,10 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        // 弹出插页广告
-        if let interstitial = JFAdManager.shareDbManager().getReadyIntersitial() {
-            if interstitial.isReady {
-                interstitial.presentFromRootViewController(self)
-//                print("弹出插页")
-                return
-            }
+        if interstitial.isReady {
+            interstitial.presentFromRootViewController(self)
+            return
         }
-//        print("没有弹出插页")
         
         // 转换坐标系
         let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell

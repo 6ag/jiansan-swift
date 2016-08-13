@@ -43,11 +43,28 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         
         // 别日狗
         performSelectorOnMainThread(#selector(dontSleep), withObject: nil, waitUntilDone: false)
+        
+        // 添加第一次使用指引
+        showTip()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+    }
+    
+    /**
+     显示提示
+     */
+    private func showTip() {
+        
+        // 只显示一次
+        if !NSUserDefaults.standardUserDefaults().boolForKey("showTip") {
+            let tipView = JFTipView()
+            tipView.show()
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "showTip")
+        }
+    
     }
     
     /**
