@@ -11,5 +11,7 @@
 
 #import "JFWallPaperTool.h"
 #import "FMDB.h"
+// 提示用户去评论
+#import "LBToAppStore.h"
 
 #endif /* JianSan_Wallpaper_Bridging_Header_h */

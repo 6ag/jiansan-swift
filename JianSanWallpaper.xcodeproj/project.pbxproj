@@ -37,6 +37,7 @@
 		B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */; };
 		B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */; };
 		B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */; };
+		B24E43E51D9A4F280073928C /* LBToAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E43E41D9A4F280073928C /* LBToAppStore.m */; };
 		B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */; };
 		B29FF5071D5ED22F001EB96C /* JFAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5061D5ED22F001EB96C /* JFAdManager.swift */; };
 		B29FF5091D5EE24A001EB96C /* JFTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5081D5EE24A001EB96C /* JFTipView.swift */; };
@@ -98,6 +99,8 @@
 		B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFWallpaperCell.xib; sourceTree = "<group>"; };
 		B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryCell.swift; sourceTree = "<group>"; };
 		B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryCell.xib; sourceTree = "<group>"; };
+		B24E43E31D9A4F280073928C /* LBToAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBToAppStore.h; sourceTree = "<group>"; };
+		B24E43E41D9A4F280073928C /* LBToAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBToAppStore.m; sourceTree = "<group>"; };
 		B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B29FF5061D5ED22F001EB96C /* JFAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFAdManager.swift; sourceTree = "<group>"; };
 		B29FF5081D5EE24A001EB96C /* JFTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFTipView.swift; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 		B20952FF1CD2132800036163 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B24E43E31D9A4F280073928C /* LBToAppStore.h */,
+				B24E43E41D9A4F280073928C /* LBToAppStore.m */,
 				B20953001CD2132800036163 /* JFNetworkTools.swift */,
 				B2FE2FD11CD33CDA0013FAEE /* JFProgressHUD.swift */,
 				B2FE2FD31CD33CE60013FAEE /* JFFMDBManager.swift */,
@@ -557,6 +562,7 @@
 				B209534E1CD2132800036163 /* JFNavigationController.swift in Sources */,
 				B20953511CD2132800036163 /* JFFeedbackViewController.swift in Sources */,
 				B2E288391D43317900745A3F /* JFWallPaperModel.swift in Sources */,
+				B24E43E51D9A4F280073928C /* LBToAppStore.m in Sources */,
 				B2FE2FE81CD33F3B0013FAEE /* FMDatabaseQueue.m in Sources */,
 				B20D08E41D46F05A00008A19 /* JFCategoryTopView.swift in Sources */,
 				B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */,

@@ -64,6 +64,9 @@ let MARGIN: CGFloat = 12
 /// 全局圆角
 let CORNER_RADIUS: CGFloat = 5
 
+/// 应用id
+let APPLE_ID = "1110293594"
+
 /// 友盟APPKEY
 let UM_APP_KEY = "57219e40e0f55a1599001df7"
 

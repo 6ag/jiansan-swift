@@ -35,11 +35,12 @@ class JFPopularViewController: UIViewController {
         super.viewDidLoad()
         
         prepareUI()
-        pulldownLoadData()
         
         // 配置上下拉刷新控件
         collectionView.mj_header = jf_setupHeaderRefresh(self, action: #selector(pulldownLoadData))
         collectionView.mj_footer = jf_setupFooterRefresh(self, action: #selector(pullupLoadData))
+        
+        collectionView.mj_header.beginRefreshing()
         
         // 创建并加载插页广告
         interstitial = createAndLoadInterstitial()
@@ -53,6 +54,31 @@ class JFPopularViewController: UIViewController {
         if (category_id != 0) {
             view.addSubview(topView)
         }
+        
+        showAppstoreTip()
+    }
+    
+    /**
+     弹出提示让用户去评论
+     */
+    private func showAppstoreTip() {
+        
+        // 在当前时间往后的1天后提示
+        let tipTime = NSUserDefaults.standardUserDefaults().doubleForKey("tipToAppstore")
+        
+        // 设置第一次弹出提示的时间
+        if tipTime < 1 {
+            NSUserDefaults.standardUserDefaults().setDouble(NSDate().timeIntervalSince1970 + 86400, forKey: "tipToAppstore")
+        }
+        
+        // 当前时间超过了规定时间就弹出提示
+        let nowTime = NSDate().timeIntervalSince1970
+        if nowTime > NSTimeInterval(NSUserDefaults.standardUserDefaults().doubleForKey("tipToAppstore")) {
+            let appstore = LBToAppStore()
+            appstore.myAppID = APPLE_ID
+            appstore.showGotoAppStore(self)
+        }
+        
     }
     
     /**

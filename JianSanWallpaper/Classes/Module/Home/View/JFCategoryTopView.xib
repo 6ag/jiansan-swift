@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,17 +12,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-NL-7HC">
-                    <rect key="frame" x="12" y="32" width="22" height="22"/>
+                    <rect key="frame" x="0.0" y="20" width="44" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="22" id="RxF-lk-GJu"/>
-                        <constraint firstAttribute="height" constant="22" id="hfB-5h-Krz"/>
+                        <constraint firstAttribute="width" constant="44" id="RxF-lk-GJu"/>
+                        <constraint firstAttribute="height" constant="44" id="hfB-5h-Krz"/>
                     </constraints>
                     <state key="normal" image="top_navigation_back"/>
                     <connections>
                         <action selector="didTappedLeftBarButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="VXq-bJ-B1f"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNq-RA-2tt">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNq-RA-2tt">
                     <rect key="frame" x="170" y="33" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,8 +31,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="oXF-NL-7HC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="HW2-IO-PUQ"/>
-                <constraint firstAttribute="bottom" secondItem="oXF-NL-7HC" secondAttribute="bottom" constant="10" id="N7X-QI-qZj"/>
+                <constraint firstItem="RNq-RA-2tt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BPv-X5-0Q0"/>
+                <constraint firstItem="oXF-NL-7HC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HW2-IO-PUQ"/>
+                <constraint firstAttribute="bottom" secondItem="oXF-NL-7HC" secondAttribute="bottom" id="N7X-QI-qZj"/>
+                <constraint firstAttribute="bottom" secondItem="RNq-RA-2tt" secondAttribute="bottom" constant="10" id="hhh-sK-Vtf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
