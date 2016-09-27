@@ -62,23 +62,6 @@ class JFPopularViewController: UIViewController {
         
         view.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView)
-        
-        // 底部悬浮广告
-        let bannerView = JFAdManager.shareDbManager().createBannerView(self)
-        view.addSubview(bannerView)
-        
-        bannerView.snp_makeConstraints { (make) in
-            make.left.right.bottom.equalTo(0)
-            make.height.equalTo(50)
-        }
-        
-        // 首页和分类页的位置有所不同
-        if category_id == 0 {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
-        } else {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
-        }
-        
     }
     
     /**
@@ -184,26 +167,6 @@ extension JFPopularViewController: GADInterstitialDelegate {
         return interstitial
     }
     
-    /**
-     初始化底部悬浮广告
-     
-     - returns: 悬浮广告视图
-     */
-    func createBannerView() -> GADBannerView {
-        let bannerView = GADBannerView()
-        
-        // 首页和分类页的位置有所不同
-        if category_id == 0 {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 114, width: SCREEN_WIDTH, height: 50)
-        } else {
-            bannerView.frame = CGRect(x: 0, y: SCREEN_HEIGHT - 50, width: SCREEN_WIDTH, height: 50)
-        }
-        bannerView.rootViewController = self
-        bannerView.adUnitID = "ca-app-pub-3941303619697740/2329598119"
-        bannerView.loadRequest(GADRequest())
-    
-        return bannerView
-    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
