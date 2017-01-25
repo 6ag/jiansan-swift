@@ -20,10 +20,10 @@ class JFSideView: UIView {
     var delegate: JFSideViewDelegate?
     
     /// 遮罩按钮
-    private lazy var shadowButton: UIButton = {
+    fileprivate lazy var shadowButton: UIButton = {
         let shadowButton = UIButton(frame: SCREEN_BOUNDS)
         shadowButton.backgroundColor = UIColor(white: 1, alpha: 0)
-        shadowButton.addTarget(self, action: #selector(didTappedShadowButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        shadowButton.addTarget(self, action: #selector(didTappedShadowButton(_:)), for: UIControlEvents.touchUpInside)
         return shadowButton
     }()
     
@@ -33,11 +33,11 @@ class JFSideView: UIView {
      - returns: 返回创建好的侧边栏
      */
     class func makeSideView() -> JFSideView {
-        let sideView = NSBundle.mainBundle().loadNibNamed("JFSideView", owner: nil, options: nil).last as! JFSideView
+        let sideView = Bundle.main.loadNibNamed("JFSideView", owner: nil, options: nil)?.last as! JFSideView
         sideView.layer.shadowOffset = CGSize(width: 2, height: 1)
-        sideView.layer.shadowColor = UIColor.blackColor().CGColor
+        sideView.layer.shadowColor = UIColor.black.cgColor
         sideView.layer.shadowOpacity = 0.3
-        sideView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 84, y: 0, width: 2, height: SCREEN_HEIGHT)).CGPath
+        sideView.layer.shadowPath = UIBezierPath(rect: CGRect(x: 84, y: 0, width: 2, height: SCREEN_HEIGHT)).cgPath
         sideView.frame = CGRect(x: -86, y: 0, width: 85, height: SCREEN_HEIGHT)
         return sideView
     }
@@ -46,43 +46,43 @@ class JFSideView: UIView {
      显示侧边栏
      */
     func show() {
-        UIApplication.sharedApplication().keyWindow?.addSubview(shadowButton)
-        UIApplication.sharedApplication().keyWindow?.addSubview(self)
+        UIApplication.shared.keyWindow?.addSubview(shadowButton)
+        UIApplication.shared.keyWindow?.addSubview(self)
         
         self.alpha = 1
-        UIView.animateWithDuration(0.25, animations: {
-            self.transform = CGAffineTransformMakeTranslation(86, 0)
+        UIView.animate(withDuration: 0.25, animations: {
+            self.transform = CGAffineTransform(translationX: 86, y: 0)
             self.shadowButton.alpha = 0.1
-            }) { (_) in
+            }, completion: { (_) in
                 
-        }
+        }) 
     }
     
     /**
      隐藏侧边栏
      */
     func dismiss() {
-        UIView.animateWithDuration(0.25, animations: { 
-            self.transform = CGAffineTransformIdentity
+        UIView.animate(withDuration: 0.25, animations: { 
+            self.transform = CGAffineTransform.identity
             self.alpha = 0
             self.shadowButton.alpha = 0
-            }) { (_) in
+            }, completion: { (_) in
                 self.removeFromSuperview()
                 self.shadowButton.removeFromSuperview()
-        }
+        }) 
     }
     
     /**
      点击了遮罩
      */
-    @objc private func didTappedShadowButton(button: UIButton) {
+    @objc fileprivate func didTappedShadowButton(_ button: UIButton) {
         dismiss()
     }
     
     /**
      我的收藏
      */
-    @IBAction func didTappedMyCollectionButton(sender: JFSideButton) {
+    @IBAction func didTappedMyCollectionButton(_ sender: JFSideButton) {
         dismiss()
         delegate?.didTappedMyCollectionButton()
     }
@@ -90,7 +90,7 @@ class JFSideView: UIView {
     /**
      清理缓存
      */
-    @IBAction func didTappedCleanCacheButton(sender: JFSideButton) {
+    @IBAction func didTappedCleanCacheButton(_ sender: JFSideButton) {
         dismiss()
         delegate?.didTappedCleanCacheButton()
     }
@@ -98,7 +98,7 @@ class JFSideView: UIView {
     /**
      反馈
      */
-    @IBAction func didTappedFeedbackButton(sender: JFSideButton) {
+    @IBAction func didTappedFeedbackButton(_ sender: JFSideButton) {
         dismiss()
         delegate?.didTappedFeedbackButton()
     }
@@ -106,7 +106,7 @@ class JFSideView: UIView {
     /**
      分享
      */
-    @IBAction func didTappedShareButton(sender: JFSideButton) {
+    @IBAction func didTappedShareButton(_ sender: JFSideButton) {
         dismiss()
         delegate?.didTappedShareButton()
     }

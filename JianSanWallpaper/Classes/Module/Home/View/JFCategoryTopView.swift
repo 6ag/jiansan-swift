@@ -19,7 +19,7 @@ class JFCategoryTopView: UIView {
     /**
      点击了左边导航按钮
      */
-    @IBAction func didTappedLeftBarButton(sender: UIButton) {
+    @IBAction func didTappedLeftBarButton(_ sender: UIButton) {
         delegate?.didTappedLeftBarButton()
     }
 

@@ -21,22 +21,22 @@ class JFCategoryModel: NSObject {
     
     init(dict: [String : AnyObject]) {
         super.init()
-        setValuesForKeysWithDictionary(dict)
+        setValuesForKeys(dict)
     }
     
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     
     /**
      从网络加载分类数据
      
      - parameter finished: 数据回调
      */
-    class func loadCategoriesFromNetwork(finished: (categoriesArray: [JFCategoryModel]?, error: NSError?) -> ()) {
+    class func loadCategoriesFromNetwork(_ finished: @escaping (_ categoriesArray: [JFCategoryModel]?, _ error: NSError?) -> ()) {
         
-        JFNetworkTools.shareNetworkTools.get(GET_CATEGORIES, parameters: [String : AnyObject]()) { (success, result, error) in
+        JFNetworkTools.shareNetworkTools.get(GET_CATEGORIES, parameters: nil) { (success, result, error) in
             
-            guard let result = result where success == true else {
-                finished(categoriesArray: nil, error: error)
+            guard let result = result, success == true else {
+                finished(nil, error)
                 return
             }
             
@@ -47,7 +47,7 @@ class JFCategoryModel: NSObject {
                 categoriesArray.append(category)
             }
             
-            finished(categoriesArray: categoriesArray, error: nil)
+            finished(categoriesArray, nil)
             
         }
     }

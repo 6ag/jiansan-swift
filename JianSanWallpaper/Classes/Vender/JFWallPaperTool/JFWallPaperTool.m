@@ -38,38 +38,29 @@
             // 保存需要设置为壁纸的图片到相册
             UIImageWriteToSavedPhotosAlbum(image, nil,nil, NULL);
             
-            NSString *one = @"set";
-            NSString *two = @"Image";
-            NSString *three = @"As";
-            NSString *four = @"Home";
-            NSString *five = @"Lock";
-            NSString *six = @"Screen";
-            
             // 获取壁纸控制器
             id wallPaperVc = [self getWallPaperVCWithImage:image];
+            
             if (wallPaperVc) {
                 switch (imageScreen) {
                     case UIImageScreenHome:
                     {
                         if (self.on) {
-                            NSString *homeSelector = [NSString stringWithFormat:@"%@%@%@%@%@Clicked:", one, two, three, four, six];
-                            [wallPaperVc performSelector:NSSelectorFromString(homeSelector) withObject:nil];
+                            [wallPaperVc performSelector:NSSelectorFromString(@"setImageAsHomeScreenClicked:") withObject:image];
                         }
                     }
                         break;
                     case UIImageScreenLock:
                     {
                         if (self.on) {
-                            NSString *lockSelector = [NSString stringWithFormat:@"%@%@%@%@%@Clicked:", one, two, three, five, six];
-                            [wallPaperVc performSelector:NSSelectorFromString(lockSelector) withObject:nil];
+                            [wallPaperVc performSelector:NSSelectorFromString(@"setImageAsLockScreenClicked:") withObject:image];
                         }
                     }
                         break;
                     case UIImageScreenBoth:
                     {
                         if (self.on) {
-                            NSString *lockSelector = [NSString stringWithFormat:@"%@%@%@%@%@And%@%@Clicked:", one, two, three, four, six, five, six];
-                            [wallPaperVc performSelector:NSSelectorFromString(lockSelector) withObject:nil];
+                            [wallPaperVc performSelector:NSSelectorFromString(@"setImageAsHomeScreenAndLockScreenClicked:") withObject:image];
                         }
                     }
                         break;
@@ -94,8 +85,7 @@
 {
     Class wallPaperClass = NSClassFromString(@"PLStaticWallpaperImageViewController");
     id wallPaperInstance = [[wallPaperClass alloc] performSelector:NSSelectorFromString(@"initWithUIImage:") withObject:image];
-    [wallPaperInstance setValue:@(YES) forKeyPath:@"allowsEditing"];      // 是否按比例
-    [wallPaperInstance  setValue:@(YES) forKeyPath:@"saveWallpaperData"]; // 保存壁纸
+    [wallPaperInstance setValue:@(YES) forKeyPath:@"saveWallpaperData"];
     return wallPaperInstance;
 }
 #pragma clang diagnostic pop

@@ -27,7 +27,7 @@ let CHECK_SAVE_STATUS = "\(BASE_URL)/api/status"
  
  - returns: 返回api接口
  */
-func GET_WALLPAPERS(category_id: Int) -> String {
+func GET_WALLPAPERS(_ category_id: Int) -> String {
     return "\(BASE_URL)/api/wallpapers/\(category_id)";
 }
 
@@ -38,6 +38,6 @@ func GET_WALLPAPERS(category_id: Int) -> String {
  
  - returns: 返回api接口
  */
-func GET_SHOW_WALLPAPER(id: Int) -> String {
+func GET_SHOW_WALLPAPER(_ id: Int) -> String {
     return "\(BASE_URL)/api/show/\(id)"
 }

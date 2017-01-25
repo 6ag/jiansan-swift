@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -20,14 +24,14 @@
                     <state key="normal" backgroundImage="touxiang"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装饰品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU5-i2-gcs">
-                    <rect key="frame" x="20" y="122" width="45" height="18"/>
+                    <rect key="frame" x="19.5" y="122" width="46" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkW-5E-Gkw">
                     <rect key="frame" x="0.0" y="170" width="86" height="1"/>
-                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="FBR-mN-dUb"/>
                         <constraint firstAttribute="height" constant="1" id="OIS-Kv-wBz"/>
@@ -45,7 +49,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="我的收藏" image="cehua_shoucang">
-                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="didTappedMyCollectionButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Z90-Jt-Soc"/>
@@ -58,7 +62,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="清除缓存" image="cehua_sheji">
-                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="didTappedCleanCacheButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="jvG-iW-KRf"/>
@@ -71,7 +75,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="意见反馈" image="cehua_xiazai">
-                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="didTappedFeedbackButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="23H-BZ-GsL"/>
@@ -84,14 +88,14 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="推荐好友" image="cehua_fenxiang">
-                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="didTappedShareButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bcl-Xc-c8D"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="xnH-GX-RAt" secondAttribute="trailing" id="1KD-xf-NZQ"/>
                 <constraint firstItem="AkW-5E-Gkw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2bV-qG-w7e"/>
@@ -121,9 +125,9 @@
     </objects>
     <resources>
         <image name="cehua_fenxiang" width="20" height="20"/>
-        <image name="cehua_sheji" width="20" height="19"/>
+        <image name="cehua_sheji" width="20" height="20"/>
         <image name="cehua_shoucang" width="20" height="20"/>
-        <image name="cehua_xiazai" width="29" height="29"/>
+        <image name="cehua_xiazai" width="20" height="20"/>
         <image name="touxiang" width="76" height="79"/>
     </resources>
 </document>

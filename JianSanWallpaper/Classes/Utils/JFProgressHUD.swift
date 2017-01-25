@@ -12,27 +12,27 @@ import SVProgressHUD
 class JFProgressHUD: NSObject {
     
     class func setupHUD() {
-        SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+        SVProgressHUD.setForegroundColor(UIColor.white)
         SVProgressHUD.setBackgroundColor(UIColor(white: 0.1, alpha: 0.8))
-        SVProgressHUD.setFont(UIFont.boldSystemFontOfSize(16))
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Custom)
+        SVProgressHUD.setFont(UIFont.boldSystemFont(ofSize: 16))
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.custom)
         SVProgressHUD.setMinimumDismissTimeInterval(1.0)
     }
     
-    class func showWithStatus(status: String) {
-        SVProgressHUD.showWithStatus(status)
+    class func showWithStatus(_ status: String) {
+        SVProgressHUD.show(withStatus: status)
     }
     
-    class func showInfoWithStatus(status: String) {
-        SVProgressHUD.showInfoWithStatus(status)
+    class func showInfoWithStatus(_ status: String) {
+        SVProgressHUD.showInfo(withStatus: status)
     }
     
-    class func showSuccessWithStatus(status: String) {
-        SVProgressHUD.showSuccessWithStatus(status)
+    class func showSuccessWithStatus(_ status: String) {
+        SVProgressHUD.showSuccess(withStatus: status)
     }
     
-    class func showErrorWithStatus(status: String) {
-        SVProgressHUD.showErrorWithStatus(status)
+    class func showErrorWithStatus(_ status: String) {
+        SVProgressHUD.showError(withStatus: status)
     }
     
 }

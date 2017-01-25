@@ -20,7 +20,7 @@ extension FMDatabase {
     ///
     /// - returns:           This returns FMResultSet if successful. If unsuccessful, it throws an error.
     
-    func executeQuery(sql:String, _ values: AnyObject...) throws -> FMResultSet {
+    func executeQuery(_ sql:String, _ values: AnyObject...) throws -> FMResultSet {
         return try executeQuery(sql, values: values as [AnyObject]);
     }
     
@@ -32,7 +32,7 @@ extension FMDatabase {
     /// - parameter sql:     The SQL statement to be used.
     /// - parameter values:  The values to be bound to the ? placeholders
     
-    func executeUpdate(sql:String, _ values: AnyObject...) throws {
+    func executeUpdate(_ sql:String, _ values: AnyObject...) throws {
         try executeUpdate(sql, values: values as [AnyObject]);
     }
 }

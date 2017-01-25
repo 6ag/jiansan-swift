@@ -12,28 +12,21 @@ import GoogleMobileAds
 
 class JFAdManager: NSObject {
     
+    /**
+     广告管理单利
+     */
+    static let shared: JFAdManager = {
+        let manager = JFAdManager()
+        GADMobileAds.sharedInstance().applicationVolume = 0
+        manager.createAndLoadInterstitial()
+        return manager
+    }()
+    
     /// 已经准备好的广告
     var interstitials = [GADInterstitial]()
     
     /// 没有展示过的广告
     var notReadInterstitials = [GADInterstitial]()
-    
-    /**
-     广告管理单利
-     */
-    static func shareDbManager() -> JFAdManager {
-        struct Singleton {
-            static var onceToken : dispatch_once_t = 0
-            static var single:JFAdManager?
-        }
-        dispatch_once(&Singleton.onceToken, {
-            Singleton.single = JFAdManager()
-            GADMobileAds.sharedInstance().applicationVolume = 0
-            Singleton.single?.createAndLoadInterstitial()
-            }
-        )
-        return Singleton.single!
-    }
     
     /**
      获取一个插页广告对象
@@ -61,7 +54,7 @@ class JFAdManager: NSObject {
     func createAndLoadInterstitial() {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3941303619697740/9066705318")
         interstitial.delegate = self
-        interstitial.loadRequest(GADRequest())
+        interstitial.load(GADRequest())
         notReadInterstitials.append(interstitial)
     }
     
@@ -70,12 +63,12 @@ class JFAdManager: NSObject {
      
      - returns: 悬浮广告视图
      */
-    func createBannerView(rootViewController: UIViewController) -> GADBannerView {
+    func createBannerView(_ rootViewController: UIViewController) -> GADBannerView {
         
         let bannerView = GADBannerView()
         bannerView.rootViewController = rootViewController
         bannerView.adUnitID = "ca-app-pub-3941303619697740/2329598119"
-        bannerView.loadRequest(GADRequest())
+        bannerView.load(GADRequest())
         return bannerView
     }
     
@@ -89,7 +82,7 @@ extension JFAdManager: GADInterstitialDelegate {
      
      - parameter ad: 插页广告
      */
-    func interstitialDidReceiveAd(ad: GADInterstitial!) {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         notReadInterstitials.removeFirst()
         interstitials.append(ad)
     }
@@ -100,7 +93,7 @@ extension JFAdManager: GADInterstitialDelegate {
      - parameter ad:    插页广告
      - parameter error: 失败对象
      */
-    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
         notReadInterstitials.removeFirst()
     }
 }

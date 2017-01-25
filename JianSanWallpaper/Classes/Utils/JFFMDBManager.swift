@@ -14,17 +14,17 @@ class JFFMDBManager: NSObject {
     static let sharedManager = JFFMDBManager()
     
     /// sqlite名称
-    private let dbName = "fuck.db"
+    fileprivate let dbName = "fuck.db"
     
     /// 收藏表
-    private let tbName = "fuck"
+    fileprivate let tbName = "fuck"
     
     let dbQueue: FMDatabaseQueue
     
-    typealias QueryStarFinished = (result: [[String : AnyObject]]?) -> ()
+    typealias QueryStarFinished = (_ result: [[String : AnyObject]]?) -> ()
     
     override init() {
-        let documentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!
+        let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         let dbPath = "\(documentPath)/\(dbName)"
         dbQueue = FMDatabaseQueue(path: dbPath)
         super.init()
@@ -36,7 +36,7 @@ class JFFMDBManager: NSObject {
     /**
      创建收藏表
      */
-    private func createStarTable() {
+    fileprivate func createStarTable() {
         let sql = "CREATE TABLE IF NOT EXISTS \(tbName) (" +
             "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
             "path VARCHAR(80) NOT NULL" +
@@ -44,7 +44,7 @@ class JFFMDBManager: NSObject {
         
         dbQueue.inDatabase { (db) in
             do {
-                try db.executeUpdate(sql)
+                try db?.executeUpdate(sql)
             } catch {
                 print("建表失败")
             }
@@ -57,12 +57,12 @@ class JFFMDBManager: NSObject {
      
      - parameter path:     收藏的壁纸路径
      */
-    func insertStar(path: String) {
+    func insertStar(_ path: String) {
         let sql = "INSERT INTO \(tbName) (path) VALUES (\"\(path)\");"
         
         dbQueue.inDatabase { (db) in
             do {
-                try db.executeUpdate(sql)
+                try db?.executeUpdate(sql)
             } catch {
                 print("插入数据失败")
             }
@@ -74,26 +74,26 @@ class JFFMDBManager: NSObject {
      获取收藏的壁纸
      - parameter finished:     完成回调
      */
-    func getStarWallpaper(finished: QueryStarFinished) -> Void {
+    func getStarWallpaper(_ finished: @escaping QueryStarFinished) -> Void {
         
         // 小量数据不分页
         let sql = "SELECT * FROM \(tbName) ORDER BY id DESC;"
         
         dbQueue.inDatabase { (db) in
             do {
-                let result = try db.executeQuery(sql)
+                let result = try db?.executeQuery(sql)
                 
                 var datas = [[String : AnyObject]]()
-                while result.next() {
-                    let id = result.intForColumn("id")
-                    let path = result.stringForColumn("path")
+                while (result?.next())! {
+                    let id = result?.int(forColumn: "id")
+                    let path = result?.string(forColumn: "path")
                     
-                    datas.append(["id" : Int(id), "path" : path])
+                    datas.append(["id" : Int(id!) as AnyObject, "path" : path as AnyObject])
                 }
-                finished(result: datas)
+                finished(datas)
                 
             } catch {
-                finished(result: nil)
+                finished(nil)
             }
         }
         
@@ -104,12 +104,12 @@ class JFFMDBManager: NSObject {
      
      - parameter path: 本地数据库壁纸path
      */
-    func removeOneStarWallpaper(path: String) {
+    func removeOneStarWallpaper(_ path: String) {
         let sql = "DELETE FROM \(tbName) WHERE path = \"\(path)\""
         
         dbQueue.inDatabase { (db) in
             do {
-                try db.executeUpdate(sql)
+                try db?.executeUpdate(sql)
             } catch {
                 print("移除失败")
             }
@@ -125,7 +125,7 @@ class JFFMDBManager: NSObject {
         
         dbQueue.inDatabase { (db) in
             do {
-                try db.executeUpdate(sql)
+                try db?.executeUpdate(sql)
             } catch {
                 print("清空失败")
             }
@@ -138,16 +138,16 @@ class JFFMDBManager: NSObject {
      - parameter path:     收藏的壁纸路径
      - parameter finished: 检测回调
      */
-    func checkIsExists(path: String, finished: (isExists: Bool)->()) {
+    func checkIsExists(_ path: String, finished: (_ isExists: Bool)->()) {
         
         let sql = "SELECT * FROM \(tbName) WHERE path = \"\(path)\";"
         
         var count = 0
         dbQueue.inDatabase { (db) in
             do {
-                let result = try db.executeQuery(sql)
+                let result = try db?.executeQuery(sql)
                 
-                if result.next() {
+                if (result?.next())! {
                     count += 1
                 }
                 
@@ -156,7 +156,7 @@ class JFFMDBManager: NSObject {
             }
         }
         
-        finished(isExists: count != 0)
+        finished(count != 0)
     }
     
 }

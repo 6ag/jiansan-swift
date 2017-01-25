@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,10 +26,10 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="热门">
-                                <color key="titleColor" red="0.32156862745098036" green="0.38823529411764707" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.32156862745098036" green="0.38823529411764707" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected">
-                                <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didTappedPopularButton" destination="iN0-l3-epB" eventType="touchUpInside" id="riQ-Yp-dTu"/>
@@ -39,10 +43,10 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="分类">
-                                <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.32156862749999998" green="0.38823529410000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected">
-                                <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didTappedCategoryButton" destination="iN0-l3-epB" eventType="touchUpInside" id="Cte-zp-NbI"/>
@@ -50,7 +54,7 @@
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVn-gZ-Gdh">
                             <rect key="frame" x="7" y="57" width="50" height="1"/>
-                            <color key="backgroundColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.5568627451" green="0.47058823529999999" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="JaD-1B-aPl"/>
                                 <constraint firstAttribute="height" constant="1" id="paD-56-d3K"/>
@@ -78,7 +82,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="MpD-rV-d6m" firstAttribute="centerY" secondItem="oXF-NL-7HC" secondAttribute="centerY" id="2F8-SF-6pU"/>
                 <constraint firstItem="pS0-F5-zwl" firstAttribute="centerY" secondItem="oXF-NL-7HC" secondAttribute="centerY" id="BVt-BL-TCa"/>

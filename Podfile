@@ -7,12 +7,13 @@ target 'JianSanWallpaper' do
   use_frameworks!
 
   # Pods for JianSanWallpaper
-pod 'SnapKit'
-pod 'Alamofire'
+pod 'SwiftyJSON', :git => 'https://github.com/IBM-Swift/SwiftyJSON.git'
+pod 'SnapKit', '~> 3.0.2'
+pod 'Alamofire', '~> 4.0'
 pod 'YYWebImage'
 pod 'SVProgressHUD'
-pod 'SwiftyJSON', '~> 2.3.2'
+
 pod 'MJRefresh'
-pod 'ZLSwipeableViewSwift'
+pod 'ZLSwipeableViewSwift', :git => 'https://github.com/zhxnlai/ZLSwipeableViewSwift.git'
 pod 'Firebase/AdMob'
 end

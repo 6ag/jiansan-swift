@@ -16,9 +16,9 @@ class JFNavigationController: UINavigationController {
         // 设置全局导航栏
         let navBar = UINavigationBar.appearance()
         navBar.barTintColor = NAVBAR_TINT_COLOR
-        navBar.translucent = false
-        navBar.barStyle = UIBarStyle.Black
-        navBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navBar.isTranslucent = false
+        navBar.barStyle = UIBarStyle.black
+        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navBar.shadowImage = UIImage()
         navBar.titleTextAttributes = [
             NSForegroundColorAttributeName : TITLE_COLOR,
@@ -27,10 +27,10 @@ class JFNavigationController: UINavigationController {
         
     }
     
-    override func pushViewController(viewController: UIViewController, animated: Bool) {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
         if viewControllers.count > 0 {
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "top_navigation_back")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(back))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "top_navigation_back")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal), style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         }
         
         // push放后面是为了控制器可以自己重新设置leftBarButtonItem并覆盖掉统一设置的
@@ -41,7 +41,7 @@ class JFNavigationController: UINavigationController {
     /**
      返回
      */
-    @objc private func back() {
-        popViewControllerAnimated(true)
+    @objc fileprivate func back() {
+        popViewController(animated: true)
     }
 }

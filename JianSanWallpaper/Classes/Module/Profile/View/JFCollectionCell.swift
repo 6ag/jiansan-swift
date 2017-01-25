@@ -11,12 +11,11 @@ import YYWebImage
 
 class JFCollectionCell: UICollectionViewCell {
 
-    var bigpath: String? {
-        didSet {
-            wallpaperImageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(bigpath!)"), placeholder: nil, options: YYWebImageOptions.Progressive, completion: nil)
-        }
-    }
-    
     @IBOutlet weak var wallpaperImageView: UIImageView!
 
+    var bigpath: String? {
+        didSet {
+            wallpaperImageView.setImage(urlString: "\(BASE_URL)/\(bigpath ?? "")", placeholderImage: nil)
+        }
+    }
 }

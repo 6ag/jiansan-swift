@@ -23,10 +23,10 @@ class JFHomeTopView: UIView {
      */
     @IBAction func didTappedPopularButton() {
         delegate?.didSelectedPopularButton()
-        popularButton.selected = true
-        categoryButton.selected = false
-        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.lineView.transform = CGAffineTransformMakeTranslation(0, 0)
+        popularButton.isSelected = true
+        categoryButton.isSelected = false
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.lineView.transform = CGAffineTransform(translationX: 0, y: 0)
             }) { (_) in
                 
         }
@@ -38,10 +38,10 @@ class JFHomeTopView: UIView {
      */
     @IBAction func didTappedCategoryButton() {
         delegate?.didSelectedCategoryButton()
-        categoryButton.selected = true
-        popularButton.selected = false
-        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.lineView.transform = CGAffineTransformMakeTranslation(60, 0)
+        categoryButton.isSelected = true
+        popularButton.isSelected = false
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 10, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.lineView.transform = CGAffineTransform(translationX: 60, y: 0)
         }) { (_) in
             
         }
@@ -51,7 +51,7 @@ class JFHomeTopView: UIView {
     /**
      点击了左边导航按钮
      */
-    @IBAction func didTappedLeftBarButton(sender: UIButton) {
+    @IBAction func didTappedLeftBarButton(_ sender: UIButton) {
         delegate?.didTappedLeftBarButton()
     }
     

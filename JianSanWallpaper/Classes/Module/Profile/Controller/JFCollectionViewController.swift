@@ -28,7 +28,7 @@ class JFCollectionViewController: UIViewController {
         self.loadData()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -45,7 +45,7 @@ class JFCollectionViewController: UIViewController {
     /**
      准备UI
      */
-    private func prepareUI() {
+    fileprivate func prepareUI() {
         
         title = "我的收藏"
         view.backgroundColor = BACKGROUND_COLOR
@@ -55,16 +55,16 @@ class JFCollectionViewController: UIViewController {
         swipeableView.didTap = {view, location in
             
             // 临时放大动画的图片
-            let tempView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(self.data[view.tag]["path"]!)"))
-            UIApplication.sharedApplication().keyWindow?.insertSubview(tempView, aboveSubview: view)
+            let tempView = UIImageView(image: YYImageCache.shared().getImageForKey("\(BASE_URL)/\(self.data[view.tag]["path"]!)"))
+            UIApplication.shared.keyWindow?.insertSubview(tempView, aboveSubview: view)
             
             tempView.frame = CGRect(x: 50, y: 74, width: SCREEN_WIDTH - 100, height: SCREEN_HEIGHT - 74)
             
             // 放大动画并移除
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
             }) { (_) in
-                UIView.animateWithDuration(0.5, animations: {
+                UIView.animate(withDuration: 0.5, animations: {
                     tempView.alpha = 0
                     }, completion: { (_) in
                         tempView.removeFromSuperview()
@@ -78,8 +78,8 @@ class JFCollectionViewController: UIViewController {
             let model = JFWallPaperModel(dict: dict)
             detailVc.model = model
             detailVc.transitioningDelegate = self
-            detailVc.modalPresentationStyle = .Custom
-            self.presentViewController(detailVc, animated: true) {}
+            detailVc.modalPresentationStyle = .custom
+            self.present(detailVc, animated: true) {}
         }
         
         swipeableView.didDisappear = { view in
@@ -91,19 +91,19 @@ class JFCollectionViewController: UIViewController {
     /**
      加载收藏数据
      */
-    @objc private func loadData() {
+    @objc fileprivate func loadData() {
         
         JFFMDBManager.sharedManager.getStarWallpaper { (result) in
             guard let result = result else {
                 return
             }
             
-            for (index, dict) in result.enumerate() {
-                let imageView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(dict["path"]!)"))
+            for (index, dict) in result.enumerated() {
+                let imageView = UIImageView(image: YYImageCache.shared().getImageForKey("\(BASE_URL)/\(dict["path"]!)"))
                 imageView.frame = self.swipeableView.bounds
-                imageView.contentMode = .ScaleAspectFit
+                imageView.contentMode = .scaleAspectFit
                 imageView.layer.shouldRasterize = true
-                imageView.layer.rasterizationScale = UIScreen.mainScreen().scale
+                imageView.layer.rasterizationScale = UIScreen.main.scale
                 imageView.tag = index
                 
                 self.data.append([
@@ -131,21 +131,21 @@ extension JFCollectionViewController: UIViewControllerTransitioningDelegate {
     /**
      返回一个控制modal视图大小的对象
      */
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return JFWallpaperPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return JFWallpaperPresentationController(presentedViewController: presented, presenting: presenting)
     }
     
     /**
      返回一个控制器modal动画效果的对象
      */
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return JFWallpaperModalAnimation()
     }
     
     /**
      返回一个控制dismiss动画效果的对象
      */
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return JFWallpaperDismissAnimation()
     }
     

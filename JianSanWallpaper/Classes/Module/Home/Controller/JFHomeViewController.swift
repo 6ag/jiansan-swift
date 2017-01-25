@@ -17,12 +17,12 @@ class JFHomeViewController: UIViewController {
         prepareUI()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
     }
@@ -30,8 +30,8 @@ class JFHomeViewController: UIViewController {
     /**
      准备视图
      */
-    private func prepareUI() {
-        view.backgroundColor = UIColor.whiteColor()
+    fileprivate func prepareUI() {
+        view.backgroundColor = UIColor.white
         
         view.addSubview(topView)
         view.addSubview(contentView)
@@ -40,18 +40,18 @@ class JFHomeViewController: UIViewController {
     
     // MARK: - 懒加载
     /// 顶部导航栏 topView
-    private lazy var topView: JFHomeTopView = {
-        let topView = NSBundle.mainBundle().loadNibNamed("JFHomeTopView", owner: nil, options: nil).last as! JFHomeTopView
+    fileprivate lazy var topView: JFHomeTopView = {
+        let topView = Bundle.main.loadNibNamed("JFHomeTopView", owner: nil, options: nil)?.last as! JFHomeTopView
         topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
         topView.delegate = self
         return topView
     }()
     
     /// 视图区域 contentView
-    private lazy var contentView: UIScrollView = {
+    fileprivate lazy var contentView: UIScrollView = {
         let contentView = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
         contentView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: 0)
-        contentView.pagingEnabled = true
+        contentView.isPagingEnabled = true
         contentView.bounces = false
         contentView.showsHorizontalScrollIndicator = false
         contentView.delegate = self
@@ -70,7 +70,7 @@ class JFHomeViewController: UIViewController {
     }()
     
     /// 侧边栏
-    private lazy var sideView: JFSideView = {
+    fileprivate lazy var sideView: JFSideView = {
         let sideView = JFSideView.makeSideView()
         return sideView
     }()
@@ -80,7 +80,7 @@ class JFHomeViewController: UIViewController {
 // MARK: - UIScrollViewDelegate
 extension JFHomeViewController: UIScrollViewDelegate {
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.x >= SCREEN_WIDTH) {
             topView.didTappedCategoryButton()
         } else {
@@ -110,9 +110,9 @@ extension JFHomeViewController: JFHomeTopViewDelegate {
      点击了导航栏左侧按钮 打开侧边栏
      */
     func didTappedLeftBarButton() {
-        UIView.animateWithDuration(0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
             self.sideView.show()
-        }
+        }) 
     }
 }
 
@@ -131,22 +131,22 @@ extension JFHomeViewController: JFSideViewDelegate {
      */
     func didTappedCleanCacheButton() {
         
-        let cache = "\(String(format: "%.2f", CGFloat(YYImageCache.sharedCache().diskCache.totalCost()) / 1024 / 1024))M"
+        let cache = "\(String(format: "%.2f", CGFloat(YYImageCache.shared().diskCache.totalCost()) / 1024 / 1024))M"
         
-        let alertController = UIAlertController(title: "\(cache) 缓存", message: "您真的要清理缓存吗？清理缓存同时会清理【我的收藏】中的数据。", preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel) { (action) in
+        let alertController = UIAlertController(title: "\(cache) 缓存", message: "您真的要清理缓存吗？清理缓存同时会清理【我的收藏】中的数据。", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) { (action) in
         }
-        let confirmAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Destructive) { (action) in
+        let confirmAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.destructive) { (action) in
             JFProgressHUD.showWithStatus("正在清理")
             // 移除全部收藏
             JFFMDBManager.sharedManager.removeAllStarWallpapaer()
-            YYImageCache.sharedCache().diskCache.removeAllObjectsWithBlock({
+            YYImageCache.shared().diskCache.removeAllObjects({
                 JFProgressHUD.showSuccessWithStatus("清理成功")
             })
         }
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
-        presentViewController(alertController, animated: true) {}
+        present(alertController, animated: true) {}
         
     }
     

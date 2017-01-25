@@ -9,9 +9,9 @@
 import UIKit
 import MJRefresh
 
-let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
-let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
-let SCREEN_BOUNDS = UIScreen.mainScreen().bounds
+let SCREEN_WIDTH = UIScreen.main.bounds.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.height
+let SCREEN_BOUNDS = UIScreen.main.bounds
 
 /**
  拉方式
@@ -27,33 +27,33 @@ enum PullMethod {
 /**
  快速创建上拉加载更多控件
  */
-func jf_setupFooterRefresh(target: AnyObject, action: Selector) -> MJRefreshAutoNormalFooter {
+func jf_setupFooterRefresh(_ target: AnyObject, action: Selector) -> MJRefreshAutoNormalFooter {
     let footerRefresh = MJRefreshAutoNormalFooter(refreshingTarget: target, refreshingAction: action)
-    footerRefresh.automaticallyHidden = true
-    footerRefresh.setTitle("正在拼命加载中...", forState: MJRefreshState.Refreshing)
-    footerRefresh.setTitle("上拉即可加载更多壁纸...", forState: MJRefreshState.Idle)
-    footerRefresh.setTitle("没有更多壁纸啦...", forState: MJRefreshState.NoMoreData)
-    return footerRefresh
+    footerRefresh?.isAutomaticallyHidden = true
+    footerRefresh?.setTitle("正在拼命加载中...", for: MJRefreshState.refreshing)
+    footerRefresh?.setTitle("上拉即可加载更多壁纸...", for: MJRefreshState.idle)
+    footerRefresh?.setTitle("没有更多壁纸啦...", for: MJRefreshState.noMoreData)
+    return footerRefresh!
 }
 
 /**
  快速创建下拉加载最新控件
  */
-func jf_setupHeaderRefresh(target: AnyObject, action: Selector) -> MJRefreshNormalHeader {
+func jf_setupHeaderRefresh(_ target: AnyObject, action: Selector) -> MJRefreshNormalHeader {
     let headerRefresh = MJRefreshNormalHeader(refreshingTarget: target, refreshingAction: action)
-    headerRefresh.lastUpdatedTimeLabel.hidden = true
-    headerRefresh.stateLabel.hidden = true
-    return headerRefresh
+    headerRefresh?.lastUpdatedTimeLabel.isHidden = true
+    headerRefresh?.stateLabel.isHidden = true
+    return headerRefresh!
 }
 
 /// 导航背景颜色
-let NAVBAR_TINT_COLOR = UIColor.whiteColor()
+let NAVBAR_TINT_COLOR = UIColor.white
 
 /// 标题颜色
 let TITLE_COLOR = UIColor(red: 142 / 255.0, green: 120 / 255.0, blue: 152 / 255.0, alpha: 1.0)
 
 /// 标题字体
-let TITLE_FONT = UIFont.systemFontOfSize(17)
+let TITLE_FONT = UIFont.systemFont(ofSize: 17)
 
 /// 控制器背景颜色
 let BACKGROUND_COLOR = UIColor(red:0.933,  green:0.933,  blue:0.933, alpha:1)

@@ -32,11 +32,13 @@
 		B24B96E51D449C19004B8BBE /* JFHomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96E41D449C19004B8BBE /* JFHomeTopView.swift */; };
 		B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E61D44C615004B8BBE /* JFHomeTopView.xib */; };
 		B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E81D45BA95004B8BBE /* Assets.xcassets */; };
-		B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E91D45BA95004B8BBE /* Info.plist */; };
 		B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96EC1D45C069004B8BBE /* JFWallpaperCell.swift */; };
 		B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */; };
 		B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */; };
 		B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */; };
+		B28A8A921E38D64C00A34255 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A8A901E38D64C00A34255 /* UIImageExtension.swift */; };
+		B28A8A931E38D64C00A34255 /* UIImageViewWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A8A911E38D64C00A34255 /* UIImageViewWebImage.swift */; };
+		B28A8A941E38DC2C00A34255 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B24B96E91D45BA95004B8BBE /* Info.plist */; };
 		B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */; };
 		B29FF5071D5ED22F001EB96C /* JFAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5061D5ED22F001EB96C /* JFAdManager.swift */; };
 		B29FF5091D5EE24A001EB96C /* JFTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FF5081D5EE24A001EB96C /* JFTipView.swift */; };
@@ -60,7 +62,6 @@
 		B2FE2FE81CD33F3B0013FAEE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FDE1CD33F3B0013FAEE /* FMDatabaseQueue.m */; };
 		B2FE2FE91CD33F3B0013FAEE /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FDF1CD33F3B0013FAEE /* FMDatabaseVariadic.swift */; };
 		B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FE21CD33F3B0013FAEE /* FMResultSet.m */; };
-		B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FE2FE31CD33F3B0013FAEE /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,8 @@
 		B24B96ED1D45C069004B8BBE /* JFWallpaperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFWallpaperCell.xib; sourceTree = "<group>"; };
 		B24B96F01D45D3E2004B8BBE /* JFCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryCell.swift; sourceTree = "<group>"; };
 		B24B96F11D45D3E2004B8BBE /* JFCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFCategoryCell.xib; sourceTree = "<group>"; };
+		B28A8A901E38D64C00A34255 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		B28A8A911E38D64C00A34255 /* UIImageViewWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewWebImage.swift; sourceTree = "<group>"; };
 		B29FF5041D5EC420001EB96C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B29FF5061D5ED22F001EB96C /* JFAdManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFAdManager.swift; sourceTree = "<group>"; };
 		B29FF5081D5EE24A001EB96C /* JFTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFTipView.swift; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 		B20952FF1CD2132800036163 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B28A8A901E38D64C00A34255 /* UIImageExtension.swift */,
+				B28A8A911E38D64C00A34255 /* UIImageViewWebImage.swift */,
 				B20953001CD2132800036163 /* JFNetworkTools.swift */,
 				B2FE2FD11CD33CDA0013FAEE /* JFProgressHUD.swift */,
 				B2FE2FD31CD33CE60013FAEE /* JFFMDBManager.swift */,
@@ -449,11 +454,13 @@
 			attributes = {
 				CLASSPREFIX = JF;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "六阿哥";
 				TargetAttributes = {
 					A579010D1C62E31600B89DB7 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 35PE24U644;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -481,11 +488,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28A8A941E38DC2C00A34255 /* Info.plist in Resources */,
 				B24B96F31D45D3E2004B8BBE /* JFCategoryCell.xib in Resources */,
-				B24B96EB1D45BA95004B8BBE /* Info.plist in Resources */,
 				B24B96EF1D45C069004B8BBE /* JFWallpaperCell.xib in Resources */,
 				B24B96EA1D45BA95004B8BBE /* Assets.xcassets in Resources */,
-				B2FE2FEB1CD33F3B0013FAEE /* Info.plist in Resources */,
 				B20D08E51D46F05A00008A19 /* JFCategoryTopView.xib in Resources */,
 				B24B96E71D44C615004B8BBE /* JFHomeTopView.xib in Resources */,
 				B29FF5051D5EC420001EB96C /* GoogleService-Info.plist in Resources */,
@@ -509,7 +515,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		18F7F8B0B2A7F7E51CAA5D40 /* [CP] Embed Pods Frameworks */ = {
@@ -562,6 +568,7 @@
 				B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */,
 				B20D08E91D47075100008A19 /* JFSideView.swift in Sources */,
 				B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */,
+				B28A8A921E38D64C00A34255 /* UIImageExtension.swift in Sources */,
 				B209535C1CD2132800036163 /* JFNetworkTools.swift in Sources */,
 				B20D08F31D471FC200008A19 /* JFWallpaperDismissAnimation.swift in Sources */,
 				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,
@@ -578,6 +585,7 @@
 				B2FE2FE51CD33F3B0013FAEE /* FMDatabaseAdditions.m in Sources */,
 				B20953461CD2132800036163 /* JFHomeViewController.swift in Sources */,
 				B2FE2FE91CD33F3B0013FAEE /* FMDatabaseVariadic.swift in Sources */,
+				B28A8A931E38D64C00A34255 /* UIImageViewWebImage.swift in Sources */,
 				B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */,
 				B209535D1CD2132800036163 /* JFContextItem.swift in Sources */,
 				B2FE2FE61CD33F3B0013FAEE /* FMDatabaseAdditionsVariadic.swift in Sources */,
@@ -596,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -605,8 +614,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -640,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -649,8 +661,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -669,6 +683,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -677,9 +692,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 023E4CC996272EA5E0D22DF0 /* Pods-JianSanWallpaper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 35PE24U644;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -716,6 +733,7 @@
 				PRODUCT_NAME = JianSanWallpaper;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/JianSanWallpaper/Classes/Application/JianSan-Wallpaper-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -724,9 +742,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8BF066DDC38B7EA4D087027 /* Pods-JianSanWallpaper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 35PE24U644;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -763,6 +783,7 @@
 				PRODUCT_NAME = JianSanWallpaper;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/JianSanWallpaper/Classes/Application/JianSan-Wallpaper-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

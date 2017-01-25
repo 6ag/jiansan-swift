@@ -12,7 +12,7 @@ class JFContextItem: UIView {
     
     // MARK: - 初始化
     init(itemName: String, itemIcon: String) {
-        super.init(frame: CGRect(origin: CGPointZero, size: CGSize(width: 40, height: 50)))
+        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 40, height: 50)))
         
         itemLabel.text = itemName
         itemImage.image = UIImage(named: itemIcon)
@@ -26,12 +26,12 @@ class JFContextItem: UIView {
     lazy var itemLabel: UILabel = {
         let itemLabel = UILabel()
         itemLabel.frame = CGRect(x: 5, y: 0, width: self.frame.width - 10, height: 14)
-        itemLabel.textColor = UIColor.whiteColor()
+        itemLabel.textColor = UIColor.white
         itemLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
         itemLabel.layer.cornerRadius = 8
         itemLabel.layer.masksToBounds = true
-        itemLabel.textAlignment = NSTextAlignment.Center
-        itemLabel.font = UIFont.systemFontOfSize(10)
+        itemLabel.textAlignment = NSTextAlignment.center
+        itemLabel.font = UIFont.systemFont(ofSize: 10)
         self.addSubview(itemLabel)
         return itemLabel
     }()
@@ -39,7 +39,7 @@ class JFContextItem: UIView {
     lazy var itemImage: UIImageView = {
         let itemImage = UIImageView()
         itemImage.frame = CGRect(x: 9, y: 14, width: 25, height: 35)
-        itemImage.contentMode = .ScaleAspectFit
+        itemImage.contentMode = .scaleAspectFit
         self.addSubview(itemImage)
         return itemImage
     }()

@@ -46,9 +46,9 @@ class JFPopularViewController: UIViewController {
         interstitial = createAndLoadInterstitial()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().statusBarHidden = false
+        UIApplication.shared.isStatusBarHidden = false
         
         // 分类则添加自定义导航栏
         if (category_id != 0) {
@@ -60,16 +60,16 @@ class JFPopularViewController: UIViewController {
     /**
      准备视图
      */
-    private func prepareUI() {
+    fileprivate func prepareUI() {
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         view.addSubview(collectionView)
     }
     
     /**
      下拉加载最新
      */
-    @objc private func pulldownLoadData() {
+    @objc fileprivate func pulldownLoadData() {
         currentPage = 1
         loadData(category_id, page: currentPage, method: .pullDown)
     }
@@ -77,7 +77,7 @@ class JFPopularViewController: UIViewController {
     /**
      上拉加载更多
      */
-    @objc private func pullupLoadData() {
+    @objc fileprivate func pullupLoadData() {
         currentPage += 1
         loadData(category_id, page: currentPage, method: .pullUp)
     }
@@ -85,14 +85,14 @@ class JFPopularViewController: UIViewController {
     /**
      加载壁纸数据
      */
-    private func loadData(category_id: Int, page: Int, method: PullMethod) {
+    fileprivate func loadData(_ category_id: Int, page: Int, method: PullMethod) {
         
         JFWallPaperModel.loadWallpapersFromNetwork(category_id, page: page) { (wallpaperArray, error) in
             
             self.collectionView.mj_header.endRefreshing()
             self.collectionView.mj_footer.endRefreshing()
             
-            guard let wallpaperArray = wallpaperArray where error == nil else {
+            guard let wallpaperArray = wallpaperArray, error == nil else {
                 return
             }
             
@@ -114,13 +114,13 @@ class JFPopularViewController: UIViewController {
     
     // MARK: - 懒加载
     /// collectionView
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1.5
         layout.minimumLineSpacing = 1.5
         layout.itemSize = CGSize(width: (SCREEN_WIDTH - 3) / 3, height: (SCREEN_HEIGHT - 64) / 2.71)
         
-        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
         if (self.category_id != 0) {
             // 隐藏导航栏后，从44开始
@@ -129,16 +129,16 @@ class JFPopularViewController: UIViewController {
             collectionView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64)
         }
         
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerNib(UINib(nibName: "JFWallpaperCell", bundle: nil), forCellWithReuseIdentifier: self.wallpaperIdentifier)
+        collectionView.register(UINib(nibName: "JFWallpaperCell", bundle: nil), forCellWithReuseIdentifier: self.wallpaperIdentifier)
         return collectionView
     }()
     
     /// 顶部导航栏 topView
     lazy var topView: JFCategoryTopView = {
-        let topView = NSBundle.mainBundle().loadNibNamed("JFCategoryTopView", owner: nil, options: nil).last as! JFCategoryTopView
+        let topView = Bundle.main.loadNibNamed("JFCategoryTopView", owner: nil, options: nil)?.last as! JFCategoryTopView
         topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
         topView.delegate = self
         topView.titleLabel.text = self.category_title
@@ -153,7 +153,7 @@ extension JFPopularViewController: GADInterstitialDelegate {
     /**
      当插页广告dismiss后初始化插页广告对象
      */
-    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         interstitial = createAndLoadInterstitial()
     }
     
@@ -165,7 +165,7 @@ extension JFPopularViewController: GADInterstitialDelegate {
     func createAndLoadInterstitial() -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3941303619697740/9066705318")
         interstitial.delegate = self
-        interstitial.loadRequest(GADRequest())
+        interstitial.load(GADRequest())
         return interstitial
     }
     
@@ -174,26 +174,26 @@ extension JFPopularViewController: GADInterstitialDelegate {
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return wallpaperArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: wallpaperIdentifier, for: indexPath) as! JFWallpaperCell
         item.model = wallpaperArray[indexPath.item]
         return item
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if interstitial.isReady {
-            interstitial.presentFromRootViewController(self)
-            return
-        }
+//        if interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//            return
+//        }
         
         // 转换坐标系
-        let item = collectionView.dequeueReusableCellWithReuseIdentifier(wallpaperIdentifier, forIndexPath: indexPath) as! JFWallpaperCell
-        let rect = item.convertRect(item.frame, toView: view)
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: wallpaperIdentifier, for: indexPath) as! JFWallpaperCell
+        let rect = item.convert(item.frame, to: view)
         
         // 计算item相对于窗口的frame
         let x = rect.origin.x / 2
@@ -202,8 +202,8 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
         let height = rect.size.height
         
         // 临时放大动画的图片
-        let tempView = UIImageView(image: YYImageCache.sharedCache().getImageForKey("\(BASE_URL)/\(wallpaperArray[indexPath.item].smallpath!)"))
-        UIApplication.sharedApplication().keyWindow?.insertSubview(tempView, aboveSubview: view)
+        let tempView = UIImageView()
+        UIApplication.shared.keyWindow?.insertSubview(tempView, aboveSubview: view)
         
         // 分类页面需要下移20
         if (category_id == 0) {
@@ -212,30 +212,29 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
             tempView.frame = CGRect(x: x, y: y - 20, width: width, height: height)
         }
         
-        // 放大动画并移除
-        UIView.animateWithDuration(0.3, animations: {
-            tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
-        }) { (_) in
-            UIView.animateWithDuration(0.5, animations: {
-                tempView.alpha = 0
-                }, completion: { (_) in
-                    tempView.removeFromSuperview()
-            })
-        }
+        tempView.setImage(urlString: "\(BASE_URL)/\(wallpaperArray[indexPath.item].smallpath!)", placeholderImage: UIImage(named: "placeholder"))
         
-        // 自定义转场动画
-        let detailVc = JFDetailViewController()
-        detailVc.model = wallpaperArray[indexPath.item]
-        detailVc.transitioningDelegate = self
-        detailVc.modalPresentationStyle = .Custom
-        presentViewController(detailVc, animated: true) {
-            // 异步更新浏览量
-            dispatch_async(dispatch_get_global_queue(0, 0), {
-                JFWallPaperModel.showWallpaper(self.wallpaperArray[indexPath.item].id, finished: { (wallpaper, error) in
-//                    print("这很nice，和很清真")
-                })
-            })
-        }
+        // 放大动画并移除
+        UIView.animate(withDuration: 0.3, animations: {
+            tempView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        }, completion: { [weak self] (_) in
+            // 自定义转场动画
+            let detailVc = JFDetailViewController()
+            detailVc.model = self?.wallpaperArray[indexPath.item]
+            detailVc.tempView = tempView
+            detailVc.transitioningDelegate = self
+            detailVc.modalPresentationStyle = .custom
+            self?.present(detailVc, animated: true) {
+                DispatchQueue.global().async {
+                    JFWallPaperModel.showWallpaper(self?.wallpaperArray[indexPath.item].id ?? 0, finished: { (wallpaper, error) in
+                        print("这很nice，和很清真")
+                    })
+                }
+                
+            }
+        })
+        
+        
         
     }
     
@@ -248,7 +247,7 @@ extension JFPopularViewController: JFCategoryTopViewDelegate {
      点击了导航栏左侧按钮
      */
     func didTappedLeftBarButton() {
-        navigationController?.popViewControllerAnimated(true)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 
@@ -258,21 +257,21 @@ extension JFPopularViewController: UIViewControllerTransitioningDelegate {
     /**
      返回一个控制modal视图大小的对象
      */
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return JFWallpaperPresentationController(presentedViewController: presented, presentingViewController: presenting)
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return JFWallpaperPresentationController(presentedViewController: presented, presenting: presenting)
     }
     
     /**
      返回一个控制器modal动画效果的对象
      */
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return JFWallpaperModalAnimation()
     }
     
     /**
      返回一个控制dismiss动画效果的对象
      */
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return JFWallpaperDismissAnimation()
     }
     

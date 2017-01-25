@@ -32,22 +32,22 @@ class JFCategoryViewController: UIViewController {
     /**
      准备视图
      */
-    private func prepareUI() {
+    fileprivate func prepareUI() {
         
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         view.addSubview(collectionView)
         view.addSubview(popularButton)
         view.addSubview(bestButton)
         
-        popularButton.snp_makeConstraints { (make) in
+        popularButton.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
-            make.top.equalTo(collectionView.snp_bottom).offset(1.5)
+            make.top.equalTo(collectionView.snp.bottom).offset(1.5)
             make.height.equalTo((SCREEN_HEIGHT - 64 - ((SCREEN_HEIGHT - 64) / 4.6)) / 2)
         }
         
-        bestButton.snp_makeConstraints { (make) in
+        bestButton.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
-            make.top.equalTo(popularButton.snp_bottom).offset(1.5)
+            make.top.equalTo(popularButton.snp.bottom).offset(1.5)
             make.height.equalTo(popularButton)
         }
     }
@@ -55,9 +55,9 @@ class JFCategoryViewController: UIViewController {
     /**
      加载分类数据
      */
-    @objc private func loadCategoryData() {
+    @objc fileprivate func loadCategoryData() {
         JFCategoryModel.loadCategoriesFromNetwork { (categoriesArray, error) in
-            guard let categoriesArray = categoriesArray where error == nil else {
+            guard let categoriesArray = categoriesArray, error == nil else {
                 return
             }
             
@@ -69,49 +69,49 @@ class JFCategoryViewController: UIViewController {
     /**
      点击了热门
      */
-    @objc private func didTappedPopularButton(button: UIButton) {
+    @objc fileprivate func didTappedPopularButton(_ button: UIButton) {
         delegate?.didTappedPopularButton()
     }
     
     /**
      点击了最佳锁屏
      */
-    @objc private func didTappedBestButton(button: UIButton) {
+    @objc fileprivate func didTappedBestButton(_ button: UIButton) {
         delegate?.didTappedBestButton()
     }
     
     // MARK: - 懒加载
     /// collectionView
-    private lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1.5
         layout.minimumLineSpacing = 1.5
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: (SCREEN_WIDTH - 4.5) / 4, height: (SCREEN_HEIGHT - 64) / 4.6)
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: (SCREEN_HEIGHT - 64) / 4.6), collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.bounces = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.registerNib(UINib(nibName: "JFCategoryCell", bundle: nil), forCellWithReuseIdentifier: self.categoryIdentifier)
+        collectionView.register(UINib(nibName: "JFCategoryCell", bundle: nil), forCellWithReuseIdentifier: self.categoryIdentifier)
         return collectionView
     }()
     
     /// 热门
-    private lazy var popularButton: UIButton = {
-        let popularButton = UIButton(type: .Custom)
-        popularButton.setBackgroundImage(UIImage(named: "category_popular"), forState: UIControlState.Normal)
-        popularButton.addTarget(self, action: #selector(didTappedPopularButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+    fileprivate lazy var popularButton: UIButton = {
+        let popularButton = UIButton(type: .custom)
+        popularButton.setBackgroundImage(UIImage(named: "category_popular"), for: UIControlState())
+        popularButton.addTarget(self, action: #selector(didTappedPopularButton(_:)), for: UIControlEvents.touchUpInside)
         return popularButton
     }()
     
     /// 最佳锁屏
-    private lazy var bestButton: UIButton = {
-        let bestButton = UIButton(type: .Custom)
-        bestButton.setBackgroundImage(UIImage(named: "category_best"), forState: UIControlState.Normal)
-        bestButton.addTarget(self, action: #selector(didTappedBestButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+    fileprivate lazy var bestButton: UIButton = {
+        let bestButton = UIButton(type: .custom)
+        bestButton.setBackgroundImage(UIImage(named: "category_best"), for: UIControlState())
+        bestButton.addTarget(self, action: #selector(didTappedBestButton(_:)), for: UIControlEvents.touchUpInside)
         return bestButton
     }()
     
@@ -120,20 +120,20 @@ class JFCategoryViewController: UIViewController {
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension JFCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoriesArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = collectionView.dequeueReusableCellWithReuseIdentifier(categoryIdentifier, forIndexPath: indexPath) as! JFCategoryCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: categoryIdentifier, for: indexPath) as! JFCategoryCell
         item.model = categoriesArray[indexPath.item]
         return item
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let popularVc = JFPopularViewController()
         popularVc.category_id = categoriesArray[indexPath.item].id
-        popularVc.category_title = categoriesArray[indexPath.item].name!
+        popularVc.category_title = categoriesArray[indexPath.item].name ?? ""
         navigationController?.pushViewController(popularVc, animated: true)
     }
 }

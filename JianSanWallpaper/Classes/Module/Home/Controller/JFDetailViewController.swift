@@ -21,16 +21,29 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     /// 图片对象
     var model: JFWallPaperModel? {
         didSet {
-            imageView.yy_setImageWithURL(NSURL(string: "\(BASE_URL)/\(model!.bigpath!)"),
-                                         placeholder: model?.smallpath != nil ? UIImage(named: "\(BASE_URL)/\(model!.smallpath!)") : nil,
-                                         options: YYWebImageOptions.Progressive,
-                                         completion: nil)
+            guard let url = URL(string: "\(BASE_URL)/\(model?.bigpath ?? "")") else { return }
+            
+            imageView.yy_setImage(with: url, placeholder: tempView?.image, options: []) { [weak self] (_, _, _, _, _) in
+                // 移除做动画的临时视图
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self?.tempView?.alpha = 0
+                    }, completion: { (_) in
+                        self?.tempView?.removeFromSuperview()
+                    })
+                })
+
+            }
+            
         }
     }
     
+    /// 临时放大图片
+    var tempView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         // 轻敲手势
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTappedView(_:)))
@@ -38,31 +51,31 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         
         // 下滑手势
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(didDownSwipeView(_:)))
-        swipeGesture.direction = .Down
+        swipeGesture.direction = .down
         view.addGestureRecognizer(swipeGesture)
         
         // 别日狗
-        performSelectorOnMainThread(#selector(dontSleep), withObject: nil, waitUntilDone: false)
+        performSelector(onMainThread: #selector(dontSleep), with: nil, waitUntilDone: false)
         
         // 添加第一次使用指引
         showTip()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.fade)
     }
     
     /**
      显示提示
      */
-    private func showTip() {
+    fileprivate func showTip() {
         
         // 只显示一次
-        if !NSUserDefaults.standardUserDefaults().boolForKey("showTip") {
+        if !UserDefaults.standard.bool(forKey: "showTip") {
             let tipView = JFTipView()
             tipView.show()
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "showTip")
+            UserDefaults.standard.set(true, forKey: "showTip")
         }
     
     }
@@ -71,13 +84,13 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
      唤醒线程
      */
     func dontSleep() {
-//        print("起来吧，别日狗了")
+        print("起来吧，别日狗了")
     }
     
     /**
      view触摸事件
      */
-    @objc private func didTappedView(gestureRecognizer: UITapGestureRecognizer) {
+    @objc fileprivate func didTappedView(_ gestureRecognizer: UITapGestureRecognizer) {
         if contextSheet.isShow {
             contextSheet.dismiss()
         } else {
@@ -94,26 +107,26 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     /**
      下滑手势
      */
-    @objc private func didDownSwipeView(gestureRecognizer: UISwipeGestureRecognizer) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @objc fileprivate func didDownSwipeView(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - JFContextSheetDelegate
-    func contextSheet(contextSheet: JFContextSheet, didSelectItemWithItemName itemName: String) {
+    func contextSheet(_ contextSheet: JFContextSheet, didSelectItemWithItemName itemName: String) {
         switch (itemName) {
         case "返回":
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
             break
         case "预览":
-            if (scrollView.superview == nil) {
+            if scrollView.superview == nil {
                 view.addSubview(scrollView)
             }
             break
         case "设定":
             let alertController = UIAlertController()
             
-            let lockScreen = UIAlertAction(title: "设定锁定屏幕", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenLock, finished: { (success) in
+            let lockScreen = UIAlertAction(title: "设定锁定屏幕", style: UIAlertActionStyle.default, handler: { (action) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenLock, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -122,8 +135,8 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                 })
             })
             
-            let homeScreen = UIAlertAction(title: "设定主屏幕", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenHome, finished: { (success) in
+            let homeScreen = UIAlertAction(title: "设定主屏幕", style: UIAlertActionStyle.default, handler: { (action) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenHome, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -132,8 +145,8 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                 })
             })
             
-            let homeScreenAndLockScreen = UIAlertAction(title: "同时设定", style: UIAlertActionStyle.Default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhotoWithImage(self.imageView.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
+            let homeScreenAndLockScreen = UIAlertAction(title: "同时设定", style: UIAlertActionStyle.default, handler: { (action) in
+                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
                     if success {
                         JFProgressHUD.showSuccessWithStatus("设置成功")
                     } else {
@@ -142,7 +155,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                 })
             })
             
-            let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { (action) in
+            let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { (action) in
                 
             })
             
@@ -153,7 +166,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             alertController.addAction(cancel)
             
             // 弹出选项
-            presentViewController(alertController, animated: true, completion: {
+            present(alertController, animated: true, completion: {
                 
             })
             
@@ -179,7 +192,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     /**
      保存图片到相册回调
      */
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
         if error != nil {
             JFProgressHUD.showErrorWithStatus("保存失败")
         } else {
@@ -190,7 +203,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     
     // MARK: - 懒加载
     /// 展示的壁纸图片
-    private lazy var imageView: UIImageView = {
+    fileprivate lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = SCREEN_BOUNDS
         self.view.addSubview(imageView)
@@ -198,7 +211,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     }()
     
     /// 触摸屏幕后弹出视图
-    private lazy var contextSheet: JFContextSheet = {
+    fileprivate lazy var contextSheet: JFContextSheet = {
         let contextItem1 = JFContextItem(itemName: "返回", itemIcon: "content_icon_back")
         let contextItem2 = JFContextItem(itemName: "预览", itemIcon: "content_icon_preview")
         let contextItem3 = JFContextItem(itemName: "设定", itemIcon: "content_icon_set")
@@ -208,8 +221,8 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         // 选项数组
         var items = [contextItem1, contextItem2, contextItem3, contextItem4, contextItem5]
         
-        if !(UIApplication.sharedApplication().delegate as! AppDelegate).on {
-            items.removeAtIndex(2)
+        if !(UIApplication.shared.delegate as! AppDelegate).on {
+            items.remove(at: 2)
         }
         
         // 选项视图
@@ -219,10 +232,10 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
     }()
     
     /// 预览滚动视图
-    private lazy var scrollView: UIScrollView = {
+    fileprivate lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: SCREEN_BOUNDS)
-        scrollView.backgroundColor = UIColor.clearColor()
-        scrollView.pagingEnabled = true
+        scrollView.backgroundColor = UIColor.clear
+        scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: SCREEN_HEIGHT)
         

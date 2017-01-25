@@ -9,7 +9,7 @@
 import UIKit
 
 protocol JFContextSheetDelegate {
-    func contextSheet(contextSheet: JFContextSheet, didSelectItemWithItemName itemName: String)
+    func contextSheet(_ contextSheet: JFContextSheet, didSelectItemWithItemName itemName: String)
 }
 
 class JFContextSheet: UIView {
@@ -43,7 +43,7 @@ class JFContextSheet: UIView {
     /**
      item触摸手势
      */
-    func didTappedItemWithItemName(tap: UITapGestureRecognizer) -> Void {
+    func didTappedItemWithItemName(_ tap: UITapGestureRecognizer) -> Void {
         let itemView = tap.view as! JFContextItem
         
         // 回调触摸itemName
@@ -73,7 +73,7 @@ class JFContextSheet: UIView {
      
      - returns: 返回点坐标
      */
-    func getCircleCoordinate(center: CGPoint, angle: CGFloat, radius: CGFloat) -> CGPoint {
+    func getCircleCoordinate(_ center: CGPoint, angle: CGFloat, radius: CGFloat) -> CGPoint {
         let x = radius * CGFloat(cosf(Float(angle) * Float(M_PI) / 180))
         let y = radius * CGFloat(sinf(Float(angle) * Float(M_PI) / 180))
         return CGPoint(x: center.x + x, y: center.y + y)
@@ -88,17 +88,17 @@ class JFContextSheet: UIView {
      - parameter index:       角标
      - parameter itemView:    选项
      */
-    func makeSpringAnimation(startAngle: CGFloat, endAngle: CGFloat, centerPoint: CGPoint, index: Int, itemView: JFContextItem) -> Void {
+    func makeSpringAnimation(_ startAngle: CGFloat, endAngle: CGFloat, centerPoint: CGPoint, index: Int, itemView: JFContextItem) -> Void {
         // 每个选项之间的角度间距
         let angleDistance = (endAngle - startAngle) / CGFloat(subviews.count - 1)
         let angle = startAngle + CGFloat(index) * angleDistance
         let destinationPoint = getCircleCoordinate(centerPoint, angle: angle, radius: pathRadius)
         
-        UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: UIViewAnimationOptions(), animations: {
             itemView.alpha = 1.0
             let tx = destinationPoint.x - centerPoint.x
             let ty = destinationPoint.y - centerPoint.y
-            itemView.transform = CGAffineTransformTranslate(itemView.transform, tx, ty)
+            itemView.transform = itemView.transform.translatedBy(x: tx, y: ty)
             }, completion: { (_) in
                 
         })
@@ -109,13 +109,13 @@ class JFContextSheet: UIView {
      
      - parameter centerPoint: 中心点
      */
-    func startSpringAnimation(centerPoint: CGPoint) -> Void {
+    func startSpringAnimation(_ centerPoint: CGPoint) -> Void {
         // item布局
         let itemWidth: CGFloat = 40
         let itemHeight: CGFloat = 50
         
         // 把所有item都以触摸点为原点
-        for (index, item) in subviews.enumerate() {
+        for (index, item) in subviews.enumerated() {
             let itemView = item as! JFContextItem
             itemView.frame = CGRect(x: centerPoint.x - itemWidth * 0.5, y: centerPoint.y - itemHeight * 0.5, width: itemWidth, height: itemHeight)
             itemView.alpha = 0.0
@@ -267,7 +267,7 @@ class JFContextSheet: UIView {
      - parameter gestureRecognizer: 手势
      - parameter inView:            手势所在视图
      */
-    func startWithGestureRecognizer(gestureRecognizer: UIGestureRecognizer, inView: UIView) -> Void {
+    func startWithGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, inView: UIView) -> Void {
         
         isShow = true
         
@@ -278,7 +278,7 @@ class JFContextSheet: UIView {
         backgroundColor = UIColor(white: 0.0, alpha: 0.5)
         
         // 触摸圆点
-        let centerPoint = gestureRecognizer.locationInView(inView)
+        let centerPoint = gestureRecognizer.location(in: inView)
         
         // 开始弹簧动画
         startSpringAnimation(centerPoint)
@@ -295,7 +295,7 @@ class JFContextSheet: UIView {
         centerView.backgroundColor = UIColor(white: 0, alpha: 0.1)
         centerView.layer.cornerRadius = 20
         centerView.layer.masksToBounds = true
-        centerView.layer.borderColor = UIColor(red:0.502,  green:0.502,  blue:0.502, alpha:0.5).CGColor
+        centerView.layer.borderColor = UIColor(red:0.502,  green:0.502,  blue:0.502, alpha:0.5).cgColor
         centerView.layer.borderWidth = 2.0
         return centerView
     }()
