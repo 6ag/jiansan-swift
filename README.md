@@ -2,6 +2,12 @@
 
 采用swift编写的一个壁纸类app，PHP后台源码地址: [jiansan-laravel](https://github.com/6ag/jiansan-laravel) ，API接口文档 [http://jiansan.6ag.cn/apidoc/](http://jiansan.6ag.cn/apidoc/) 。
 
+## AppStore
+
+<a target='_blank' href='https://itunes.apple.com/app/id1110293594'>
+<img src='http://ww2.sinaimg.cn/large/0060lm7Tgw1f1hgrs1ebwj308102q0sp.jpg' width='144' height='49' />
+</a>
+
 ## 效果预览
 
 ### 12门派 + 大侠
