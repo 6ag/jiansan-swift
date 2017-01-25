@@ -186,10 +186,10 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-//        if interstitial.isReady {
-//            interstitial.present(fromRootViewController: self)
-//            return
-//        }
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+            return
+        }
         
         // 转换坐标系
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: wallpaperIdentifier, for: indexPath) as! JFWallpaperCell

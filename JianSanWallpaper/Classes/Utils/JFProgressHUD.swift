@@ -23,8 +23,10 @@ class JFProgressHUD: NSObject {
         SVProgressHUD.show(withStatus: status)
     }
     
-    class func showInfoWithStatus(_ status: String) {
+    class func showInfoWithStatus(_ status: String, minimumDismissTimeInterval: TimeInterval = 1.0) {
+        SVProgressHUD.setMinimumDismissTimeInterval(minimumDismissTimeInterval)
         SVProgressHUD.showInfo(withStatus: status)
+        SVProgressHUD.setMinimumDismissTimeInterval(1.0)
     }
     
     class func showSuccessWithStatus(_ status: String) {

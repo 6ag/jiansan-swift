@@ -125,7 +125,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         case "设定":
             // iOS10后设置壁纸的私有API无法使用了
             if #available(iOS 10, *) {
-                JFProgressHUD.showInfoWithStatus("请下载壁纸后，在相册里设置壁纸")
+                JFProgressHUD.showInfoWithStatus("下载壁纸后，在手机[设置-墙纸]里设置", minimumDismissTimeInterval: 3.0)
             } else {
                 
                 let alertController = UIAlertController()
@@ -160,9 +160,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                     })
                 })
                 
-                let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { (action) in
-                    
-                })
+                let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
                 
                 // 添加动作
                 alertController.addAction(lockScreen)
@@ -171,9 +169,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                 alertController.addAction(cancel)
                 
                 // 弹出选项
-                present(alertController, animated: true, completion: {
-                    
-                })
+                present(alertController, animated: true, completion: nil)
             }
             break
         case "下载":
