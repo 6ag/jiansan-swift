@@ -32,7 +32,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                         self?.tempView?.removeFromSuperview()
                     })
                 })
-
+                
             }
             
         }
@@ -77,7 +77,7 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             tipView.show()
             UserDefaults.standard.set(true, forKey: "showTip")
         }
-    
+        
     }
     
     /**
@@ -123,53 +123,58 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             }
             break
         case "设定":
-            let alertController = UIAlertController()
-            
-            let lockScreen = UIAlertAction(title: "设定锁定屏幕", style: UIAlertActionStyle.default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenLock, finished: { (success) in
-                    if success {
-                        JFProgressHUD.showSuccessWithStatus("设置成功")
-                    } else {
-                        JFProgressHUD.showInfoWithStatus("设置失败")
-                    }
-                })
-            })
-            
-            let homeScreen = UIAlertAction(title: "设定主屏幕", style: UIAlertActionStyle.default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenHome, finished: { (success) in
-                    if success {
-                        JFProgressHUD.showSuccessWithStatus("设置成功")
-                    } else {
-                        JFProgressHUD.showInfoWithStatus("设置失败")
-                    }
-                })
-            })
-            
-            let homeScreenAndLockScreen = UIAlertAction(title: "同时设定", style: UIAlertActionStyle.default, handler: { (action) in
-                JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
-                    if success {
-                        JFProgressHUD.showSuccessWithStatus("设置成功")
-                    } else {
-                        JFProgressHUD.showInfoWithStatus("设置失败")
-                    }
-                })
-            })
-            
-            let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { (action) in
+            // iOS10后设置壁纸的私有API无法使用了
+            if #available(iOS 10, *) {
+                JFProgressHUD.showInfoWithStatus("请下载壁纸后，在相册里设置壁纸")
+            } else {
                 
-            })
-            
-            // 添加动作
-            alertController.addAction(lockScreen)
-            alertController.addAction(homeScreen)
-            alertController.addAction(homeScreenAndLockScreen)
-            alertController.addAction(cancel)
-            
-            // 弹出选项
-            present(alertController, animated: true, completion: {
+                let alertController = UIAlertController()
                 
-            })
-            
+                let lockScreen = UIAlertAction(title: "设定锁定屏幕", style: UIAlertActionStyle.default, handler: { (action) in
+                    JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenLock, finished: { (success) in
+                        if success {
+                            JFProgressHUD.showSuccessWithStatus("设置成功")
+                        } else {
+                            JFProgressHUD.showInfoWithStatus("设置失败")
+                        }
+                    })
+                })
+                
+                let homeScreen = UIAlertAction(title: "设定主屏幕", style: UIAlertActionStyle.default, handler: { (action) in
+                    JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenHome, finished: { (success) in
+                        if success {
+                            JFProgressHUD.showSuccessWithStatus("设置成功")
+                        } else {
+                            JFProgressHUD.showInfoWithStatus("设置失败")
+                        }
+                    })
+                })
+                
+                let homeScreenAndLockScreen = UIAlertAction(title: "同时设定", style: UIAlertActionStyle.default, handler: { (action) in
+                    JFWallPaperTool.shareInstance().saveAndAsScreenPhoto(with: self.imageView.image!, imageScreen: UIImageScreenBoth, finished: { (success) in
+                        if success {
+                            JFProgressHUD.showSuccessWithStatus("设置成功")
+                        } else {
+                            JFProgressHUD.showInfoWithStatus("设置失败")
+                        }
+                    })
+                })
+                
+                let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: { (action) in
+                    
+                })
+                
+                // 添加动作
+                alertController.addAction(lockScreen)
+                alertController.addAction(homeScreen)
+                alertController.addAction(homeScreenAndLockScreen)
+                alertController.addAction(cancel)
+                
+                // 弹出选项
+                present(alertController, animated: true, completion: {
+                    
+                })
+            }
             break
         case "下载":
             UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
