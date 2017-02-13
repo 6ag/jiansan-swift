@@ -118,11 +118,19 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             dismiss(animated: true, completion: nil)
             break
         case "预览":
+            if isShouldShowShareView() {
+                showShareView()
+                return
+            }
             if scrollView.superview == nil {
                 view.addSubview(scrollView)
             }
             break
         case "设定":
+            if isShouldShowShareView() {
+                showShareView()
+                return
+            }
             // iOS10后设置壁纸的私有API无法使用了
             if #available(iOS 10, *) {
                 JFProgressHUD.showInfoWithStatus("下载壁纸后，在手机[设置-墙纸]里设置", minimumDismissTimeInterval: 3.0)
@@ -173,9 +181,17 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             }
             break
         case "下载":
+            if isShouldShowShareView() {
+                showShareView()
+                return
+            }
             UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "收藏":
+            if isShouldShowShareView() {
+                showShareView()
+                return
+            }
             JFFMDBManager.sharedManager.checkIsExists(model!.bigpath!, finished: { (isExists) in
                 if isExists {
                     JFProgressHUD.showInfoWithStatus("已经收藏过了")
@@ -188,6 +204,42 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         default:
             break
         }
+    }
+    
+    /// 是否能够显示分享视图
+    ///
+    /// - Returns: true则显示
+    fileprivate func isShouldShowShareView() -> Bool {
+        if !UserDefaults.standard.bool(forKey: "isShouldSave") && !UserDefaults.standard.bool(forKey: "isUpdatingVersion") {
+            return true
+        }
+        return false
+    }
+    
+    /// 分享视图
+    fileprivate func showShareView() {
+        let alertC = UIAlertController(title: "第一次操作需要先分享一次哦", message: "独乐乐不如众乐乐，好东西要分享给朋友们哦！跪谢支持", preferredStyle: .alert)
+        alertC.addAction(UIAlertAction(title: "立即分享", style: .default, handler: { [weak self] (_) in
+            UMSocialUIManager.showShareMenuViewInWindow { (platformType, userInfo) in
+                let messageObject = UMSocialMessageObject()
+                let shareObject = UMShareWebpageObject.shareObject(withTitle: "海量剑三手机壁纸免费下载", descr: "您是否也是剑三迷呢，您是否喜欢在手机上设置剑三壁纸呢，快使用剑三壁纸库吧", thumImage: UIImage(named: "app_icon"))
+                shareObject?.webpageUrl = "https://itunes.apple.com/app/id\(APPLE_ID)"
+                messageObject.shareObject = shareObject
+                
+                UMSocialManager.default().share(to: platformType, messageObject: messageObject, currentViewController: self) { (data, error) in
+                    if error == nil {
+                        JFProgressHUD.showSuccessWithStatus("分享成功，谢谢支持")
+                        UserDefaults.standard.set(true, forKey: "isShouldSave")
+                    } else {
+                        JFProgressHUD.showSuccessWithStatus("分享失败，请换一个平台分享")
+                        UserDefaults.standard.set(false, forKey: "isShouldSave")
+                    }
+                }
+            }
+        }))
+        alertC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(alertC, animated: true, completion: nil)
+        return
     }
     
     /**

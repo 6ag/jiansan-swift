@@ -67,12 +67,14 @@ extension JFNetworkTools {
             // 解析json数据
             let json = JSON(value)
             
+            finished(true, json, nil)
+            
             // 判断是否请求成功
-            if (json["meta"]["status"].stringValue == "success") {
-                finished(true, json, nil)
-            } else {
-                finished(false, json, response.result.error as NSError?)
-            }
+//            if (json["meta"]["status"].stringValue == "success") {
+//                finished(true, json, nil)
+//            } else {
+//                finished(false, json, response.result.error as NSError?)
+//            }
             
         case .failure(let error):
             finished(false, nil, error as NSError?)

@@ -9,8 +9,6 @@
 import UIKit
 import MJRefresh
 import YYWebImage
-import Firebase
-import GoogleMobileAds
 
 class JFPopularViewController: UIViewController {
     
@@ -28,9 +26,6 @@ class JFPopularViewController: UIViewController {
     /// 壁纸模型数组
     var wallpaperArray = [JFWallPaperModel]()
     
-    // 插页广告
-    var interstitial: GADInterstitial!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,8 +37,6 @@ class JFPopularViewController: UIViewController {
         
         collectionView.mj_header.beginRefreshing()
         
-        // 创建并加载插页广告
-        interstitial = createAndLoadInterstitial()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,30 +140,6 @@ class JFPopularViewController: UIViewController {
     
 }
 
-// MARK: - GADInterstitialDelegate 插页广告相关方法
-extension JFPopularViewController: GADInterstitialDelegate {
-    
-    /**
-     当插页广告dismiss后初始化插页广告对象
-     */
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
-    }
-    
-    /**
-     初始化插页广告
-     
-     - returns: 插页广告对象
-     */
-    func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3941303619697740/9066705318")
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-        return interstitial
-    }
-    
-}
-
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -186,7 +155,8 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if interstitial.isReady {
+        // 弹出插页广告
+        if let interstitial = JFAdManager.shared.getReadyIntersitial() {
             interstitial.present(fromRootViewController: self)
             return
         }
@@ -233,8 +203,6 @@ extension JFPopularViewController: UICollectionViewDataSource, UICollectionViewD
                 
             }
         })
-        
-        
         
     }
     

@@ -68,7 +68,7 @@ let CORNER_RADIUS: CGFloat = 5
 let APPLE_ID = "1110293594"
 
 /// 友盟APPKEY
-let UM_APP_KEY = "57219e40e0f55a1599001df7"
+let UM_APP_KEY = "58a1bf8ae88bad2c380013ba"
 
 /// 微信
 let WX_APP_ID = "wx4c6093e754a93fb1"
