@@ -17,7 +17,7 @@ fileprivate let AD_INTERSTITIAL_ID = "ca-app-pub-3941303619697740/9658979714"
 /// banner广告ID
 fileprivate let AD_BANNER_ID = "ca-app-pub-3941303619697740/4039136115"
 /// 插页式广告显示频率
-fileprivate let AD_TIME_INTERVAL: TimeInterval = 60
+fileprivate let AD_TIME_INTERVAL: TimeInterval = 120
 /// 是否显示广告 - 这里是用来方便隐藏广告的
 fileprivate let AD_SHOULD_SHOW = true
 
