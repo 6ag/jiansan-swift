@@ -112,6 +112,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     fileprivate func setupGlobalStyle() {
         
+        if #available(iOS 11.0, *) {
+            UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        }
+        UIScrollView.appearance().alwaysBounceVertical = true // 让UIScrollView的contentSize比frame.size小也能滚动
+        UITableView.appearance().estimatedRowHeight = 0
+        UITableView.appearance().estimatedSectionHeaderHeight = 0
+        UITableView.appearance().estimatedSectionFooterHeight = 0
         UIApplication.shared.isStatusBarHidden = false
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
         JFProgressHUD.setupHUD()

@@ -118,19 +118,11 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             dismiss(animated: true, completion: nil)
             break
         case "预览":
-            if isShouldShowShareView() {
-                showShareView()
-                return
-            }
             if scrollView.superview == nil {
                 view.addSubview(scrollView)
             }
             break
         case "设定":
-            if isShouldShowShareView() {
-                showShareView()
-                return
-            }
             // iOS10后设置壁纸的私有API无法使用了
             if #available(iOS 10, *) {
                 JFProgressHUD.showInfoWithStatus("下载壁纸后，在手机[设置-墙纸]里设置", minimumDismissTimeInterval: 3.0)
@@ -188,10 +180,6 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
             UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             break
         case "收藏":
-            if isShouldShowShareView() {
-                showShareView()
-                return
-            }
             JFFMDBManager.sharedManager.checkIsExists(model!.bigpath!, finished: { (isExists) in
                 if isExists {
                     JFProgressHUD.showInfoWithStatus("已经收藏过了")
@@ -227,13 +215,8 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
                 messageObject.shareObject = shareObject
                 
                 UMSocialManager.default().share(to: platformType, messageObject: messageObject, currentViewController: self) { (data, error) in
-                    if error == nil {
-                        JFProgressHUD.showSuccessWithStatus("分享成功，谢谢支持")
-                        UserDefaults.standard.set(true, forKey: "isShouldSave")
-                    } else {
-                        JFProgressHUD.showSuccessWithStatus("分享失败，请换一个平台分享")
-                        UserDefaults.standard.set(false, forKey: "isShouldSave")
-                    }
+                    UserDefaults.standard.set(true, forKey: "isShouldSave")
+                    JFProgressHUD.showSuccessWithStatus("羞答答，谢谢支持哦")
                 }
             }
         }))
@@ -251,7 +234,6 @@ class JFDetailViewController: UIViewController, JFContextSheetDelegate {
         } else {
             JFProgressHUD.showSuccessWithStatus("保存成功")
         }
-        
     }
     
     // MARK: - 懒加载

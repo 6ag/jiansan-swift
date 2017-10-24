@@ -42,14 +42,14 @@ class JFHomeViewController: UIViewController {
     /// 顶部导航栏 topView
     fileprivate lazy var topView: JFHomeTopView = {
         let topView = Bundle.main.loadNibNamed("JFHomeTopView", owner: nil, options: nil)?.last as! JFHomeTopView
-        topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
+        topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: STATUS_AND_NAVBAR_HEIGHT)
         topView.delegate = self
         return topView
     }()
     
     /// 视图区域 contentView
     fileprivate lazy var contentView: UIScrollView = {
-        let contentView = UIScrollView(frame: CGRect(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64))
+        let contentView = UIScrollView(frame: CGRect(x: 0, y: STATUS_AND_NAVBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUS_AND_NAVBAR_HEIGHT))
         contentView.contentSize = CGSize(width: SCREEN_WIDTH * 2, height: 0)
         contentView.isPagingEnabled = true
         contentView.bounces = false

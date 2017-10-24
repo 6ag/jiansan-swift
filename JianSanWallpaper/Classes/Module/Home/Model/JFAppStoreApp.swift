@@ -36,18 +36,18 @@ class JFAppStoreApp: NSObject {
                 return
             }
             
-            print(results.first!)
+//            print(results.first!)
             
             let app = JFAppStoreApp(dict: results.first!)
             guard let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
                 let serverVersion = app.version,
                 currentVersion == serverVersion else {
-                    print("正在审核新版本中 currentVersion = \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) serverVersion = \(app.version)")
+//                    print("正在审核新版本中 currentVersion = \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) serverVersion = \(app.version)")
                     finished(app, true)
                 return
             }
             
-            print("已经更新了新版本 currentVersion = \(currentVersion) serverVersion = \(serverVersion)")
+//            print("已经更新了新版本 currentVersion = \(currentVersion) serverVersion = \(serverVersion)")
             finished(app, false)
         }
         

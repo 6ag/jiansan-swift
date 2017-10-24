@@ -111,15 +111,15 @@ class JFPopularViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1.5
         layout.minimumLineSpacing = 1.5
-        layout.itemSize = CGSize(width: (SCREEN_WIDTH - 3) / 3, height: (SCREEN_HEIGHT - 64) / 2.71)
+        layout.itemSize = CGSize(width: (SCREEN_WIDTH - 3) / 3, height: (SCREEN_HEIGHT - STATUS_AND_NAVBAR_HEIGHT) / 2.71)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
         if (self.category_id != 0) {
             // 隐藏导航栏后，从44开始
-            collectionView.frame = CGRect(x: 0, y: 44, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 44)
+            collectionView.frame = CGRect(x: 0, y: STATUS_AND_NAVBAR_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUS_AND_NAVBAR_HEIGHT)
         } else {
-            collectionView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64)
+            collectionView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUS_AND_NAVBAR_HEIGHT)
         }
         
         collectionView.backgroundColor = UIColor.white
@@ -132,7 +132,7 @@ class JFPopularViewController: UIViewController {
     /// 顶部导航栏 topView
     lazy var topView: JFCategoryTopView = {
         let topView = Bundle.main.loadNibNamed("JFCategoryTopView", owner: nil, options: nil)?.last as! JFCategoryTopView
-        topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 64)
+        topView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: STATUS_AND_NAVBAR_HEIGHT)
         topView.delegate = self
         topView.titleLabel.text = self.category_title
         return topView
