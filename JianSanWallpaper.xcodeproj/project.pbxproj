@@ -71,6 +71,11 @@
 		B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2884B1D43363000745A3F /* JFPopularViewController.swift */; };
 		B2E2884E1D43363E00745A3F /* JFCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2884D1D43363E00745A3F /* JFCategoryViewController.swift */; };
 		B2E3003F1CD882B100E4DCA1 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2FF91B61CCFC84A0020C974 /* Photos.framework */; };
+		B2F6E3E42029A30100E745D7 /* JFSaveImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6E3E32029A30100E745D7 /* JFSaveImageUtil.swift */; };
+		B2F6E3E62029A64F00E745D7 /* JFAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6E3E52029A64F00E745D7 /* JFAlertView.swift */; };
+		B2F6E3EA2029A8EF00E745D7 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6E3E72029A8EF00E745D7 /* UIButtonExtension.swift */; };
+		B2F6E3EB2029A8EF00E745D7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6E3E82029A8EF00E745D7 /* UIColorExtension.swift */; };
+		B2F6E3EC2029A8EF00E745D7 /* UIlabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6E3E92029A8EF00E745D7 /* UIlabelExtension.swift */; };
 		B2FE2FD21CD33CDA0013FAEE /* JFProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FD11CD33CDA0013FAEE /* JFProgressHUD.swift */; };
 		B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FD31CD33CE60013FAEE /* JFFMDBManager.swift */; };
 		B2FE2FE41CD33F3B0013FAEE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FE2FD71CD33F3B0013FAEE /* FMDatabase.m */; };
@@ -177,6 +182,11 @@
 		B2E288401D43329400745A3F /* JianSan-Wallpaper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JianSan-Wallpaper-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2E2884B1D43363000745A3F /* JFPopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFPopularViewController.swift; sourceTree = "<group>"; };
 		B2E2884D1D43363E00745A3F /* JFCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFCategoryViewController.swift; sourceTree = "<group>"; };
+		B2F6E3E32029A30100E745D7 /* JFSaveImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFSaveImageUtil.swift; sourceTree = "<group>"; };
+		B2F6E3E52029A64F00E745D7 /* JFAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFAlertView.swift; sourceTree = "<group>"; };
+		B2F6E3E72029A8EF00E745D7 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		B2F6E3E82029A8EF00E745D7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B2F6E3E92029A8EF00E745D7 /* UIlabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIlabelExtension.swift; sourceTree = "<group>"; };
 		B2FE2FD11CD33CDA0013FAEE /* JFProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFProgressHUD.swift; sourceTree = "<group>"; };
 		B2FE2FD31CD33CE60013FAEE /* JFFMDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFFMDBManager.swift; sourceTree = "<group>"; };
 		B2FE2FD61CD33F3B0013FAEE /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -403,6 +413,11 @@
 			isa = PBXGroup;
 			children = (
 				B28A8A901E38D64C00A34255 /* UIImageExtension.swift */,
+				B2F6E3E72029A8EF00E745D7 /* UIButtonExtension.swift */,
+				B2F6E3E82029A8EF00E745D7 /* UIColorExtension.swift */,
+				B2F6E3E92029A8EF00E745D7 /* UIlabelExtension.swift */,
+				B2F6E3E52029A64F00E745D7 /* JFAlertView.swift */,
+				B2F6E3E32029A30100E745D7 /* JFSaveImageUtil.swift */,
 				B28A8A911E38D64C00A34255 /* UIImageViewWebImage.swift */,
 				B20953001CD2132800036163 /* JFNetworkTools.swift */,
 				B2FE2FD11CD33CDA0013FAEE /* JFProgressHUD.swift */,
@@ -635,7 +650,7 @@
 				TargetAttributes = {
 					A579010D1C62E31600B89DB7 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 35PE24U644;
+						DevelopmentTeam = 7EYLB3VE4K;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -747,6 +762,7 @@
 				B2FE2FE81CD33F3B0013FAEE /* FMDatabaseQueue.m in Sources */,
 				B20D08E41D46F05A00008A19 /* JFCategoryTopView.swift in Sources */,
 				B2FE2FD41CD33CE60013FAEE /* JFFMDBManager.swift in Sources */,
+				B2F6E3E42029A30100E745D7 /* JFSaveImageUtil.swift in Sources */,
 				B20D08E91D47075100008A19 /* JFSideView.swift in Sources */,
 				B2E2884C1D43363000745A3F /* JFPopularViewController.swift in Sources */,
 				B28A8A921E38D64C00A34255 /* UIImageExtension.swift in Sources */,
@@ -754,6 +770,7 @@
 				B20D08F31D471FC200008A19 /* JFWallpaperDismissAnimation.swift in Sources */,
 				B24B96EE1D45C069004B8BBE /* JFWallpaperCell.swift in Sources */,
 				B24B96F21D45D3E2004B8BBE /* JFCategoryCell.swift in Sources */,
+				B2F6E3EB2029A8EF00E745D7 /* UIColorExtension.swift in Sources */,
 				B2FE2FEA1CD33F3B0013FAEE /* FMResultSet.m in Sources */,
 				B20D09031D4766E700008A19 /* JFCollectionCell.swift in Sources */,
 				B209535E1CD2132800036163 /* JFContextSheet.swift in Sources */,
@@ -762,16 +779,19 @@
 				B20D08FC1D47556E00008A19 /* JFCollectionViewController.swift in Sources */,
 				B2E2883D1D43323D00745A3F /* JFWallPaperTool.m in Sources */,
 				B2FE2FE41CD33F3B0013FAEE /* FMDatabase.m in Sources */,
+				B2F6E3E62029A64F00E745D7 /* JFAlertView.swift in Sources */,
 				B20953421CD2132800036163 /* api.swift in Sources */,
 				B2FE2FE51CD33F3B0013FAEE /* FMDatabaseAdditions.m in Sources */,
 				B20953461CD2132800036163 /* JFHomeViewController.swift in Sources */,
 				B241B7C41E51F42D00897637 /* JFAppStoreApp.swift in Sources */,
+				B2F6E3EC2029A8EF00E745D7 /* UIlabelExtension.swift in Sources */,
 				B2FE2FE91CD33F3B0013FAEE /* FMDatabaseVariadic.swift in Sources */,
 				B28A8A931E38D64C00A34255 /* UIImageViewWebImage.swift in Sources */,
 				B20D08F51D471FC200008A19 /* JFWallpaperPresentationController.swift in Sources */,
 				B209535D1CD2132800036163 /* JFContextItem.swift in Sources */,
 				B2FE2FE61CD33F3B0013FAEE /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				B29FF5091D5EE24A001EB96C /* JFTipView.swift in Sources */,
+				B2F6E3EA2029A8EF00E745D7 /* UIButtonExtension.swift in Sources */,
 				B2E2884E1D43363E00745A3F /* JFCategoryViewController.swift in Sources */,
 				B20D08F41D471FC200008A19 /* JFWallpaperModalAnimation.swift in Sources */,
 				B20D08FA1D473DAB00008A19 /* JFSideButton.swift in Sources */,
@@ -878,7 +898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 35PE24U644;
+				DEVELOPMENT_TEAM = 7EYLB3VE4K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -937,7 +957,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 35PE24U644;
+				DEVELOPMENT_TEAM = 7EYLB3VE4K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
